@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { STAT_NAMES } from '@life-restart/shared';
 
 interface OutcomeCardProps {
   choiceText: string;
@@ -9,6 +10,7 @@ interface OutcomeCardProps {
 
 export default function OutcomeCard({ choiceText, outcomeText, effects, onContinue }: OutcomeCardProps) {
   const significantEffects = Object.entries(effects).filter(([, v]) => v !== 0);
+  const statName = (key: string) => STAT_NAMES[key as keyof typeof STAT_NAMES] || key;
 
   return (
     <motion.div
@@ -51,7 +53,7 @@ export default function OutcomeCard({ choiceText, outcomeText, effects, onContin
                 val > 0 ? 'text-jianghu-jade bg-jianghu-jade/10' : 'text-jianghu-red bg-jianghu-red/10'
               }`}
             >
-              {stat} {val > 0 ? `+${val}` : val}
+              {statName(stat)} {val > 0 ? `+${val}` : val}
             </motion.span>
           ))}
         </motion.div>
