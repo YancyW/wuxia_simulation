@@ -1,30 +1,29 @@
 @echo off
-setlocal enabledelayedexpansion
-chcp 65001 >nul
 cd /d "%~dp0"
 
 echo ============================================
-echo         江湖人生 - Wuxia Life Simulator
+echo   Wuxia Life Simulator
 echo ============================================
 echo.
 
-REM --- Find pnpm ---
-set "PNPM="
-for %%p in (pnpm.cmd pnpm) do (
-    where %%p >nul 2>&1 && set "PNPM=%%p" && goto :found_pnpm
+REM Find pnpm
+set PNPM=
+where pnpm >nul 2>&1
+if %ERRORLEVEL% EQU 0 set PNPM=pnpm
+where pnpm.cmd >nul 2>&1
+if %ERRORLEVEL% EQU 0 set PNPM=pnpm.cmd
+if "%PNPM%"=="" (
+    echo [ERROR] pnpm not found.
+    echo Run: npm install -g pnpm
+    pause
+    exit /b 1
 )
-echo [ERROR] pnpm not found. Please install pnpm first:
-echo         npm install -g pnpm
-pause
-exit /b 1
 
-:found_pnpm
-
-REM --- Install ---
-if not exist "node_modules\" (
+REM Install
+if not exist node_modules\ (
     echo [1/5] Installing dependencies...
     call %PNPM% install
-    if errorlevel 1 (
+    if %ERRORLEVEL% NEQ 0 (
         echo [ERROR] Install failed
         pause
         exit /b 1
@@ -33,82 +32,92 @@ if not exist "node_modules\" (
     echo [1/5] Dependencies OK.
 )
 
-REM --- Build shared ---
-echo [2/5] Building shared package...
-call %PNPM% --filter @life-restart/shared build
-if errorlevel 1 (
+REM Build shared
+echo [2/5] Building shared...
+call %PNPM% --filter "@life-restart/shared" build
+if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] Shared build failed
     pause
     exit /b 1
 )
 
-REM --- Build electron ---
-echo [3/5] Building electron package...
-call %PNPM% --filter @life-restart/electron build
-if errorlevel 1 (
+REM Build electron
+echo [3/5] Building electron...
+call %PNPM% --filter "@life-restart/electron" build
+if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] Electron build failed
     pause
     exit /b 1
 )
 
-REM --- Rebuild native modules for Electron ---
+REM Rebuild native for Electron
 echo [4/5] Rebuilding native modules for Electron...
-npx @electron/rebuild -v 30.5.1 -m packages/electron 2>&1
-if errorlevel 1 (
-    echo [WARN] Some native modules may not work correctly
+call npx @electron/rebuild -v 30.5.1 -m packages/electron
+if %ERRORLEVEL% NEQ 0 (
+    echo [WARN] electron-rebuild had issues, trying to continue...
 )
 
+REM Kill old Vite
 echo [5/5] Starting application...
-
-REM --- Kill existing Vite ---
-for /f "tokens=5" %%a in ('netstat -ano 2^>nul ^| findstr /r ":5173.*LISTENING"') do (
+for /f "tokens=5" %%a in ('netstat -ano ^| findstr ":5173" ^| findstr "LISTENING" 2^>nul') do (
     taskkill /F /PID %%a >nul 2>&1
 )
 
-REM --- Start Vite ---
-echo   Starting Vite dev server...
-start "Wuxia-Vite" cmd /c "cd /d "%~dp0" && call %PNPM% --filter @life-restart/frontend dev"
+REM Start Vite
+echo Starting Vite dev server...
+start "Vite" /min cmd /c "cd /d %~dp0 && %PNPM% --filter "@life-restart/frontend" dev"
 
-REM --- Wait for Vite ---
-set /a count=0
-:wait_vite
+REM Wait for Vite
+echo Waiting for Vite to be ready...
+set COUNT=0
+:wait_loop
 timeout /t 1 /nobreak >nul
-set /a count+=1
+set /a COUNT=COUNT+1
 curl -s -o nul http://localhost:5173 >nul 2>&1
-if errorlevel 1 (
-    if !count! lss 15 goto :wait_vite
-    echo [WARN] Vite may not have started in time.
+if %ERRORLEVEL% NEQ 0 (
+    if %COUNT% LSS 15 goto :wait_loop
+    echo [WARN] Vite might not be ready after 15s
 ) else (
-    echo   Vite ready after !count!s
+    echo Vite ready.
 )
 
-REM --- Find Electron ---
-set "ELECTRON="
-for /f "delims=" %%f in ('dir /s /b node_modules\electron.exe 2^>nul') do set "ELECTRON=%%f"
-if "!ELECTRON!"=="" (
-    for /f "delims=" %%f in ('dir /s /b node_modules\electron\dist\electron.exe 2^>nul') do set "ELECTRON=%%f"
+REM Find electron.exe
+set ELECTRON_PATH=
+for /f "delims=" %%f in ('dir /s /b node_modules\electron\dist\electron.exe 2^>nul') do set ELECTRON_PATH=%%f
+if "%ELECTRON_PATH%"=="" (
+    for /f "delims=" %%f in ('dir /s /b node_modules\.pnpm\electron@*\node_modules\electron\dist\electron.exe 2^>nul') do set ELECTRON_PATH=%%f
 )
-if "!ELECTRON!"=="" (
-    echo [ERROR] electron.exe not found. Running install script...
-    for /d %%d in (node_modules\.pnpm\electron@*.*) do (
+if "%ELECTRON_PATH%"=="" (
+    for /f "delims=" %%f in ('dir /s /b node_modules\electron.exe 2^>nul') do set ELECTRON_PATH=%%f
+)
+
+if "%ELECTRON_PATH%"=="" (
+    echo [ERROR] electron.exe not found.
+    echo Trying to run Electron install script...
+    for /d %%d in (node_modules\.pnpm\electron@*) do (
         if exist "%%d\node_modules\electron\install.js" (
             node "%%d\node_modules\electron\install.js"
         )
     )
-    for /f "delims=" %%f in ('dir /s /b node_modules\electron.exe 2^>nul') do set "ELECTRON=%%f"
-    if "!ELECTRON!"=="" (
-        for /f "delims=" %%f in ('dir /s /b node_modules\electron\dist\electron.exe 2^>nul') do set "ELECTRON=%%f"
+    for /f "delims=" %%f in ('dir /s /b node_modules\electron\dist\electron.exe 2^>nul') do set ELECTRON_PATH=%%f
+    if "%ELECTRON_PATH%"=="" (
+        for /f "delims=" %%f in ('dir /s /b node_modules\.pnpm\electron@*\node_modules\electron\dist\electron.exe 2^>nul') do set ELECTRON_PATH=%%f
     )
 )
-echo   Electron: !ELECTRON!
 
-REM --- Launch Electron ---
-start "Wuxia-Electron" cmd /c "cd /d "%~dp0" && "!ELECTRON!" packages\electron --no-sandbox"
+if "%ELECTRON_PATH%"=="" (
+    echo [ERROR] Cannot find electron.exe. Please reinstall: pnpm install
+    pause
+    exit /b 1
+)
+
+echo Electron found: %ELECTRON_PATH%
+echo Launching application...
+
+start "Game" /min cmd /c "cd /d %~dp0 && "%ELECTRON_PATH%" packages\electron --no-sandbox"
 
 echo.
 echo ============================================
-echo   Application started!
-echo   If the game window does not appear,
-echo   check the Vite and Electron windows.
+echo   Done! Game window should open shortly.
 echo ============================================
 pause
