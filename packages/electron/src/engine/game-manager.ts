@@ -11,7 +11,7 @@ import { advanceAge } from './aging.js';
 
 export interface GameState {
   save: typeof saves.$inferSelect | null;
-  character: Character | null;
+  character: typeof characters.$inferSelect | null;
   currentEvent: EventTemplate | null;
   learnedArts: (typeof martialArtsLearned.$inferSelect)[];
   relations: (typeof relationships.$inferSelect)[];
@@ -78,10 +78,10 @@ export function getGameState(saveId: string): GameState | null {
   const rels = db.select().from(relationships).where(eq(relationships.characterId, character.id)).all();
   const logs = db.select().from(eventLogs).where(eq(eventLogs.characterId, character.id)).orderBy(desc(eventLogs.createdAt)).all();
 
-  return { save, character: serializeCharacter(character), currentEvent: null, learnedArts: arts, relations: rels, logs };
+  return { save, character, currentEvent: null, learnedArts: arts, relations: rels, logs };
 }
 
-function serializeCharacter(char: typeof characters.$inferSelect): Character {
+export function serializeCharacter(char: typeof characters.$inferSelect | Character): Character {
   return {
     ...char,
     flags: deserializeFlags(char.flags),
@@ -92,13 +92,13 @@ function serializeCharacter(char: typeof characters.$inferSelect): Character {
   };
 }
 
-export interface TurnResult {
-  character: Character;
+export type TurnResult = {
+  character: typeof characters.$inferSelect;
   event: EventTemplate;
   learnedArts: (typeof martialArtsLearned.$inferSelect)[];
   died: boolean;
   deathCause: string | null;
-}
+};
 
 export function advanceTurn(saveId: string): TurnResult | null {
   const state = getGameState(saveId);
@@ -111,7 +111,7 @@ export function advanceTurn(saveId: string): TurnResult | null {
   const event = selectEvent(deserializeCharacter(character), pastEventIds);
 
   return {
-    character: serializeCharacter(character),
+    character,
     event,
     learnedArts: state.learnedArts,
     died: false,
@@ -130,7 +130,7 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   const event = selectEvent(deserializeCharacter(character), pastEventIds);
 
   if (!event || choiceIndex < 0 || choiceIndex >= event.choices.length) {
-    return { character: serializeCharacter(character), event, learnedArts: state.learnedArts, died: false, deathCause: null };
+    return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
   }
 
   const choice = event.choices[choiceIndex]!;
@@ -236,7 +236,7 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   }
 
   return {
-    character: serializeCharacter(updatedChar),
+    character: updatedChar,
     event: nextEvent || event,
     learnedArts: arts,
     died: agingResult.died,
