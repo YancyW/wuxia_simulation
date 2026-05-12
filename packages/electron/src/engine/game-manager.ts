@@ -93,7 +93,7 @@ function serializeCharacter(char: typeof characters.$inferSelect): Character {
 }
 
 export interface TurnResult {
-  character: typeof characters.$inferSelect;
+  character: Character;
   event: EventTemplate;
   learnedArts: (typeof martialArtsLearned.$inferSelect)[];
   died: boolean;
