@@ -1,0 +1,26 @@
+death_age_min = 46
+death_age_max = 80
+
+[[stages]]
+stage = "youth"
+name = "少年"
+age_min = 10
+age_max = 16
+
+[[stages]]
+stage = "young_adult"
+name = "青年"
+age_min = 17
+age_max = 30
+
+[[stages]]
+stage = "adult"
+name = "壮年"
+age_min = 31
+age_max = 45
+
+[[stages]]
+stage = "middle_age"
+name = "中年"
+age_min = 46
+age_max = 60

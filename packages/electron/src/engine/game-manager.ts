@@ -1,13 +1,24 @@
 import { v4 as uuid } from 'uuid';
-import type { Character, CharacterCreateInput, EventTemplate } from '@life-restart/shared';
-import { generateInitialStats, BACKGROUNDS, getLifeStage, getMartialLevel, getMartialArt } from '@life-restart/shared';
+import type { Character, CharacterCreateInput, EventTemplate, DungeonTemplate } from '@life-restart/shared';
 import { db } from '../database/db.js';
 import { characters, saves, eventLogs, martialArtsLearned, relationships } from '../database/schema.js';
 import { eq, desc } from 'drizzle-orm';
-import { selectEvent } from './event-engine.js';
+import { selectEvent, isDungeonEvent, handleDungeonCompletion } from './event-engine.js';
 import { applyEffects } from './stat-calc.js';
 import { calculateMartialLevel } from './martial-calc.js';
 import { advanceAge } from './aging.js';
+import type { GameData } from '../data/loader.js';
+import { getLifeStage, getMartialLevel, getMartialArt } from '../data/loader.js';
+
+let gameData: GameData;
+
+export function initGameData(data: GameData) {
+  gameData = data;
+}
+
+function rollStat(): number {
+  return Math.floor(Math.random() * 6) + 3;
+}
 
 export interface GameState {
   save: typeof saves.$inferSelect | null;
@@ -19,9 +30,8 @@ export interface GameState {
 }
 
 export function createCharacter(input: CharacterCreateInput): Character {
-  const baseStats = generateInitialStats();
-  const background = BACKGROUNDS.find((b) => b.id === input.backgroundId);
-  const bonuses = background?.bonuses || {};
+  const bg = gameData.backgrounds.find((b) => b.id === input.backgroundId);
+  const bonuses = bg?.bonuses || {};
 
   const id = uuid();
   const now = new Date().toISOString();
@@ -39,14 +49,14 @@ export function createCharacter(input: CharacterCreateInput): Character {
     diedAt: null,
     deathCause: null,
     createdAt: now,
-    bone: (baseStats.bone ?? 3) + (bonuses.bone ?? 0),
-    wits: (baseStats.wits ?? 3) + (bonuses.wits ?? 0),
-    qi: (baseStats.qi ?? 3) + (bonuses.qi ?? 0),
-    technique: (baseStats.technique ?? 3) + (bonuses.technique ?? 0),
-    agility: (baseStats.agility ?? 3) + (bonuses.agility ?? 0),
-    reputation: (baseStats.reputation ?? 0) + (bonuses.reputation ?? 0),
-    honor: (baseStats.honor ?? 0) + (bonuses.honor ?? 0),
-    constitution: (baseStats.constitution ?? 3) + (bonuses.constitution ?? 0),
+    bone: rollStat() + (bonuses.bone ?? 0),
+    wits: rollStat() + (bonuses.wits ?? 0),
+    qi: rollStat() + (bonuses.qi ?? 0),
+    technique: rollStat() + (bonuses.technique ?? 0),
+    agility: rollStat() + (bonuses.agility ?? 0),
+    reputation: (bonuses.reputation ?? 0),
+    honor: (bonuses.honor ?? 0),
+    constitution: rollStat() + (bonuses.constitution ?? 0),
   };
 
   db.insert(characters).values(charData).run();
@@ -81,17 +91,6 @@ export function getGameState(saveId: string): GameState | null {
   return { save, character, currentEvent: null, learnedArts: arts, relations: rels, logs };
 }
 
-export function serializeCharacter(char: typeof characters.$inferSelect | Character): Character {
-  return {
-    ...char,
-    flags: deserializeFlags(char.flags),
-    isAlive: char.isAlive as boolean,
-    lifeStage: char.lifeStage as Character['lifeStage'],
-    martialLevel: char.martialLevel as Character['martialLevel'],
-    gender: char.gender as Character['gender'],
-  };
-}
-
 export type TurnResult = {
   character: typeof characters.$inferSelect;
   event: EventTemplate;
@@ -108,15 +107,9 @@ export function advanceTurn(saveId: string): TurnResult | null {
   if (!character.isAlive) return null;
 
   const pastEventIds = state.logs.map((l) => l.eventId);
-  const event = selectEvent(deserializeCharacter(character), pastEventIds);
+  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds);
 
-  return {
-    character,
-    event,
-    learnedArts: state.learnedArts,
-    died: false,
-    deathCause: null,
-  };
+  return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
 }
 
 export function makeChoice(saveId: string, choiceIndex: number): TurnResult | null {
@@ -127,7 +120,7 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   if (!character.isAlive) return null;
 
   const pastEventIds = state.logs.map((l) => l.eventId);
-  const event = selectEvent(deserializeCharacter(character), pastEventIds);
+  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds);
 
   if (!event || choiceIndex < 0 || choiceIndex >= event.choices.length) {
     return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
@@ -138,13 +131,9 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
 
   // Apply stat effects
   const currentStats: Record<string, number> = {
-    bone: character.bone,
-    wits: character.wits,
-    qi: character.qi,
-    technique: character.technique,
-    agility: character.agility,
-    reputation: character.reputation,
-    honor: character.honor,
+    bone: character.bone, wits: character.wits, qi: character.qi,
+    technique: character.technique, agility: character.agility,
+    reputation: character.reputation, honor: character.honor,
     constitution: character.constitution,
   };
   const newStats = applyEffects(currentStats, choice.effects);
@@ -155,6 +144,12 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
     for (const flag of choice.setFlags) {
       if (!flags.includes(flag)) flags.push(flag);
     }
+  }
+
+  // Handle dungeon stage completion
+  if (isDungeonEvent(event.id)) {
+    const dungeonResult = handleDungeonCompletion(gameData, flags, event.id);
+    flags = dungeonResult.newFlags;
   }
 
   // Learn art
@@ -172,12 +167,9 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   if (choice.createRelation) {
     const rel = choice.createRelation;
     db.insert(relationships).values({
-      id: uuid(),
-      characterId: character.id,
-      npcName: rel.npcName,
-      relationType: rel.relationType,
-      affinity: rel.affinity ?? 0,
-      description: rel.description ?? '',
+      id: uuid(), characterId: character.id,
+      npcName: rel.npcName, relationType: rel.relationType,
+      affinity: rel.affinity ?? 0, description: rel.description ?? '',
       createdAt: now,
     }).run();
   }
@@ -186,30 +178,28 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   const agingResult = advanceAge(character.age, newStats.constitution ?? character.constitution);
 
   const newMartialLevel = calculateMartialLevel(
-    newStats.bone ?? character.bone,
-    newStats.wits ?? character.wits,
-    newStats.qi ?? character.qi,
-    newStats.technique ?? character.technique,
+    newStats.bone ?? character.bone, newStats.wits ?? character.wits,
+    newStats.qi ?? character.qi, newStats.technique ?? character.technique,
   );
+
+  const newLifeStage = agingResult.died
+    ? character.lifeStage
+    : getLifeStage(gameData, agingResult.newAge) === 'dead'
+      ? character.lifeStage
+      : getLifeStage(gameData, agingResult.newAge);
 
   // Log event
   db.insert(eventLogs).values({
-    id: uuid(),
-    characterId: character.id,
-    eventId: event.id,
-    choiceIndex,
-    lifeStage: character.lifeStage,
-    age: character.age,
-    createdAt: now,
+    id: uuid(), characterId: character.id, eventId: event.id,
+    choiceIndex, lifeStage: character.lifeStage, age: character.age, createdAt: now,
   }).run();
 
   // Update character
   db.update(characters).set({
     age: agingResult.newAge,
-    lifeStage: agingResult.newLifeStage === 'dead' ? character.lifeStage : agingResult.newLifeStage,
+    lifeStage: newLifeStage,
     martialLevel: newMartialLevel,
-    sectId,
-    flags: JSON.stringify(flags),
+    sectId, flags: JSON.stringify(flags),
     isAlive: !agingResult.died,
     diedAt: agingResult.died ? agingResult.newAge : null,
     deathCause: agingResult.deathCause,
@@ -228,16 +218,17 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   const updatedChar = db.select().from(characters).where(eq(characters.id, character.id)).get()!;
   const arts = db.select().from(martialArtsLearned).where(eq(martialArtsLearned.characterId, character.id)).all();
 
-  // Get next event for non-dead character
-  let nextEvent: EventTemplate | null = null;
+  let nextEvent: EventTemplate;
   if (!agingResult.died) {
     const updatedPastIds = [...pastEventIds, event.id];
-    nextEvent = selectEvent(deserializeCharacter(updatedChar), updatedPastIds);
+    nextEvent = selectEvent(gameData, deserializeCharacter(updatedChar), updatedPastIds);
+  } else {
+    nextEvent = event;
   }
 
   return {
     character: updatedChar,
-    event: nextEvent || event,
+    event: nextEvent,
     learnedArts: arts,
     died: agingResult.died,
     deathCause: agingResult.deathCause,
@@ -251,18 +242,14 @@ function learnArtForCharacter(characterId: string, artId: string) {
   }
 
   const existing = db.select().from(martialArtsLearned)
-    .where(eq(martialArtsLearned.characterId, characterId))
-    .all()
+    .where(eq(martialArtsLearned.characterId, characterId)).all()
     .find((a) => a.artId === artId);
 
   if (!existing) {
-    const art = getMartialArt(artId);
+    const art = getMartialArt(gameData, artId);
     db.insert(martialArtsLearned).values({
-      id: uuid(),
-      characterId,
-      artId,
-      proficiency: 'beginner',
-      proficiencyValue: art ? 5 : 1,
+      id: uuid(), characterId, artId,
+      proficiency: 'beginner', proficiencyValue: art ? 5 : 1,
       learnedAt: new Date().toISOString(),
     }).run();
   }
@@ -275,7 +262,6 @@ export function getSaveList() {
 export function deleteSave(saveId: string) {
   const save = db.select().from(saves).where(eq(saves.id, saveId)).get();
   if (!save) return;
-
   db.delete(eventLogs).where(eq(eventLogs.characterId, save.characterId)).run();
   db.delete(martialArtsLearned).where(eq(martialArtsLearned.characterId, save.characterId)).run();
   db.delete(relationships).where(eq(relationships.characterId, save.characterId)).run();
@@ -295,9 +281,18 @@ function deserializeCharacter(char: typeof characters.$inferSelect): Character {
 }
 
 function deserializeFlags(flags: unknown): string[] {
-  if (typeof flags === 'string') {
-    try { return JSON.parse(flags); } catch { return []; }
-  }
+  if (typeof flags === 'string') { try { return JSON.parse(flags); } catch { return []; } }
   if (Array.isArray(flags)) return flags;
   return [];
+}
+
+export function serializeCharacter(char: typeof characters.$inferSelect | Character): Character {
+  return {
+    ...char,
+    flags: deserializeFlags(char.flags),
+    isAlive: char.isAlive as boolean,
+    lifeStage: char.lifeStage as Character['lifeStage'],
+    martialLevel: char.martialLevel as Character['martialLevel'],
+    gender: char.gender as Character['gender'],
+  };
 }

@@ -1,0 +1,272 @@
+[[dungeons]]
+id = "ancient_tomb"
+title = "古墓探秘"
+summary = "你在深山中偶然发现了一座古代武学宗师的地下陵墓，其中或许藏着失传的武功秘籍。"
+life_stages = ["young_adult", "adult"]
+rarity = 1
+min_bone = 5
+once_per_game = true
+
+[[dungeons.stages]]
+id = "entrance"
+title = "[副本] 古墓入口"
+description = "你拨开茂密的藤蔓，一扇沉重的石门出现在眼前。门上刻着古老的文字和复杂的机关，似乎需要特殊的方法才能打开。"
+
+[[dungeons.stages.choices]]
+text = "研究机关，破解谜题"
+outcome_text = "你凭借过人的悟性解开了机关。石门缓缓打开，一股陈腐的气息扑面而来。"
+wits = 2
+
+[[dungeons.stages.choices]]
+text = "绕到后山寻找其他入口"
+outcome_text = "你从悬崖一侧攀爬而上，发现了一个通风口，虽然危险但成功进入了陵墓内部。"
+agility = 2
+constitution = -1
+
+[[dungeons.stages.choices]]
+text = "用蛮力推开石门"
+outcome_text = "你运足内力，硬生生将石门推开。虽然费了不少力气，但总算进去了。"
+qi = 1
+bone = 1
+
+[[dungeons.stages]]
+id = "main_hall"
+title = "[副本] 古墓正厅"
+description = "正厅中央立着一尊青铜武像，四周壁画描绘着高深的武学招式。一个石台上放着一本泛黄的古籍，但石台周围似乎有暗器机关。"
+
+[[dungeons.stages.choices]]
+text = "按照壁画演练招式，以示诚意"
+outcome_text = "你按照壁画上的招式演练了一番，机关竟然自动解除了。原来这是墓主人对后人的考验。"
+technique = 2
+wits = 1
+
+[[dungeons.stages.choices]]
+text = "用轻功避开机关夺取古籍"
+outcome_text = "你施展轻功，在暗器雨中穿梭，成功拿到了古籍，但手臂上还是中了一支毒箭。"
+agility = 2
+constitution = -2
+qi = 1
+
+[[dungeons.stages.choices]]
+text = "仔细寻找解除机关的开关"
+outcome_text = "你观察了半个时辰，终于在一处不起眼的角落找到了机关总闸，安全地拿到了古籍。"
+wits = 3
+
+[[dungeons.stages]]
+id = "inner_chamber"
+title = "[副本] 密室传承"
+description = "古籍引导你来到了最深处的密室。这里放着墓主人的遗骨和一柄古剑，墙上刻着完整的武学心法。但同时你也感受到了一股凌厉的剑意残留。"
+
+[[dungeons.stages.choices]]
+text = "盘膝参悟墙上的心法"
+outcome_text = "你沉浸在剑意之中，三天三夜后醒来，感觉自己的武学境界有了质的飞跃。"
+qi = 3
+technique = 3
+wits = 1
+
+[[dungeons.stages.choices]]
+text = "取下古剑，以剑试法"
+outcome_text = "你握住古剑的瞬间，一股磅礴的剑意涌入体内。古剑认你为主，剑法突飞猛进。"
+technique = 4
+bone = 1
+learn_art = "dugu9jian"
+
+[[dungeons.stages.choices]]
+text = "磕头拜师，以示尊敬"
+outcome_text = "你向墓主人行了拜师大礼。墓室中突然亮起柔和的光芒，你感到一股温暖的力量融入了你的经脉。"
+bone = 2
+qi = 2
+honor = 2
+
+[dungeons.reward]
+bone = 1
+qi = 1
+technique = 1
+set_flags = ["completed_ancient_tomb"]
+
+
+[[dungeons]]
+id = "martial_tournament"
+title = "武林大会"
+summary = "四年一度的武林大会即将在泰山之巅举行，天下英雄汇聚于此。这是扬名立万的绝佳机会！"
+life_stages = ["adult"]
+rarity = 1
+min_reputation = 8
+once_per_game = true
+
+[[dungeons.stages]]
+id = "registration"
+title = "[副本] 报名比武"
+description = "泰山脚下的报名处人山人海，来自各门各派的武者摩拳擦掌。比赛的规则很简单：一对一比武，胜者晋级。"
+
+[[dungeons.stages.choices]]
+text = "报名个人赛，独自应战"
+outcome_text = "你登记了个人赛。以你的实力，前几轮应该不成问题。"
+technique = 1
+reputation = 1
+
+[[dungeons.stages.choices]]
+text = "找几个朋友组队参加团体赛"
+outcome_text = "你找到了几位志同道合的江湖朋友，组成了一支队伍参加团体赛。"
+wits = 1
+reputation = 1
+
+[[dungeons.stages.choices]]
+text = "先观战，最后再决定"
+outcome_text = "你仔细观察了各派高手的实力，对自己的水平有了更清晰的认识。"
+wits = 2
+
+[[dungeons.stages]]
+id = "preliminary"
+title = "[副本] 初赛对决"
+description = "你的对手是一位成名已久的剑客，剑法凌厉，在江湖上颇有威名。观众席上人声鼎沸。"
+
+[[dungeons.stages.choices]]
+text = "全力以赴，速战速决"
+outcome_text = "你一上来就使出绝招，十招之内击败对手，观众席爆发出雷鸣般的欢呼。"
+technique = 2
+reputation = 2
+
+[[dungeons.stages.choices]]
+text = "保留实力，稳扎稳打"
+outcome_text = "你以稳健的防守消耗对手体力，在第二十招时找准破绽一击制胜。"
+wits = 2
+technique = 1
+
+[[dungeons.stages]]
+id = "finals"
+title = "[副本] 决赛争锋"
+description = "你一路过关斩将，终于站到了决赛的擂台上。对手是上届冠军的得意弟子，实力深不可测。"
+
+[[dungeons.stages.choices]]
+text = "正面对决，以实力说话"
+outcome_text = "你和对手大战三百回合，最终以一招险胜。全场起立为你鼓掌！"
+technique = 3
+reputation = 3
+bone = 1
+constitution = -2
+
+[[dungeons.stages.choices]]
+text = "智取，利用对手的破绽"
+outcome_text = "你发现对手左肩有旧伤，巧妙地将战斗引向那个方向，最终以智取胜。"
+wits = 3
+technique = 1
+reputation = 2
+
+[[dungeons.stages.choices]]
+text = "点到为止，主动握手言和"
+outcome_text = "你和对手打成了平手，互相敬重。虽然没拿到冠军，但你赢得了比冠军更珍贵的尊重。"
+honor = 3
+reputation = 2
+wits = 1
+
+[[dungeons.stages]]
+id = "glory"
+title = "[副本] 名扬天下"
+description = "武林大会落下帷幕，你的名字已经传遍天下。各派掌门纷纷前来道贺，有人邀请你出任要职。"
+
+[[dungeons.stages.choices]]
+text = "接受武林盟主的邀请，担任执事"
+outcome_text = "你成为了武林盟的执事，拥有了在武林中举足轻重的地位。"
+reputation = 4
+honor = 2
+set_flags = ["became_leader"]
+
+[[dungeons.stages.choices]]
+text = "婉拒一切邀请，潇洒离去"
+outcome_text = "你对名位没有兴趣，领了奖赏便飘然而去。江湖上又多了一段传说。"
+agility = 1
+wits = 1
+set_flags = ["retired"]
+
+[dungeons.reward]
+reputation = 3
+technique = 1
+set_flags = ["completed_tournament"]
+
+
+[[dungeons]]
+id = "raid_demon_sect"
+title = "围剿魔教"
+summary = "魔教势力日益猖獗，最近更是血洗了一个正派据点。各大门派决定联合出兵，围剿魔教总坛。"
+life_stages = ["adult", "middle_age"]
+rarity = 1
+min_honor = 10
+once_per_game = true
+
+[[dungeons.stages]]
+id = "gathering"
+title = "[副本] 集结人马"
+description = "各派高手齐聚一堂，商议围剿大计。然而各派都有自己的算盘，难以达成一致。"
+
+[[dungeons.stages.choices]]
+text = "出面协调，统一指挥权"
+outcome_text = "你以声望和实力说服了各派，大家一致推举你为联军统帅。"
+reputation = 2
+wits = 1
+honor = 1
+
+[[dungeons.stages.choices]]
+text = "带领本派精锐单独行动"
+outcome_text = "你决定不和其他门派扯皮，带着本门最精锐的弟子们率先出发。"
+technique = 1
+agility = 1
+
+[[dungeons.stages.choices]]
+text = "建议先派卧底潜入打探"
+outcome_text = "你主张小心为上，派出探子收集情报后再做打算。众人听了你的建议。"
+wits = 2
+honor = 1
+
+[[dungeons.stages]]
+id = "assault"
+title = "[副本] 总坛血战"
+description = "你带人杀入了魔教总坛。魔教高手倾巢而出，双方展开了一场惨烈的混战。一个魔教护法直取你的要害。"
+
+[[dungeons.stages.choices]]
+text = "正面迎战魔教护法"
+outcome_text = "你和魔教护法对拼数百招，最终以刚猛内力将其击毙。但你也受了不轻的内伤。"
+qi = 2
+technique = 3
+honor = 2
+constitution = -3
+
+[[dungeons.stages.choices]]
+text = "先解决护法身边的暗器手"
+outcome_text = "你没有正面硬碰硬，而是先剪除了护法的羽翼。在混战中，护法被你的师兄所杀。"
+wits = 2
+agility = 2
+reputation = 1
+
+[[dungeons.stages]]
+id = "aftermath"
+title = "[副本] 尘埃落定"
+description = "魔教教主被围困在大殿中，已经无力回天。他提出一个条件：饶他一命，他愿意解散魔教并交出所有武功秘籍。"
+
+[[dungeons.stages.choices]]
+text = "接受条件，废其武功放他一条生路"
+outcome_text = "你废了教主的武功，接收了魔教的秘籍。从此正邪势力达到了某种平衡。"
+honor = 3
+qi = 1
+wits = 1
+set_flags = ["spared_demon_leader"]
+
+[[dungeons.stages.choices]]
+text = "斩草除根，永绝后患"
+outcome_text = "你没有心软，将魔教教主斩杀。魔教从此覆灭，江湖上少了一个大患。"
+technique = 2
+reputation = 3
+honor = -2
+
+[[dungeons.stages.choices]]
+text = "招安魔教，收为己用"
+outcome_text = "你提出让魔教成为正道的附属，给予改过自新的机会。这一决定虽然争议极大，但展现了你非凡的胸襟。"
+wits = 3
+reputation = 2
+honor = -1
+
+[dungeons.reward]
+reputation = 4
+honor = 3
+qi = 1
+set_flags = ["completed_raid_demon_sect"]

@@ -2,6 +2,8 @@ import { app, BrowserWindow, globalShortcut } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { registerIpcHandlers } from './ipc/handlers.js';
+import { loadAllData } from './data/loader.js';
+import { initGameData } from './engine/game-manager.js';
 import './database/db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,6 +40,8 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+  const gameData = loadAllData();
+  initGameData(gameData);
   registerIpcHandlers();
   createWindow();
 

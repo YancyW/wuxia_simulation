@@ -1,0 +1,283 @@
+[[events]]
+id = "adult_hero_villain_choice"
+title = "正邪抉择"
+description = "你逐渐在江湖上有了名气。一个神秘人物找上门来，邀请你加入一个秘密组织，许诺给你无上的武功和权势。但代价是做一些不太光彩的事。"
+life_stages = ["adult"]
+rarity = 3
+
+[[events.choices]]
+text = "严词拒绝，正邪不两立"
+outcome_text = "你坚守正道，虽然得罪了神秘组织，但心中坦荡。"
+honor = 3
+reputation = 2
+
+[[events.choices]]
+text = "虚与委蛇，打入内部看看"
+outcome_text = "你表面答应，暗中调查这个组织的底细。"
+wits = 2
+honor = -1
+set_flags = ["undercover"]
+
+[[events.choices]]
+text = "接受邀请，权力才是硬道理"
+outcome_text = "你加入了神秘组织，得到了强大的功法和资源，但从此踏上了一条不归路。"
+qi = 2
+technique = 2
+honor = -5
+
+[[events]]
+id = "adult_love_rival"
+title = "情敌对决"
+description = "你心仪之人身边出现了另一个追求者，此人出身名门，武功高强，对你百般挑衅。"
+life_stages = ["adult"]
+rarity = 2
+required_flags = ["met_romance"]
+
+[[events.choices]]
+text = "堂堂正正比武决胜负"
+outcome_text = "你们在月下比武，你以精妙的招式胜出，赢得了情敌的尊重和美人的芳心。"
+technique = 2
+reputation = 2
+
+[[events.choices]]
+text = "以诚动人，不与人争斗"
+outcome_text = "你以真心和诚意打动了她，情敌的手段反而让她更加反感。"
+wits = 1
+honor = 2
+
+[[events]]
+id = "adult_grand_tournament"
+title = "天下第一武道会"
+description = "武林中最盛大的比武大会——天下第一武道会拉开了帷幕。各派高手齐聚，争夺天下第一的称号。"
+life_stages = ["adult"]
+rarity = 1
+min_reputation = 10
+min_technique = 7
+
+[[events.choices]]
+text = "全力以赴，争夺天下第一"
+outcome_text = "你一路过关斩将，名震江湖！虽然未能夺冠但已进入前十。"
+reputation = 5
+technique = 3
+honor = 2
+
+[[events.choices]]
+text = "以武会友，重在参与"
+outcome_text = "你结交了许多武林同道，收获了比名次更珍贵的友谊。"
+reputation = 2
+wits = 2
+
+[[events]]
+id = "adult_betrayal"
+title = "同门相残"
+description = "你发现门派中有人暗中勾结外敌，意图篡夺掌门之位。而这个人，是你最信任的师兄弟。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "大义灭亲，揭发阴谋"
+outcome_text = "你在众人面前揭露了叛徒的真面目，维护了门派的正义。"
+honor = 3
+reputation = 2
+set_flags = ["betrayed_brother"]
+
+[[events.choices]]
+text = "私下警告，给他一个改过的机会"
+outcome_text = "他感激你的宽宏大量，暗中收手了。但这件事成了你们之间的秘密。"
+wits = 1
+honor = 1
+
+[[events.choices]]
+text = "假装不知道，暗中收集证据"
+outcome_text = "你默默观察，准备在最合适的时机出手。"
+wits = 2
+honor = -1
+
+[[events]]
+id = "adult_find_masterpiece"
+title = "失传绝学"
+description = "你在游历途中偶然得到了一张藏宝图，据说指向一处失传绝学的埋藏之地。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "按图索骥，前往寻宝"
+outcome_text = "你历经艰险终于找到了秘籍，这是一套失传百年的绝世武功！"
+technique = 3
+qi = 2
+agility = 1
+constitution = -1
+
+[[events.choices]]
+text = "将藏宝图交给师父处置"
+outcome_text = "师父大喜，带着师兄弟们一起前往，你分到了不少好处。"
+reputation = 2
+honor = 2
+
+[[events.choices]]
+text = "与人合作寻宝，共担风险"
+outcome_text = "你找了一个信得过的朋友同行，虽然要分一半成果但安全了许多。"
+wits = 1
+technique = 1
+qi = 1
+
+[[events]]
+id = "adult_sect_leadership"
+title = "掌门之争"
+description = "现任掌门年事已高，要在弟子中选出一位继任者。你也是有力竞争者之一。"
+life_stages = ["adult"]
+rarity = 2
+required_sect = "shaolin"
+
+[[events.choices]]
+text = "全力以赴争夺掌门之位"
+outcome_text = "你凭借实力和威望成功当选掌门，从此肩负起一派重任。"
+reputation = 3
+honor = 2
+wits = 1
+set_flags = ["became_leader"]
+
+[[events.choices]]
+text = "主动退出，推荐更适合的人"
+outcome_text = "你的大度赢得了同门的敬佩，选出的新掌门对你格外敬重。"
+honor = 3
+wits = 1
+
+[[events]]
+id = "adult_revenge_opportunity"
+title = "仇人踪迹"
+description = "你偶然得到了昔日仇人的下落。这个人在很多年前害过你或你的亲友。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "只身前往，讨个公道"
+outcome_text = "你找到了仇人，经历一番恶战后终于了结了这段恩怨。"
+technique = 2
+honor = 1
+constitution = -1
+set_flags = ["avenged"]
+
+[[events.choices]]
+text = "放下仇恨，不再追究"
+outcome_text = "你选择了宽恕。放下仇恨的瞬间，你感到前所未有的轻松。"
+wits = 2
+honor = 2
+constitution = 1
+
+[[events.choices]]
+text = "暗中策划，确保万无一失"
+outcome_text = "你花了很长时间布局，最终在一个完美的时机解决了问题。"
+wits = 2
+technique = 1
+
+[[events]]
+id = "adult_open_sect"
+title = "开宗立派"
+description = "你在江湖上已经有了足够的声望和实力。有人建议你自立门户，开宗立派。"
+life_stages = ["adult"]
+rarity = 1
+min_reputation = 12
+min_technique = 8
+
+[[events.choices]]
+text = "创立自己的门派"
+outcome_text = "你在山水之间择地建派，广收门徒。江湖从此多了一派传承。"
+reputation = 5
+honor = 2
+set_flags = ["founded_sect"]
+
+[[events.choices]]
+text = "觉得自己还不到时候"
+outcome_text = "你谦虚地认为还需要历练，但也因此错失了建立基业的良机。"
+wits = 1
+
+[[events]]
+id = "adult_war_alliance"
+title = "正邪大战"
+description = "正道各派联合起来，准备对抗日益猖獗的魔教势力。身为江湖中人，你无法置身事外。"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "加入正道联盟，冲锋陷阵"
+outcome_text = "你在战场上大放异彩，一人独战数名魔教高手，成为正道的英雄。"
+honor = 5
+reputation = 5
+technique = 3
+constitution = -2
+
+[[events.choices]]
+text = "居中调停，试图避免大规模血战"
+outcome_text = "你在正邪之间斡旋，虽然未能完全阻止战争但减少了伤亡。"
+wits = 3
+honor = 2
+reputation = 2
+
+[[events.choices]]
+text = "加入魔教一方"
+outcome_text = "你认为正道虚伪，投向了魔教阵营。你的实力得到了魔教的认可。"
+honor = -6
+technique = 3
+reputation = -3
+
+[[events]]
+id = "adult_poison_plot"
+title = "毒宴疑云"
+description = "你在一次宴会上发现酒中有毒，而宴请你的人，是你以为的朋友。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "当场揭穿，逼问幕后主使"
+outcome_text = "你当众摔杯，揭穿了阴谋。幕后之人最终暴露，你的果断震慑了所有人。"
+reputation = 2
+wits = 1
+honor = 1
+
+[[events.choices]]
+text = "假装不知，暗中调查"
+outcome_text = "你不动声色地喝下了'酒'，暗中追查到了整个阴谋的全貌。"
+wits = 3
+constitution = -1
+
+[[events]]
+id = "adult_mentor_death"
+title = "师父仙逝"
+description = "你的师父走到了生命的尽头。他在病榻上拉着你的手，有话要交代。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "发誓继承师父遗志"
+outcome_text = "师父欣慰地闭上了眼。你将他的教诲铭记于心，武学之路更加坚定。"
+bone = 2
+qi = 2
+honor = 2
+
+[[events.choices]]
+text = "悲痛不已，闭关悼念"
+outcome_text = "师父的离世让你深感人生无常，闭关期间你悟出了武学与人生的真谛。"
+wits = 2
+qi = 1
+constitution = 1
+
+[[events]]
+id = "adult_secret_child"
+title = "私生子"
+description = "一个陌生的少年找到你，声称你是他的父亲/母亲，并拿出了信物为证。"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "认下孩子，悉心培养"
+outcome_text = "你接纳了这个孩子，将一身武功倾囊相授。孩子天资不错，日后成材。"
+honor = 2
+reputation = 1
+set_flags = ["has_child"]
+
+[[events.choices]]
+text = "虽然怀疑但愿意照顾"
+outcome_text = "你给了少年一个安身之处，虽未公开认亲但也尽了一份责任。"
+honor = 1
+reputation = -1

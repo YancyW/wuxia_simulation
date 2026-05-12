@@ -1,0 +1,34 @@
+[[levels]]
+level = "beginner"
+name = "初窥门径"
+min_total_stats = 0
+
+[[levels]]
+level = "novice"
+name = "略有小成"
+min_total_stats = 8
+
+[[levels]]
+level = "intermediate"
+name = "登堂入室"
+min_total_stats = 16
+
+[[levels]]
+level = "advanced"
+name = "炉火纯青"
+min_total_stats = 26
+
+[[levels]]
+level = "master"
+name = "出神入化"
+min_total_stats = 36
+
+[[levels]]
+level = "grandmaster"
+name = "一代宗师"
+min_total_stats = 48
+
+[[levels]]
+level = "supreme"
+name = "天下第一"
+min_total_stats = 60

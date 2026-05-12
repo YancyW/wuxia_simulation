@@ -1,0 +1,312 @@
+[[events]]
+id = "ma_legacy"
+title = "衣钵传承"
+description = "你已到中年，武功大成。一个天资不错的年轻人找上门来，恳求你收他为徒，传授衣钵。"
+life_stages = ["middle_age"]
+rarity = 3
+
+[[events.choices]]
+text = "收他为徒，悉心教导"
+outcome_text = "你将毕生所学倾囊相授，这个徒弟天资聪颖，日后必成大器。"
+reputation = 2
+honor = 2
+set_flags = ["has_disciple"]
+
+[[events.choices]]
+text = "考验他三年，通过了再说"
+outcome_text = "三年中他通过了你的重重考验，证明了自己的诚意。"
+wits = 1
+reputation = 1
+
+[[events.choices]]
+text = "不收徒，武学随我入土"
+outcome_text = "你婉拒了他。有些东西，注定要随着一代人消逝。"
+
+[[events]]
+id = "ma_final_battle"
+title = "宿命对决"
+description = "你的一生之敌终于找上门来。这一战，将决定你们之间恩怨的了结。"
+life_stages = ["middle_age"]
+rarity = 2
+
+[[events.choices]]
+text = "全力以赴，不死不休"
+outcome_text = "一场惊天大战后，你终于击败了宿敌，但也身受重伤。"
+technique = 2
+reputation = 3
+constitution = -3
+
+[[events.choices]]
+text = "提出和解，化干戈为玉帛"
+outcome_text = "你们都已是中年，回首往事，恩恩怨怨又何必再计较。"
+honor = 2
+wits = 2
+
+[[events]]
+id = "ma_retire"
+title = "退隐之意"
+description = "连年征战后，你感到身心俱疲。江湖的风风雨雨，你是否已经厌倦了？"
+life_stages = ["middle_age"]
+rarity = 3
+
+[[events.choices]]
+text = "退隐山林，不问世事"
+outcome_text = "你找了一处山清水秀的地方隐居，种种花养养鸟，倒也自在。"
+constitution = 2
+honor = 1
+set_flags = ["retired"]
+
+[[events.choices]]
+text = "继续留在江湖中"
+outcome_text = "江湖就是你的家，你无法离开。哪怕老了，也要做江湖中的一棵不老松。"
+reputation = 2
+technique = 1
+
+[[events]]
+id = "ma_jianghu_summary"
+title = "江湖评价"
+description = "坊间开始流传关于你的各种传说。说书人在茶馆里讲着你的故事，有的真假参半，有的荒诞离奇。"
+life_stages = ["middle_age"]
+rarity = 4
+
+[[events.choices]]
+text = "一笑置之，任人评说"
+outcome_text = "你对这些传说一笑而过。真真假假，都不过是江湖中的一段谈资。"
+wits = 1
+honor = 1
+
+[[events.choices]]
+text = "亲自去茶馆听听怎么说的"
+outcome_text = "你微服私访，发现自己已经成了江湖传奇，不禁感慨万千。"
+reputation = 2
+
+[[events]]
+id = "ma_write_book"
+title = "著书立说"
+description = "你感到是时候把自己的武学心得记录下来，留给后人了。一本武学著作或许比任何武功都更有价值。"
+life_stages = ["middle_age"]
+rarity = 3
+
+[[events.choices]]
+text = "闭关著书，倾囊相授"
+outcome_text = "你花了三年时间完成了这部武学巨著，后世习武之人无不从中受益。"
+wits = 3
+reputation = 3
+honor = 2
+
+[[events.choices]]
+text = "写了些心得感悟，不完全公开"
+outcome_text = "你整理了一些最重要的心得，只传给最亲近的弟子。"
+wits = 1
+reputation = 1
+
+[[events]]
+id = "ma_old_rival_drinks"
+title = "杯酒释前嫌"
+description = "年轻时的一个对手找到了你，不是来打架的，而是带了壶好酒。他想和你喝一杯。"
+life_stages = ["middle_age"]
+rarity = 2
+
+[[events.choices]]
+text = "欣然共饮，一笑泯恩仇"
+outcome_text = "你们把酒言欢，回忆当年热血时光。曾经的恩怨在酒杯中化为乌有。"
+honor = 2
+constitution = 1
+wits = 1
+
+[[events.choices]]
+text = "谨慎以对，怕酒中有诈"
+outcome_text = "你婉拒了酒局，老对手失望而去。也许他是真心实意想和你化解。"
+
+[[events]]
+id = "ma_discover_treasure"
+title = "地宫探险"
+description = "你收到了一张古老的藏宝图，据说地下有一座前朝遗留的宝藏，其中可能藏有失传的武学秘籍。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "组织人马，深入地下"
+outcome_text = "你带着弟子们深入地下迷宫，历经机关陷阱，最终找到了宝藏和一套绝世武功。"
+qi = 2
+technique = 2
+reputation = 2
+constitution = -1
+learn_art = "random_internal"
+
+[[events.choices]]
+text = "将藏宝图留给下一代"
+outcome_text = "你觉得这可能太危险了，将藏宝图交给了年轻一代去完成。"
+wits = 1
+honor = 1
+set_flags = ["gave_map_away"]
+
+[[events]]
+id = "ma_family_reunion"
+title = "落叶归根"
+description = "你开始怀念故乡和亲人。江湖再大，老了终究要回家看看。"
+life_stages = ["middle_age"]
+rarity = 3
+
+[[events.choices]]
+text = "回到故乡，看看故土"
+outcome_text = "你回到了童年生活的地方，物是人非，但乡音依旧亲切。你资助了乡里，受到乡亲爱戴。"
+honor = 2
+reputation = 1
+constitution = 1
+
+[[events.choices]]
+text = "把家人接来身边"
+outcome_text = "你把健在的亲人接到身边，尽一份孝道和亲情。"
+honor = 2
+wits = 1
+
+[[events]]
+id = "ma_disciple_betrayal"
+title = "弟子叛离"
+description = "你最信任的弟子突然不告而别，临走时还偷走了你的一部武功秘籍。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["has_disciple"]
+
+[[events.choices]]
+text = "千里追踪，清理门户"
+outcome_text = "你找到了叛徒，虽然心痛但还是废了他的武功以正门规。"
+technique = 1
+honor = 1
+reputation = 1
+constitution = -1
+
+[[events.choices]]
+text = "随他去吧，各人有各人的路"
+outcome_text = "你长叹一声，没有追究。有些人注定要走弯路，但愿他能回头。"
+wits = 2
+honor = -1
+
+[[events]]
+id = "ma_meditation_breakthrough"
+title = "大彻大悟"
+description = "你在静坐冥想时突然进入了一种奇妙的状态，过去所学的一切武功在脑海中融会贯通。"
+life_stages = ["middle_age"]
+rarity = 1
+min_wits = 8
+min_qi = 8
+
+[[events.choices]]
+text = "沉浸其中，顺其自然"
+outcome_text = "你在这状态中待了三天三夜，醒来后武学境界已经达到了新的高度。"
+qi = 3
+wits = 2
+technique = 2
+
+[[events.choices]]
+text = "将领悟到的记录下来"
+outcome_text = "你把这次悟道的感受写成了一本心法，供后人参考。"
+wits = 3
+qi = 1
+reputation = 2
+
+[[events]]
+id = "ma_last_mission"
+title = "最后一战"
+description = "一个巨大的威胁降临江湖——一个久不出世的老魔头重现武林，各派无人能挡。天下英雄的目光都看向了你。"
+life_stages = ["middle_age"]
+rarity = 1
+min_reputation = 15
+
+[[events.choices]]
+text = "挺身而出，迎战魔头"
+outcome_text = "你和魔头大战三天三夜，最终以毕生修为将他封印。江湖传颂你的名字。"
+reputation = 8
+technique = 3
+honor = 5
+constitution = -5
+
+[[events.choices]]
+text = "召集天下英雄共商对策"
+outcome_text = "你联合各派高手共同对付魔头，虽然牺牲了几位同伴但最终取得了胜利。"
+wits = 3
+reputation = 4
+honor = 3
+constitution = -1
+
+[[events]]
+id = "ma_peace_treaty"
+title = "武林盟约"
+description = "你被推举为武林盟主的热门人选。各方势力都在看你如何整合这个四分五裂的江湖。"
+life_stages = ["middle_age"]
+rarity = 2
+min_reputation = 12
+min_honor = 5
+
+[[events.choices]]
+text = "接受盟主之位，一统武林"
+outcome_text = "你成为了武林盟主，制定了公正的规矩，江湖秩序焕然一新。"
+reputation = 6
+honor = 3
+wits = 1
+set_flags = ["became_leader"]
+
+[[events.choices]]
+text = "保持自由身，只在必要时出手"
+outcome_text = "你不愿被权力束缚，但也承诺在江湖有难时挺身而出。"
+wits = 2
+reputation = 2
+honor = 1
+
+[[events]]
+id = "ma_revisit_battlefield"
+title = "故地重游"
+description = "你回到了年轻时经历第一场大战的地方。残垣断壁依旧，但你已经不是当年的你了。"
+life_stages = ["middle_age"]
+rarity = 3
+
+[[events.choices]]
+text = "在战场旧址沉思"
+outcome_text = "你回望一生，有遗憾也有荣耀。但人生不能重来，每一步都作数。"
+wits = 2
+honor = 1
+
+[[events.choices]]
+text = "在旧址上立碑纪念战死的同伴"
+outcome_text = "你在这里立下了一块碑，纪念那些曾经并肩作战的同伴们。"
+honor = 3
+reputation = 1
+
+[[events]]
+id = "ma_secret_child_reveal"
+title = "身世之谜"
+description = "你偶然发现自己的身世可能并不简单——有线索表明你可能是某个已故武林泰斗的后人。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "追查真相"
+outcome_text = "你找到了当年的老人，确认了自己的身世。原来你的血脉中流淌着武林世家的血液。"
+bone = 2
+wits = 1
+set_flags = ["learned_heritage"]
+
+[[events.choices]]
+text = "不追究了，活好当下"
+outcome_text = "你觉得过去的就让它过去吧。你是谁，由你的行动决定，不是出身。"
+wits = 2
+honor = 1
+
+[[events]]
+id = "ma_letter_from_past"
+title = "旧信"
+description = "你在整理旧物时发现了一封没有拆过的信，是年轻时一位故人留给你的。时隔多年，你终于拆开了它。"
+life_stages = ["middle_age"]
+rarity = 2
+
+[[events.choices]]
+text = "读完信，去找故人"
+outcome_text = "信中的话语让你泪流满面。你踏上了寻找故人的旅程。"
+wits = 1
+reputation = 1
+
+[[events.choices]]
+text = "珍藏信笺，继续自己的生活"
+outcome_text = "有些回忆适合留在过去。你小心地将信收好，继续过好现在的生活。"
+constitution = 1

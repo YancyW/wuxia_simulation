@@ -1,0 +1,41 @@
+[[npcs]]
+id = "old_master"
+name = "白发老翁"
+description = "一位须发皆白的神秘老人，武功深不可测。"
+possible_relations = ["master"]
+
+[[npcs]]
+id = "sword_beauty"
+name = "剑中仙子"
+description = "仗剑江湖的绝色女子，剑法如人一般飘逸。"
+possible_relations = ["partner", "friend", "rival"]
+
+[[npcs]]
+id = "wandering_hero"
+name = "游侠浪子"
+description = "四海为家的江湖浪子，豪爽仗义。"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "dark_lord"
+name = "魔教高手"
+description = "神秘组织的高手，武功诡谲，心狠手辣。"
+possible_relations = ["rival"]
+
+[[npcs]]
+id = "young_prodigy"
+name = "少年奇才"
+description = "天赋异禀的少年，对武学有极高的热情。"
+possible_relations = ["disciple", "friend"]
+
+[[npcs]]
+id = "monk_master"
+name = "高僧大德"
+description = "得道高僧，佛法精深，武功卓绝。"
+possible_relations = ["master", "friend"]
+
+[[npcs]]
+id = "hermit_elder"
+name = "隐世前辈"
+description = "隐居深山的前辈高人，不谙世事但武功盖世。"
+possible_relations = ["master"]

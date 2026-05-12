@@ -78,6 +78,15 @@ export default function GameView() {
           {character.sectId && (
             <p className="text-jianghu-jade text-sm mt-1">门派: {character.sectId}</p>
           )}
+          {character.flags.filter((f: string) => f.startsWith('dungeon_') && f.endsWith('_active')).map((f: string) => {
+            const dungId = f.replace(/^dungeon_/, '').replace(/_active$/, '');
+            const doneStages = character.flags.filter((ff: string) => ff.startsWith(`dungeon_${dungId}_stage_`) && ff.endsWith('_done')).length;
+            return (
+              <p key={f} className="text-jianghu-gold text-xs mt-1 animate-pulse">
+                副本进行中 ({doneStages + 1}/?)
+              </p>
+            );
+          })}
         </div>
 
         <MartialPanel arts={learnedArts} />

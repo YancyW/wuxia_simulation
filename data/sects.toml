@@ -1,0 +1,52 @@
+[[sects]]
+id = "shaolin"
+name = "少林"
+description = "佛门正宗，以深厚内功和七十二绝技闻名天下。"
+condition_honor_min = 0
+exclusive_arts = ["yijinjing", "shaolin72"]
+
+[[sects]]
+id = "wudang"
+name = "武当"
+description = "道家太极，以柔克刚，四两拨千斤。"
+condition_wits_min = 5
+exclusive_arts = ["taijiquan", "taijijian", "tiyunzong"]
+
+[[sects]]
+id = "gaibang"
+name = "丐帮"
+description = "天下第一大帮，弟子遍布江湖。"
+exclusive_arts = ["xianglong18", "dagougb"]
+
+[[sects]]
+id = "huashan"
+name = "华山"
+description = "五岳剑派之一，剑法独步天下。"
+condition_technique_min = 4
+exclusive_arts = ["dugu9jian", "zixia"]
+
+[[sects]]
+id = "emei"
+name = "峨眉"
+description = "女子剑派，剑法轻灵飘逸，暗藏杀机。"
+condition_gender = "female"
+exclusive_arts = ["emeijian", "jiuyinbgz"]
+
+[[sects]]
+id = "xiaoyao"
+name = "逍遥"
+description = "隐世奇门，武功飘逸出尘，讲究逍遥自在。"
+exclusive_arts = ["xiaowuxiang", "lingboweibu"]
+
+[[sects]]
+id = "riyue"
+name = "日月神教"
+description = "亦正亦邪，武功霸道诡异，为达目的不择手段。"
+condition_honor_max = 0
+exclusive_arts = ["xixingdafa", "kuihua"]
+
+[[sects]]
+id = "wandering"
+name = "散修"
+description = "无门无派，随心所欲，一切靠机缘。"
+exclusive_arts = []
