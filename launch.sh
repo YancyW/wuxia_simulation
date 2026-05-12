@@ -9,40 +9,41 @@ echo "      江湖人生 - Wuxia Life Simulator"
 echo "============================================"
 echo
 
-# Check node_modules
+# Install
 if [ ! -d "node_modules" ]; then
-    echo "[1/4] Installing dependencies..."
+    echo "[1/5] Installing dependencies..."
     pnpm install
 else
-    echo "[1/4] Dependencies already installed."
+    echo "[1/5] Dependencies OK."
 fi
 
-echo "[2/4] Building shared package..."
+# Build
+echo "[2/5] Building shared package..."
 pnpm --filter @life-restart/shared build
 
-echo "[3/4] Building electron package..."
+echo "[3/5] Building electron package..."
 pnpm --filter @life-restart/electron build
 
-echo "[4/4] Starting application..."
+# Rebuild native modules for Electron
+echo "[4/5] Rebuilding native modules for Electron..."
+npx @electron/rebuild -v 30.5.1 -m packages/electron 2>&1 || echo "[WARN] Some native modules may not work."
+
+echo "[5/5] Starting application..."
 echo
 echo "  Vite dev server: http://localhost:5173"
 echo "  Electron window will open automatically."
 echo
 
-# Kill existing process on port 5173
+# Kill existing Vite
 PORT_PID=$(lsof -ti :5173 2>/dev/null || true)
-if [ -n "$PORT_PID" ]; then
-    kill "$PORT_PID" 2>/dev/null || true
-fi
+[ -n "$PORT_PID" ] && kill "$PORT_PID" 2>/dev/null || true
 
-# Start Vite in background
+# Start Vite
 pnpm --filter @life-restart/frontend dev &
 VITE_PID=$!
-
-# Wait for Vite to be ready
 sleep 3
 
-# Launch Electron
+# Find and launch Electron
 ELECTRON_BIN="node_modules/.pnpm/electron@30.5.1/node_modules/electron/dist/electron"
 if [ -f "$ELECTRON_BIN" ]; then
     "$ELECTRON_BIN" packages/electron --no-sandbox &
@@ -60,7 +61,6 @@ echo "  Application started!"
 echo "  Press Ctrl+C to stop all processes."
 echo "============================================"
 
-# Cleanup on exit
 cleanup() {
     echo "Stopping..."
     kill "$VITE_PID" 2>/dev/null || true
@@ -69,5 +69,4 @@ cleanup() {
 }
 trap cleanup INT TERM
 
-# Wait
 wait

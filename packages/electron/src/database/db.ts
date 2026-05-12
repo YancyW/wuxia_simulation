@@ -2,17 +2,15 @@ import Database from 'better-sqlite3';
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import * as schema from './schema.js';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { app } from 'electron';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { createRequire } from 'node:module';
 
 let dbPath: string;
 
 function getDbPath(): string {
   try {
-    const userDataPath = app.getPath('userData');
-    return path.join(userDataPath, 'life-restart.db');
+    const req = createRequire(import.meta.url);
+    const { app } = req('electron');
+    return path.join(app.getPath('userData'), 'life-restart.db');
   } catch {
     return path.join(process.cwd(), 'life-restart.db');
   }
