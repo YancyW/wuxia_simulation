@@ -107,7 +107,7 @@ export function advanceTurn(saveId: string): TurnResult | null {
   if (!character.isAlive) return null;
 
   const pastEventIds = state.logs.map((l) => l.eventId);
-  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds);
+  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds, getAffinityList(character.id));
 
   return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
 }
@@ -120,7 +120,7 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   if (!character.isAlive) return null;
 
   const pastEventIds = state.logs.map((l) => l.eventId);
-  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds);
+  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds, getAffinityList(character.id));
 
   if (!event || choiceIndex < 0 || choiceIndex >= event.choices.length) {
     return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
@@ -278,6 +278,11 @@ function deserializeCharacter(char: typeof characters.$inferSelect): Character {
     martialLevel: char.martialLevel as Character['martialLevel'],
     gender: char.gender as Character['gender'],
   };
+}
+
+function getAffinityList(characterId: string): { npcId: string; affinity: number }[] {
+  const rels = db.select().from(relationships).where(eq(relationships.characterId, characterId)).all();
+  return rels.map((r) => ({ npcId: r.npcName, affinity: r.affinity }));
 }
 
 function deserializeFlags(flags: unknown): string[] {

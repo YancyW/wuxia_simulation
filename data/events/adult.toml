@@ -540,3 +540,68 @@ outcome_text = "你在一个月黑风高的夜晚潜入他的住所。第二天�
 agility = 2
 technique = 1
 honor = -3
+
+# --- NPC事件: 老乞丐的指点 ---
+[[events]]
+id = "adult_old_beggar"
+title = "乞丐的智慧"
+description = "一个邋遢的老乞丐坐在街角对你招手：'年轻人，看你骨骼清奇，要不要听老叫花子讲个故事？'他浑浊的眼睛里闪过一丝精光。"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "坐下来听故事"
+outcome_text = "老乞丐讲的是三十年前华山论剑的往事，言语间透露了许多武学至理。你获益匪浅。"
+wits = 2
+qi = 1
+create_relation = { npc_name = "老乞丐", relation_type = "friend", affinity = 12, description = "街角偶遇的世外高人" }
+
+[[events.choices]]
+text = "买些酒菜和他一起吃"
+outcome_text = "老乞丐吃得高兴，暗中传了你一套独特的吐纳节奏。后来你才知道这竟是丐帮失传的运气法门。"
+qi = 3
+honor = 1
+constitution = 1
+
+# --- NPC事件: 铁面判官仲裁 ---
+[[events]]
+id = "adult_iron_judge"
+title = "铁面仲裁"
+description = "你和一位商人因为一桩误会产生了纠纷，对方请来了武林仲裁人——铁面判官。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "坦然接受仲裁结果"
+outcome_text = "你坦荡的态度赢得了铁面判官的赞赏。'好久没遇到这么明事理的人了。'"
+honor = 3
+reputation = 1
+create_relation = { npc_name = "铁面判官", relation_type = "friend", affinity = 15, description = "公正面前不打不相识" }
+
+[[events.choices]]
+text = "据理力争，不卑不亢"
+outcome_text = "你提出了有力的证据证明了自己的清白。铁面判官最终判你胜诉。"
+wits = 2
+reputation = 1
+
+# --- NPC事件: 红凤的试探 (affinity follow-up) ---
+[[events]]
+id = "adult_crimson_test"
+title = "红凤的试探"
+description = "红凤突然出现在你的必经之路上。她似笑非笑地看着你：'我听说了一些关于你的传言。有趣。'"
+life_stages = ["adult"]
+rarity = 1
+required_npc_relation = { npc_id = "crimson_phoenix", min_affinity = 10 }
+
+[[events.choices]]
+text = "与她切磋武艺"
+outcome_text = "你们在月下比试了一番。她没有使全力，但对你的武功评价很高。两人的关系在切磋中加深了。"
+technique = 2
+agility = 1
+
+[[events.choices]]
+text = "请她喝酒，聊聊江湖事"
+outcome_text = "在酒桌上，她罕见地流露出了一丝脆弱。你看到了她铠甲下的另一面。"
+wits = 1
+honor = 1
+

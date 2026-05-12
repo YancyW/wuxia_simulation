@@ -174,8 +174,13 @@ function loadDungeons(): DungeonTemplate[] {
 }
 
 function loadMartialArts(): MartialArt[] {
-  const raw = readToml<{ arts: Record<string, unknown>[] }>('martial-arts.toml');
-  return (raw.arts || []).map((a) => {
+  const raw1 = readToml<{ arts: Record<string, unknown>[] }>('martial-arts.toml');
+  let allArts = [...(raw1.arts || [])];
+  if (existsSync(dataPath('martial-arts-low.toml'))) {
+    const raw2 = readToml<{ arts: Record<string, unknown>[] }>('martial-arts-low.toml');
+    allArts = [...allArts, ...(raw2.arts || [])];
+  }
+  return allArts.map((a) => {
     const art: MartialArt = {
       id: a.id as string,
       name: a.name as string,
@@ -189,6 +194,8 @@ function loadMartialArts(): MartialArt[] {
     if (a.min_technique !== undefined) art.minTechnique = a.min_technique as number;
     if (a.min_agility !== undefined) art.minAgility = a.min_agility as number;
     if (a.sect_only) art.sectOnly = a.sect_only as string;
+    if (a.prerequisites) art.prerequisites = a.prerequisites as string[];
+    if (a.tier) art.tier = a.tier as MartialArt['tier'];
     if (a.gender_required) art.genderRequired = a.gender_required as 'male' | 'female';
     if (a.honor_min !== undefined || a.honor_max !== undefined) {
       art.honorRequired = {};
@@ -200,8 +207,13 @@ function loadMartialArts(): MartialArt[] {
 }
 
 function loadSects(): Sect[] {
-  const raw = readToml<{ sects: Record<string, unknown>[] }>('sects.toml');
-  return (raw.sects || []).map((s) => {
+  const raw1 = readToml<{ sects: Record<string, unknown>[] }>('sects.toml');
+  let allSects = [...(raw1.sects || [])];
+  if (existsSync(dataPath('sects-low.toml'))) {
+    const raw2 = readToml<{ sects: Record<string, unknown>[] }>('sects-low.toml');
+    allSects = [...allSects, ...(raw2.sects || [])];
+  }
+  return allSects.map((s) => {
     const sect: Sect = {
       id: s.id as string,
       name: s.name as string,

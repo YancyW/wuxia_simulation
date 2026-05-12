@@ -12,6 +12,7 @@ export interface EventChoice {
   setFlags?: string[];
   learnArt?: string;
   joinSect?: string;
+  minAffinity?: { npcId: string; value: number };
   createRelation?: {
     npcName: string;
     relationType: string;
@@ -40,6 +41,7 @@ export interface EventConditions {
   requiredMartialLevel?: MartialLevel;
   requiredSect?: string;
   requiredGender?: 'male' | 'female';
+  requiredNpcRelation?: { npcId: string; minAffinity?: number };
 }
 
 export interface DungeonStage {

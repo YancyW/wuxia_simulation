@@ -747,3 +747,45 @@ set_flags = ["joined_alliance"]
 text = "婉拒，独来独往更好"
 outcome_text = "你谢绝了邀请。有些人就是适合一个人行走江湖。"
 agility = 1
+
+# --- NPC事件: 遭逢花盗 ---
+[[events]]
+id = "ya_meet_flower_thief"
+title = "花盗现身"
+description = "深夜，你发现一个黑衣人从县衙房顶跃出，手里拎着几大包东西。这人轻功极高，几个起落就到了你的面前。他冲你笑了笑：'小兄弟，借个道。'"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "帮他引开追兵"
+outcome_text = "你故意制造混乱引开了追兵。花盗临走前扔给你一个钱袋和一壶好酒：'欠你一个人情。'"
+agility = 2
+honor = -1
+create_relation = { npc_name = "花盗", relation_type = "friend", affinity = 15, description = "萍水相逢的缘分" }
+
+[[events.choices]]
+text = "出手拦住他"
+outcome_text = "你挡住了他的去路。花盗不怒反笑：'有意思。'他轻松地绕过你，但临走时在你口袋里塞了一张银票。"
+technique = 1
+reputation = 1
+
+# --- NPC事件: 药王问诊 ---
+[[events]]
+id = "ya_medicine_king"
+title = "神医问诊"
+description = "你在一个偏僻小镇遇到了一位摆摊看病的老人。此人虽然穿着朴素，但诊脉的手法极为独特。"
+life_stages = ["young_adult"]
+rarity = 1
+
+[[events.choices]]
+text = "请教医术知识"
+outcome_text = "老人考了你几个药理问题，见你答得不错，便教了你一些调理经脉的方法。"
+constitution = 2
+wits = 1
+create_relation = { npc_name = "药王", relation_type = "friend", affinity = 10, description = "医术上的忘年交" }
+
+[[events.choices]]
+text = "请他帮你诊断身体状况"
+outcome_text = "老人给你把了脉，指出了你练功时的一些隐患并帮你调理了一番。"
+constitution = 3
+

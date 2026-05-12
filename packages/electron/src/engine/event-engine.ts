@@ -1,4 +1,4 @@
-import type { EventTemplate, DungeonTemplate, Character, LifeStage, MartialLevel, Stats } from '@life-restart/shared';
+import type { EventTemplate, DungeonTemplate, Character, LifeStage, MartialLevel, Stats, Relationship } from '@life-restart/shared';
 import type { GameData } from '../data/loader.js';
 
 const martialLevelOrder: MartialLevel[] = ['beginner', 'novice', 'intermediate', 'advanced', 'master', 'grandmaster', 'supreme'];
@@ -16,9 +16,15 @@ function getStatsObject(character: Character): Stats {
   };
 }
 
-function checkCondition(character: Character, conds: EventTemplate['conditions']): boolean {
+function checkCondition(character: Character, conds: EventTemplate['conditions'], relations?: { npcId: string; affinity: number }[]): boolean {
   if (!conds) return true;
   const stats = getStatsObject(character);
+
+  if (conds.requiredNpcRelation) {
+    const rel = relations?.find((r) => r.npcId === conds.requiredNpcRelation!.npcId);
+    if (!rel) return false;
+    if (conds.requiredNpcRelation.minAffinity !== undefined && rel.affinity < conds.requiredNpcRelation.minAffinity) return false;
+  }
 
   if (conds.minStats) {
     for (const [key, val] of Object.entries(conds.minStats)) {
@@ -57,6 +63,7 @@ export function selectEvent(
   data: GameData,
   character: Character,
   pastEventIds: string[],
+  relations?: { npcId: string; affinity: number }[],
 ): EventTemplate {
   // Check if there's an active dungeon
   const activeDungeonId = findActiveDungeon(character.flags);
@@ -66,13 +73,13 @@ export function selectEvent(
   }
 
   // Check for new dungeon triggers
-  const newDungeon = selectNewDungeon(data, character, pastEventIds);
+  const newDungeon = selectNewDungeon(data, character, pastEventIds, relations);
   if (newDungeon) return newDungeon;
 
   // Normal event selection
   const eligible = data.events.filter((event) => {
     if (!event.lifeStages.includes(character.lifeStage)) return false;
-    if (!checkCondition(character, event.conditions)) return false;
+    if (!checkCondition(character, event.conditions, relations)) return false;
     if (event.oncePerGame && pastEventIds.includes(event.id)) return false;
     return true;
   });
@@ -123,10 +130,10 @@ function getNextDungeonStage(data: GameData, character: Character, dungeonId: st
   return null;
 }
 
-function selectNewDungeon(data: GameData, character: Character, pastEventIds: string[]): EventTemplate | null {
+function selectNewDungeon(data: GameData, character: Character, pastEventIds: string[], relations?: { npcId: string; affinity: number }[]): EventTemplate | null {
   const eligible = data.dungeons.filter((d) => {
     if (!d.lifeStages.includes(character.lifeStage)) return false;
-    if (!checkCondition(character, d.conditions)) return false;
+    if (!checkCondition(character, d.conditions, relations)) return false;
     if (d.oncePerGame && character.flags.includes(`dungeon_${d.id}_completed`)) return false;
     // Don't trigger if already active
     if (character.flags.includes(`dungeon_${d.id}_active`)) return false;

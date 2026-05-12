@@ -29,6 +29,8 @@ export interface MartialArt {
   minQi?: number;
   minTechnique?: number;
   minAgility?: number;
+  prerequisites?: string[];
+  tier?: 'basic' | 'intermediate' | 'advanced' | 'legendary' | 'forbidden';
   sectOnly?: string;
   honorRequired?: { min?: number; max?: number };
   genderRequired?: 'male' | 'female';

@@ -1,0 +1,167 @@
+# ============================================
+# 低端武功 — 修炼链条基础
+# ============================================
+
+# === 基础内功 ===
+[[arts]]
+id = "tuna"
+name = "吐纳术"
+type = "internal"
+description = "最基础的呼吸吐纳之法，所有内功修行的起点。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "xiaozhoutian"
+name = "小周天功"
+type = "internal"
+description = "引导真气运行小周天，打通任督二脉的前置功法。"
+rarity = 1
+tier = "basic"
+prerequisites = ["tuna"]
+
+[[arts]]
+id = "dazhoutian"
+name = "大周天功"
+type = "internal"
+description = "真气运行大周天，贯通全身经脉。修成此功方可修习上乘内功。"
+rarity = 2
+tier = "basic"
+prerequisites = ["xiaozhoutian"]
+
+[[arts]]
+id = "hunyuangong"
+name = "混元功"
+type = "internal"
+description = "华山派入门内功，混元一气，中正平和。"
+rarity = 2
+tier = "basic"
+prerequisites = ["tuna"]
+sect_only = "huashan"
+
+# === 基础拳掌 ===
+[[arts]]
+id = "changquan"
+name = "太祖长拳"
+type = "palm"
+description = "宋太祖赵匡胤所创，大开大合，是拳法入门的基础。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "luohanquan"
+name = "罗汉拳"
+type = "palm"
+description = "少林入门拳法，招式简单但根基扎实。练好此拳方可进修少林七十二绝技。"
+rarity = 1
+tier = "basic"
+sect_only = "shaolin"
+
+[[arts]]
+id = "baji"
+name = "八极拳"
+type = "palm"
+description = "文有太极安天下，武有八极定乾坤。短打拳法之极致。"
+rarity = 2
+tier = "basic"
+prerequisites = ["changquan"]
+sect_only = "bajimen"
+
+# === 基础剑法 ===
+[[arts]]
+id = "songfeng"
+name = "松风剑法"
+type = "sword"
+description = "青城派入门剑法，剑势如松涛阵阵。"
+rarity = 1
+tier = "basic"
+sect_only = "qingcheng"
+
+[[arts]]
+id = "wudangjian_basic"
+name = "武当入门剑"
+type = "sword"
+description = "武当派入门剑法，以圆转为核心理念的入门功夫。学成后方可修习太极剑法。"
+rarity = 1
+tier = "basic"
+prerequisites = []
+sect_only = "wudang"
+
+[[arts]]
+id = "diancangjian"
+name = "点苍剑法"
+type = "sword"
+description = "点苍派剑法，以刺击为主，剑出如电。"
+rarity = 2
+tier = "basic"
+prerequisites = ["songfeng"]
+
+# === 基础刀法 ===
+[[arts]]
+id = "wuhuduanmen"
+name = "五虎断门刀"
+type = "blade"
+description = "江湖上最常见的刀法，虽不精妙但刚猛有力。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "bafang"
+name = "八方藏刀式"
+type = "blade"
+description = "刀法基础进阶，八式藏刀，虚实相生。"
+rarity = 2
+tier = "basic"
+prerequisites = ["wuhuduanmen"]
+
+# === 基础轻功 ===
+[[arts]]
+id = "caoshangfei"
+name = "草上飞"
+type = "movement"
+description = "最基本的轻功提纵术，能在草尖上借力而行。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "yanti"
+name = "燕啼"
+type = "movement"
+description = "如燕掠水，轻巧灵便的步法。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]
+
+# === 基础奇门 ===
+[[arts]]
+id = "dianxue"
+name = "点穴术"
+type = "special"
+description = "基础的点穴手法，可制敌而不伤其性命。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "anqi"
+name = "暗器入门"
+type = "special"
+description = "飞镖、飞石等基础暗器手法，江湖行走的必备技能。"
+rarity = 1
+tier = "basic"
+
+# === 修炼链条：拳掌线 ===
+# changquan → luohanquan → qishangquan → xianglong18
+# changquan → baji → tiezhang → anran
+
+# === 修炼链条：剑法线 ===
+# songfeng → diancangjian → huashanjian → dugu9jian
+# wudangjian_basic → taijijian → xuantie
+
+# === 修炼链条：刀法线 ===
+# wuhuduanmen → bafang → jinwudao → ranmu
+
+# === 修炼链条：内功线 ===
+# tuna → xiaozhoutian → dazhoutian → zixia → jiuyang → yijinjing
+
+# === 修炼链条：轻功线 ===
+# caoshangfei → yanti → shenxingbaibian → luoying → lingboweibu

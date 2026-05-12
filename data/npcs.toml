@@ -39,3 +39,76 @@ id = "hermit_elder"
 name = "隐世前辈"
 description = "隐居深山的前辈高人，不谙世事但武功盖世。"
 possible_relations = ["master"]
+
+# === NPC 详细背景 ===
+[[npcs]]
+id = "sword_sage"
+name = "独孤一剑"
+description = "传说中的隐世剑客，据说已参透独孤九剑的最高境界。性格孤傲，极少与人来往。"
+origin = "华山剑宗"
+personality = "孤傲寡言，但对剑道执着不二"
+possible_relations = ["master", "rival"]
+
+[[npcs]]
+id = "medicine_king"
+name = "药王"
+description = "江湖第一神医，精通医毒双术。曾救过无数武林人士的性命。性格古怪，救人与否全看心情。"
+origin = "苗疆"
+personality = "古怪多疑，但对有缘人极为慷慨"
+possible_relations = ["master", "friend"]
+
+[[npcs]]
+id = "flower_thief"
+name = "花盗"
+description = "轻功冠绝江湖的神秘盗贼，只偷贪官污吏，劫富济贫。官府悬赏万两白银捉拿。"
+origin = "丐帮弃徒"
+personality = "快意恩仇，不羁放纵"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "iron_judge"
+name = "铁面判官"
+description = "武林中最铁面无私的仲裁者，主持过无数次武林纠纷的调解。各大门派对他又敬又怕。"
+origin = "少林俗家弟子"
+personality = "刚正不阿，一丝不苟"
+possible_relations = ["friend"]
+
+[[npcs]]
+id = "crimson_phoenix"
+name = "红凤"
+description = "日月神教圣女，武功诡异莫测。虽是魔教中人但行事颇有底线，江湖上对她的评价两极分化。"
+origin = "日月神教"
+personality = "冷艳高傲，但内心渴望被理解"
+possible_relations = ["partner", "friend", "rival"]
+
+[[npcs]]
+id = "old_beggar"
+name = "老乞丐"
+description = "看似邋遢的老叫花子，实则是丐帮退隐的前任长老。知晓无数江湖秘闻。"
+origin = "丐帮"
+personality = "装疯卖傻，实则世事洞明"
+possible_relations = ["master", "friend"]
+
+[[npcs]]
+id = "ice_beauty"
+name = "冰清"
+description = "古墓派最年轻的长老，冷若冰霜的外表下藏着一颗炽热的心。剑法超群。"
+origin = "古墓派"
+personality = "外冷内热，重情重义"
+possible_relations = ["partner", "friend", "master"]
+
+[[npcs]]
+id = "sea_dragon"
+name = "海龙王"
+description = "巨鲸帮帮主，掌控长江水路的枭雄。武功虽非顶尖，但手下势力庞大。"
+origin = "巨鲸帮"
+personality = "豪爽仗义但也精于算计"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "poison_sage"
+name = "毒娘子"
+description = "五毒教护法，以美色和毒术行走江湖。被她救过的人数不亚于被她害过的人数。"
+origin = "五毒教"
+personality = "亦正亦邪，随心所欲"
+possible_relations = ["partner", "friend", "rival"]

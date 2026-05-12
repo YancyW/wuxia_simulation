@@ -451,3 +451,151 @@ wits = 2
 qi = 2
 technique = 2
 set_flags = ["completed_xiake_island"]
+
+# === 闯王宝藏 (8阶段史诗副本) ===
+[[dungeons]]
+id = "chuangwang_treasure"
+title = "闯王宝藏"
+summary = "李闯王兵败前将巨量金银和一批武学秘籍藏在了不知名的山中。数十年后，一张藏宝图重现江湖，引发了一场腥风血雨的争夺。"
+life_stages = ["adult", "middle_age"]
+rarity = 1
+min_reputation = 15
+once_per_game = true
+
+[[dungeons.stages]]
+id = "cw_map"
+title = "[副本] 藏宝图现世"
+description = "一个重伤的信使死在客栈门前，手中紧握着一角羊皮地图。这正是闯王宝藏的藏宝图碎片之一。"
+
+[[dungeons.stages.choices]]
+text = "收集地图碎片，拼凑完整藏宝图"
+outcome_text = "你四处打探其余地图碎片的下落，在几个江湖朋友帮助下拼凑出了完整的藏宝图。"
+wits = 2
+reputation = 1
+
+[[dungeons.stages.choices]]
+text = "直接去地图上标注的山脉寻找"
+outcome_text = "你不等拼全地图就出发了。虽然没有完整地图，但你的直觉带你找到了正确的山。"
+agility = 1
+wits = 1
+
+[[dungeons.stages]]
+id = "cw_camp"
+title = "[副本] 寻宝营地"
+description = "你到达藏宝山时，发现这里已经聚集了数十个寻宝者。有正道人士，也有邪派高手，还有一些亡命之徒。气氛剑拔弩张。"
+
+[[dungeons.stages.choices]]
+text = "联合正道人士组成寻宝联盟"
+outcome_text = "你说服了几位正道高手一起行动。虽然要分功但安全性大增。"
+honor = 1
+reputation = 1
+
+[[dungeons.stages.choices]]
+text = "趁夜独自潜入山中"
+outcome_text = "你在夜色掩护下摸进了山区，成功避开了其他寻宝者。"
+agility = 2
+wits = 1
+
+[[dungeons.stages]]
+id = "cw_trap"
+title = "[副本] 机关重重"
+description = "闯王宝藏的入口布满了致命机关。地上的石板踩错一步就会触发暗箭和滚石。地上已有几具尸骨——都是踩错机关的寻宝者。"
+
+[[dungeons.stages.choices]]
+text = "仔细观察前人的尸骨分布，推测安全路线"
+outcome_text = "你从死者倒下的方向和位置推理出了机关的规律，安全通过了第一段路。"
+wits = 3
+
+[[dungeons.stages.choices]]
+text = "用轻功从洞顶攀爬过去"
+outcome_text = "你避开地面，从洞顶的石缝中攀爬前进。虽然慢但非常安全。"
+agility = 3
+constitution = -1
+
+[[dungeons.stages.choices]]
+text = "触发机关后急速冲锋"
+outcome_text = "你深吸一口气，在机关启动的瞬间以最快的速度冲了过去。虽然受了轻伤但过去了。"
+agility = 1
+constitution = -2
+
+[[dungeons.stages]]
+id = "cw_rival"
+title = "[副本] 洞中遭遇"
+description = "你终于到达了宝藏室前的最后一段通道。但有人比你先到了——一个满脸横肉的邪派高手正守在门前。他冷笑道：'先来后到，小辈。'"
+
+[[dungeons.stages.choices]]
+text = "正面挑战，以武取胜"
+outcome_text = "你和他在地洞中展开了一场恶战。回声震荡中你们的打斗传遍了整个山洞。五十招后你将他击倒在地。"
+technique = 3
+bone = 1
+reputation = 2
+constitution = -2
+
+[[dungeons.stages.choices]]
+text = "提出合作，利益均分"
+outcome_text = "你冷静地分析了局面：洞外还有更多寻宝者在赶来。联手才能更快拿到宝藏。他犹豫了一下同意了。"
+wits = 2
+honor = 1
+
+[[dungeons.stages]]
+id = "cw_treasure_room"
+title = "[副本] 宝藏室"
+description = "沉重的石门背后是一个巨大的石室。金银珠宝堆积如山，但真正吸引你目光的是一个玉盒——盒中静静躺着一本泛黄的秘籍。"
+
+[[dungeons.stages.choices]]
+text = "拿走秘籍和少量金银"
+outcome_text = "你只取了最有价值的秘籍和够你后半生用的金银。剩下的留给了后来者。"
+wits = 1
+honor = 2
+qi = 2
+learn_art = "beiming"
+
+[[dungeons.stages.choices]]
+text = "将秘籍抄写一份，原版留在原处"
+outcome_text = "你抄录了秘籍，把原版留给了后来者。这份胸襟让江湖上对你刮目相看。"
+wits = 2
+honor = 3
+reputation = 2
+
+[[dungeons.stages]]
+id = "cw_ambush"
+title = "[副本] 黄雀在后"
+description = "你带着秘籍离开宝藏室时，被一群在外等候的寻宝者堵住了。领头的是一个你从未见过的蒙面人——他才是这场寻宝的真正策划者。"
+
+[[dungeons.stages.choices]]
+text = "杀出重围"
+outcome_text = "你以一敌众，虽然受了重伤但成功突出了包围。蒙面人看着你远去的背影冷笑了一声。"
+technique = 3
+agility = 2
+constitution = -3
+reputation = 2
+
+[[dungeons.stages.choices]]
+text = "交出秘籍副本，保留原本"
+outcome_text = "你机智地提前抄录了副本，交出了副本蒙混过关。蒙面人拿到'秘籍'后扬长而去。"
+wits = 3
+agility = 1
+
+[[dungeons.stages]]
+id = "cw_aftermath"
+title = "[副本] 藏宝余波"
+description = "闯王宝藏的消息传遍了整个武林。你手上的秘籍引来了四方窥伺。是时候做个选择了。"
+
+[[dungeons.stages.choices]]
+text = "将秘籍公之于众"
+outcome_text = "你将秘籍的内容公开，举办了论武大会与天下英雄共同研习。你的无私赢得了整个武林的敬重。"
+honor = 4
+reputation = 4
+wits = 1
+
+[[dungeons.stages.choices]]
+text = "将秘籍作为本门镇派之宝"
+outcome_text = "你保留了秘籍作为本门的最高武学。从此你的门派在武林中的地位更上一层楼。"
+reputation = 3
+technique = 2
+
+[dungeons.reward]
+qi = 3
+reputation = 5
+wits = 1
+set_flags = ["completed_chuangwang_treasure"]

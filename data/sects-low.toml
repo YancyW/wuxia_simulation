@@ -1,0 +1,93 @@
+# ============================================
+# 地方势力 / 小门派
+# ============================================
+
+[[sects]]
+id = "qingcheng"
+name = "青城派"
+description = "川中剑派，松风剑法闻名蜀地。虽然不如五岳剑派出名，但在西南一带有不小影响力。"
+type = "orthodox"
+exclusive_arts = ["songfeng"]
+allies = ["huashan", "emei"]
+enemies = ["riyue"]
+
+[[sects]]
+id = "diancang"
+name = "点苍派"
+description = "云南剑派，点苍剑法以刺击为主，出剑快如电闪。"
+type = "orthodox"
+exclusive_arts = ["diancangjian"]
+allies = ["kunlun"]
+enemies = ["wudu"]
+
+[[sects]]
+id = "bajimen"
+name = "八极门"
+description = "河北沧州的武术门派，八极拳刚猛无匹。'文有太极安天下，武有八极定乾坤'。"
+type = "orthodox"
+exclusive_arts = ["baji"]
+allies = ["wudang", "kongtong"]
+enemies = []
+
+[[sects]]
+id = "baguamen"
+name = "八卦门"
+description = "以八卦掌闻名的北京门派，步法精奇，掌法诡异。"
+type = "neutral"
+exclusive_arts = []
+allies = ["wudang"]
+enemies = []
+
+[[sects]]
+id = "yingzhuamen"
+name = "鹰爪门"
+description = "以鹰爪功著称的北派门派，五指之力可碎金石。"
+type = "neutral"
+exclusive_arts = []
+allies = ["bajimen"]
+enemies = ["tiezhangpai"]
+
+[[sects]]
+id = "tiejianmen"
+name = "铁剑门"
+description = "中原小门派，虽名为剑派但实力平平。弟子遍布各地镖局和武馆。"
+type = "neutral"
+exclusive_arts = []
+allies = ["huashan"]
+enemies = []
+
+[[sects]]
+id = "shenquanmen"
+name = "神拳门"
+description = "江南拳术门派，以长拳和短打见长。"
+type = "neutral"
+exclusive_arts = []
+allies = ["gaibang"]
+enemies = ["tiezhangpai"]
+
+[[sects]]
+id = "jingji"
+name = "巨鲸帮"
+description = "长江上的水上帮会，控制着长江中下游的水路生意。"
+type = "neutral"
+exclusive_arts = []
+allies = ["gaibang"]
+enemies = ["haisha"]
+
+[[sects]]
+id = "haisha"
+name = "海沙派"
+description = "沿海商路上的帮会，以海上贸易为生。与水匪有千丝万缕的联系。"
+type = "unorthodox"
+exclusive_arts = []
+allies = ["tiezhangpai"]
+enemies = ["jingji", "gaibang"]
+
+[[sects]]
+id = "wushan"
+name = "巫山派"
+description = "川东巫山一带的山寨势力，亦正亦邪。山势险恶官府也奈何不得。"
+type = "unorthodox"
+exclusive_arts = []
+allies = ["wudu"]
+enemies = ["qingcheng", "emei"]
