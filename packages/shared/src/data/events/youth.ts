@@ -1,0 +1,145 @@
+import type { EventTemplate } from '../../types/event';
+
+export const youthEvents: EventTemplate[] = [
+  {
+    id: 'youth_discover_talent',
+    title: '天赋初现',
+    description: '你在村中玩耍时，无意间展现了过人的武学天赋，一位路过的老拳师注意到了你。',
+    lifeStages: ['youth'],
+    rarity: 5,
+    choices: [
+      { text: '虚心请教，跟老拳师学习基本功', outcomeText: '老拳师教你扎马步、打基础，你学得有模有样。', effects: { bone: 1, technique: 1 } },
+      { text: '炫耀天赋，在村民面前表演', outcomeText: '你赢得了村民的喝彩，但老拳师摇摇头走了。', effects: { reputation: 1, wits: -1 } },
+      { text: '不以为意，继续玩耍', outcomeText: '你错过了这次机会，但快乐的童年也算一种收获。', effects: { constitution: 1 } },
+    ],
+  },
+  {
+    id: 'youth_family_teaching',
+    title: '家学渊源',
+    description: '你的家人开始教你识字读书，你展现出与众不同的领悟力。',
+    lifeStages: ['youth'],
+    rarity: 5,
+    conditions: { minStats: { wits: 4 } },
+    choices: [
+      { text: '刻苦攻读，博览群书', outcomeText: '你打下了扎实的学问根基，对日后领悟高深武功大有裨益。', effects: { wits: 2, qi: 1 } },
+      { text: '只学皮毛，更喜欢舞刀弄枪', outcomeText: '你粗通文墨，但把更多时间花在了拳脚上。', effects: { bone: 1, technique: 1 } },
+    ],
+  },
+  {
+    id: 'youth_bully',
+    title: '恶霸欺凌',
+    description: '村里的恶霸少年带人欺负你和同伴，你被堵在了巷子里。',
+    lifeStages: ['youth'],
+    rarity: 4,
+    choices: [
+      { text: '挺身而出，和恶霸打一架', outcomeText: '虽然鼻青脸肿，但你打出了骨气，恶霸之后再不敢惹你。', effects: { bone: 1, constitution: 1, honor: 2 } },
+      { text: '机智周旋，用言语化解冲突', outcomeText: '你三言两语化解了危机，同伴们对你的机智佩服不已。', effects: { wits: 1, reputation: 1 } },
+      { text: '撒腿就跑，好汉不吃眼前亏', outcomeText: '你跑得快，没吃亏，但同伴们对你有些失望。', effects: { agility: 1, honor: -1 } },
+    ],
+  },
+  {
+    id: 'youth_mysterious_old_man',
+    title: '神秘老人',
+    description: '一位衣衫褴褛的老人晕倒在路边，众人避之不及。你走近一看，发现他气息微弱但眼神锐利。',
+    lifeStages: ['youth'],
+    rarity: 2,
+    choices: [
+      { text: '扶老人回家，悉心照料', outcomeText: '老人康复后，悄悄传了你一套吐纳之法，飘然而去。', effects: { qi: 3, honor: 3 }, setFlags: ['met_mysterious_elder'] },
+      { text: '去叫大人来帮忙', outcomeText: '大人来了后老人已经不见了，地上只留下一本残破的拳谱。', effects: { technique: 1 } },
+    ],
+  },
+  {
+    id: 'youth_martial_contest_kid',
+    title: '少年比武',
+    description: '邻村来了几个习武的少年，在村口摆下擂台，扬言要教训本村的孩子。',
+    lifeStages: ['youth'],
+    rarity: 3,
+    choices: [
+      { text: '上擂台应战', outcomeText: '你虽然输了，但打得顽强，赢得了对手的尊重。', effects: { technique: 1, reputation: 1, constitution: 1 } },
+      { text: '在场下观察，学习他们的招式', outcomeText: '你记下了他们的几招几式，回去后偷偷练习。', effects: { wits: 1, technique: 1 } },
+      { text: '去请村里的大人来解决', outcomeText: '大人们出面赶走了他们，但你觉得有些丢脸。', effects: { reputation: -1 } },
+    ],
+  },
+  {
+    id: 'youth_herb_gathering',
+    title: '采药奇遇',
+    description: '你上山采药时，发现了一处隐秘的山洞，里面似乎有人居住过的痕迹。',
+    lifeStages: ['youth'],
+    rarity: 3,
+    choices: [
+      { text: '进去探索', outcomeText: '你在洞里发现了一本残缺的内功心法和一些丹药，虽然不全但极为珍贵。', effects: { qi: 2, wits: 1 } },
+      { text: '记住位置，回去禀告长辈', outcomeText: '长辈们前来查看，发现是某位前辈的闭关之所，分了你一些丹药。', effects: { qi: 1, reputation: 1 } },
+      { text: '太危险了，还是不进去为好', outcomeText: '你安全地回家了，但心中一直惦记着那个山洞。', effects: {} },
+    ],
+  },
+  {
+    id: 'youth_hunt',
+    title: '山林狩猎',
+    description: '跟随村中猎户进山打猎，你在密林中遇到了一只受伤的野狼。',
+    lifeStages: ['youth'],
+    rarity: 3,
+    choices: [
+      { text: '举起木棍与狼对峙', outcomeText: '你的勇气镇住了野狼，它最终退却了。猎户们对你刮目相看。', effects: { bone: 1, reputation: 1 } },
+      { text: '绕路避开，安全第一', outcomeText: '你学会了在山林中保护自己，猎户教了你一些追踪技巧。', effects: { agility: 1, wits: 1 } },
+      { text: '设陷阱捕获野狼', outcomeText: '你巧妙地用陷阱抓住了野狼，猎户们都说你天生是块好料子。', effects: { wits: 1, technique: 1 } },
+    ],
+  },
+  {
+    id: 'youth_traveling_merchant',
+    title: '行商路过',
+    description: '一支商队路过村庄，带来了远方的奇珍异宝和江湖故事。',
+    lifeStages: ['youth'],
+    rarity: 3,
+    choices: [
+      { text: '听商人们讲江湖故事', outcomeText: '江湖的精彩让你心驰神往，你暗暗立下了闯荡江湖的志向。', effects: { reputation: 1, wits: 1 } },
+      { text: '帮商队搬运货物赚点零钱', outcomeText: '你用劳动换了些银两，还从商队护卫那里学了防身技巧。', effects: { constitution: 1, technique: 1 } },
+    ],
+  },
+  {
+    id: 'youth_flood',
+    title: '洪水来袭',
+    description: '连日大雨导致山洪暴发，村庄面临被淹的危险。',
+    lifeStages: ['youth'],
+    rarity: 2,
+    choices: [
+      { text: '奋不顾身帮助村民转移', outcomeText: '你冒着危险救出了被困的老人和孩子，成了村里的小英雄。', effects: { honor: 3, reputation: 2, constitution: 1 } },
+      { text: '组织大家有序撤离', outcomeText: '你冷静指挥，帮助村民安全转移到了高地。', effects: { wits: 2, reputation: 1, honor: 1 } },
+      { text: '先保护好自己和家人', outcomeText: '你带着家人安全撤离，虽然没帮上别人但至少家人平安。', effects: { agility: 1 } },
+    ],
+  },
+  {
+    id: 'youth_sect_disciple',
+    title: '门派招收',
+    description: '附近门派的长老来村里招收新弟子，许多孩子都跃跃欲试。',
+    lifeStages: ['youth'],
+    rarity: 3,
+    conditions: { minStats: { bone: 5 } },
+    choices: [
+      { text: '参加入门测试', outcomeText: '你的资质得到了认可，被门派长老收入门下。', effects: { bone: 1, technique: 1 }, setFlags: ['sect_trial_passed'] },
+      { text: '留在村里继续修炼基础', outcomeText: '你觉得基础还不够扎实，决定再苦练一年。', effects: { bone: 1, wits: 1 } },
+    ],
+  },
+  {
+    id: 'youth_illness',
+    title: '大病一场',
+    description: '你突然发了一场高烧，卧床不起，家人急得团团转。',
+    lifeStages: ['youth'],
+    rarity: 2,
+    choices: [
+      { text: '靠意志力扛过去', outcomeText: '你以顽强的意志战胜了病魔，痊愈后反而觉得身体更加坚韧了。', effects: { constitution: 2, bone: 1 } },
+      { text: '请郎中精心调养', outcomeText: '在家人的悉心照料下你慢慢康复了，但也落下了些病根。', effects: { constitution: -1, wits: 1 } },
+    ],
+  },
+  {
+    id: 'youth_secret_manual',
+    title: '崖壁遗刻',
+    description: '你在后山悬崖下玩耍时，发现石壁上刻着一些奇怪的图案和小字。仔细一看，似乎是一套武功心法。',
+    lifeStages: ['youth'],
+    rarity: 1,
+    conditions: { minStats: { wits: 6 } },
+    choices: [
+      { text: '用心记忆，每天来此参悟', outcomeText: '三年寒暑，你终于参透了崖壁上的武功，这是一套失传已久的入门心法。', effects: { qi: 3, technique: 2, wits: 1 } },
+      { text: '拓印下来带回去研究', outcomeText: '你请村里的老先生帮忙辨认文字，一起研究其中奥秘。', effects: { qi: 1, wits: 2 } },
+    ],
+  },
+];

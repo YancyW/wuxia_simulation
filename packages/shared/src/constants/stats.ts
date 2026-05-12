@@ -1,0 +1,48 @@
+import type { Background } from '../types/character';
+
+export const STAT_NAMES = {
+  bone: '根骨',
+  wits: '悟性',
+  qi: '内力',
+  technique: '招式',
+  agility: '轻功',
+  reputation: '声望',
+  honor: '侠义',
+  constitution: '体质',
+} as const;
+
+export const STAT_DESCRIPTIONS = {
+  bone: '武学天赋，影响练武速度和武功上限',
+  wits: '领悟力，影响学习新武功的速度',
+  qi: '内功修为深浅，影响战斗续航',
+  technique: '外功招式熟练度，影响实战发挥',
+  agility: '身法轻灵，影响追击、逃脱和探索',
+  reputation: '江湖名望，影响高级事件触发',
+  honor: '正邪倾向，影响结局路线',
+  constitution: '身体根基，影响受伤恢复和寿命',
+} as const;
+
+export const BACKGROUNDS: Background[] = [
+  { id: 'martial_family', name: '武林世家', description: '出身武学世家，自幼耳濡目染。', bonuses: { bone: 2, technique: 1 } },
+  { id: 'scholar_family', name: '书香门第', description: '出身读书人家，天资聪颖过目不忘。', bonuses: { wits: 2, qi: 1 } },
+  { id: 'street_orphan', name: '市井孤儿', description: '街头流浪长大，摸爬滚打练就一身机敏。', bonuses: { agility: 2, constitution: 1 } },
+  { id: 'merchant_family', name: '商贾之家', description: '商人之子，见多识广，人脉通天。', bonuses: { reputation: 2, wits: 1 } },
+  { id: 'noble_family', name: '官宦之后', description: '朝廷命官之后，家世显赫气度不凡。', bonuses: { reputation: 1, bone: 1, technique: 1 } },
+];
+
+export function rollStat(): number {
+  return Math.floor(Math.random() * 6) + 3;
+}
+
+export function generateInitialStats(): Record<string, number> {
+  return {
+    bone: rollStat(),
+    wits: rollStat(),
+    qi: rollStat(),
+    technique: rollStat(),
+    agility: rollStat(),
+    reputation: 0,
+    honor: 0,
+    constitution: rollStat(),
+  };
+}

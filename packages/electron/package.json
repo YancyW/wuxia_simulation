@@ -1,0 +1,26 @@
+{
+  "name": "@life-restart/electron",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/main.js",
+  "scripts": {
+    "dev": "tsc && npx electron . --no-sandbox",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@life-restart/shared": "workspace:*",
+    "better-sqlite3": "^11.0.0",
+    "drizzle-orm": "^0.30.0",
+    "electron": "^30.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "@types/uuid": "^9.0.8",
+    "drizzle-kit": "^0.21.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}

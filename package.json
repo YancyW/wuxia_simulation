@@ -1,0 +1,16 @@
+{
+  "name": "life-restart",
+  "private": true,
+  "scripts": {
+    "predev": "pnpm --filter @life-restart/shared build && pnpm --filter @life-restart/electron build",
+    "dev": "pnpm --filter @life-restart/frontend dev & npx electron packages/electron --no-sandbox",
+    "dev:frontend": "pnpm --filter @life-restart/frontend dev",
+    "dev:electron": "pnpm --filter @life-restart/electron dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
