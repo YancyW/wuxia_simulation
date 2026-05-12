@@ -1,8 +1,8 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { runMigrations } from './database/migrate.js';
 import { registerIpcHandlers } from './ipc/handlers.js';
+import './database/db.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -16,7 +16,7 @@ function createWindow() {
     minHeight: 600,
     title: '江湖人生',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, '..', 'src', 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     },
@@ -39,7 +39,6 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  runMigrations();
   registerIpcHandlers();
   createWindow();
 
