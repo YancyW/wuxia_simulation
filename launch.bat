@@ -63,12 +63,19 @@ for /f "tokens=5" %%a in ('netstat -ano ^| findstr ":5173" ^| findstr "LISTENING
     taskkill /F /PID %%a >nul 2>&1
 )
 
-REM Start Vite
-echo Starting Vite dev server...
-start "Vite" /min cmd /c "cd /d %~dp0 && %PNPM% --filter "@life-restart/frontend" dev"
+REM Start Vite hidden via PowerShell
+echo Starting Vite dev server (background)...
+powershell -Command "Start-Process -WindowStyle Hidden -FilePath '%PNPM%' -ArgumentList '--filter','@life-restart/frontend','dev' -WorkingDirectory '%~dp0'" 2>nul
+if %ERRORLEVEL% NEQ 0 (
+    REM Fallback: use WScript if PowerShell fails
+    echo Set WshShell = CreateObject("WScript.Shell"^) > "%TEMP%\run_vite.vbs"
+    echo WshShell.Run """%PNPM%"" --filter @life-restart/frontend dev", 0, False >> "%TEMP%\run_vite.vbs"
+    cscript //nologo "%TEMP%\run_vite.vbs"
+    del "%TEMP%\run_vite.vbs"
+)
 
 REM Wait for Vite
-echo Waiting for Vite to be ready...
+echo Waiting for Vite...
 set COUNT=0
 :wait_loop
 timeout /t 1 /nobreak >nul
@@ -93,7 +100,6 @@ if "%ELECTRON_PATH%"=="" (
 
 if "%ELECTRON_PATH%"=="" (
     echo [ERROR] electron.exe not found.
-    echo Trying to run Electron install script...
     for /d %%d in (node_modules\.pnpm\electron@*) do (
         if exist "%%d\node_modules\electron\install.js" (
             node "%%d\node_modules\electron\install.js"
@@ -106,18 +112,14 @@ if "%ELECTRON_PATH%"=="" (
 )
 
 if "%ELECTRON_PATH%"=="" (
-    echo [ERROR] Cannot find electron.exe. Please reinstall: pnpm install
+    echo [ERROR] Cannot find electron.exe.
     pause
     exit /b 1
 )
 
-echo Electron found: %ELECTRON_PATH%
-echo Launching application...
+echo Launching game...
+REM Launch Electron directly (GUI app, no console window)
+start "" "%ELECTRON_PATH%" packages\electron --no-sandbox
 
-start "Game" /min cmd /c "cd /d %~dp0 && "%ELECTRON_PATH%" packages\electron --no-sandbox"
-
-echo.
-echo ============================================
-echo   Done! Game window should open shortly.
-echo ============================================
+echo Done! Game window should open.
 pause
