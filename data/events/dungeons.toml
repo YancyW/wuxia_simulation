@@ -270,3 +270,184 @@ reputation = 4
 honor = 3
 qi = 1
 set_flags = ["completed_raid_demon_sect"]
+
+# === 光明顶之战 (5阶段大副本) ===
+[[dungeons]]
+id = "guangming_siege"
+title = "光明顶之战"
+summary = "六大派围攻光明顶！明教总坛被围，全教上下危在旦夕。你是袖手旁观，还是投身这场改变武林格局的大战？"
+life_stages = ["adult"]
+rarity = 1
+min_reputation = 12
+once_per_game = true
+
+[[dungeons.stages]]
+id = "approach"
+title = "[副本] 兵临山下"
+description = "六大派的联军已经将光明顶团团围住。山下的营帐连绵数里，各派旗帜飘扬。你站在联军大营外，需要决定自己的立场。"
+
+[[dungeons.stages.choices]]
+text = "加入联军，为国为民"
+outcome_text = "你加入了正派联军。你的加入让联军的士气大振。"
+reputation = 1
+set_flags = ["joined_orthodox_side"]
+
+[[dungeons.stages.choices]]
+text = "潜入光明顶，警告明教"
+outcome_text = "你趁夜色潜入了光明顶，向明教教主通报了联军的部署。明教上下一片混乱。"
+agility = 1
+honor = -1
+set_flags = ["joined_mingjiao_side"]
+
+[[dungeons.stages]]
+id = "battle"
+title = "[副本] 血战山道"
+description = "战斗打响了。明教五行旗在山道上拼死抵抗。箭矢如雨，滚石如雷。到处都是喊杀声。"
+
+[[dungeons.stages.choices]]
+text = "冲在最前面，身先士卒"
+outcome_text = "你的英勇表现激励了身边所有人。虽然负了轻伤，但你砍倒了明教的旗帜。"
+technique = 2
+bone = 1
+reputation = 2
+constitution = -1
+
+[[dungeons.stages.choices]]
+text = "保护伤员，掩护撤退"
+outcome_text = "你没有贪功冒进，而是在混乱中建立了一个临时的伤员收容点。许多人因为你活了下来。"
+honor = 2
+wits = 1
+reputation = 1
+
+[[dungeons.stages]]
+id = "showdown"
+title = "[副本] 大殿对决"
+description = "联军已经杀入了明教总坛大殿。明教左右光明使和四大护法死守大殿，一场混战在所难免。"
+
+[[dungeons.stages.choices]]
+text = "挑战明教左光明使"
+outcome_text = "你与左光明使大战三百回合，最终以精妙的剑法挑飞了他的兵刃，赢得了所有人的敬意。"
+technique = 3
+bone = 1
+reputation = 3
+constitution = -2
+
+[[dungeons.stages.choices]]
+text = "劝说双方停手，避免无谓伤亡"
+outcome_text = "你在最危急的关头站了出来，一番话让双方都冷静了下来。明教同意暂时退守密道谈判。"
+wits = 3
+honor = 3
+reputation = 2
+
+[[dungeons.stages]]
+id = "resolution"
+title = "[副本] 尘埃落定"
+description = "战斗结束了。明教教主提出和解条件：明教退出中原武林，换取联军的撤兵。各派掌门都看着你，等你表态。"
+
+[[dungeons.stages.choices]]
+text = "支持和解，放明教一条生路"
+outcome_text = "你主张宽恕。在你的坚持下，联军接受了和解。明教撤离中原时，教主对你抱拳一礼。"
+honor = 4
+wits = 2
+reputation = 1
+
+[[dungeons.stages.choices]]
+text = "坚持斩草除根，彻底消灭明教"
+outcome_text = "你坚持除恶务尽。联军继续进攻，最终覆灭了明教。江湖上再也没有了'光明顶'这三个字。"
+technique = 2
+reputation = 3
+honor = -2
+
+[dungeons.reward]
+reputation = 4
+technique = 2
+set_flags = ["completed_guangming_siege"]
+
+
+# === 侠客行 (探索型副本) ===
+[[dungeons]]
+id = "xiake_island"
+title = "侠客行"
+summary = "江湖上突然出现了一张神秘的请柬，邀请天下高手前往南海侠客岛。据说岛上有失传已久的绝世武功——'太玄经'。"
+life_stages = ["adult", "middle_age"]
+rarity = 1
+min_wits = 7
+once_per_game = true
+
+[[dungeons.stages]]
+id = "sailing"
+title = "[副本] 扬帆出海"
+description = "你带着请柬来到了约定的港口。来接你的是一艘没有船夫的小舟，船上只有一行字：'有缘者自可到'。"
+
+[[dungeons.stages.choices]]
+text = "乘舟出海，任其漂流"
+outcome_text = "你跳上了小舟。海上的风暴和迷雾没有阻挡住你，三天后你看到了那座传说中的岛。"
+qi = 1
+wits = 1
+
+[[dungeons.stages.choices]]
+text = "自己驾船前往"
+outcome_text = "你雇了一艘船自己驾往请柬上标注的坐标。虽然辛苦但你掌握了主动权。"
+agility = 1
+wits = 1
+
+[[dungeons.stages]]
+id = "island"
+title = "[副本] 侠客岛上"
+description = "岛上已有数十位武林高手在此。一面高耸的石壁上刻满了蝌蚪文和奇怪的图形——这就是传说中的'太玄经'。每个人都在疯狂地解读这些刻文。"
+
+[[dungeons.stages.choices]]
+text = "潜心观摩石壁，尝试解读"
+outcome_text = "你发现这些刻文不是用眼睛看的，而是用心去感受的。你闭上眼睛，石壁上的武功仿佛直接流入了你的脑海。"
+wits = 2
+qi = 2
+technique = 1
+
+[[dungeons.stages.choices]]
+text = "观察岛上的其他人如何解读"
+outcome_text = "你注意到每个人看到的'太玄经'似乎都不一样。这个发现让你对武学的本质有了全新的理解。"
+wits = 3
+
+[[dungeons.stages]]
+id = "revelation"
+title = "[副本] 大彻大悟"
+description = "你终于明白了——太玄经不是一套固定的武功，而是一面镜子。它映照出每个人内心最深处的武学理解。"
+
+[[dungeons.stages.choices]]
+text = "将自己的领悟融入武功，当场突破"
+outcome_text = "你盘膝坐在石壁前，三天后站起来时，全身经脉贯通，武功更上一层楼。"
+qi = 3
+technique = 3
+wits = 2
+bone = 1
+
+[[dungeons.stages.choices]]
+text = "将领悟记录下来，传于后世"
+outcome_text = "你将这三天来的感悟写成了一本书。这本书后来成为了武林中的又一部经典。"
+wits = 4
+reputation = 2
+qi = 1
+
+[[dungeons.stages]]
+id = "return"
+title = "[副本] 归来"
+description = "侠客岛开始沉没了。所有幸存者争先恐后地登船离开。在最后一刻，你回头看了一眼那个改变了一切的地方。"
+
+[[dungeons.stages.choices]]
+text = "不带遗憾地离开"
+outcome_text = "你心满意足地离开了侠客岛。你已经得到了你想要的——不只是一套武功，而是武学的真谛。"
+wits = 2
+honor = 1
+set_flags = ["understood_martial_truth"]
+
+[[dungeons.stages.choices]]
+text = "在岛上再呆一会儿"
+outcome_text = "你是最后一个离开的人。在沉没的最后一刻，你看到了石壁底部还有一行小字：道可道，非常道。"
+wits = 3
+qi = 1
+
+[dungeons.reward]
+wits = 2
+qi = 2
+technique = 2
+set_flags = ["completed_xiake_island"]

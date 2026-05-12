@@ -212,7 +212,13 @@ function loadSects(): Sect[] {
     if (s.condition_honor_max !== undefined) sect.conditionHonorMax = s.condition_honor_max as number;
     if (s.condition_wits_min !== undefined) sect.conditionWitsMin = s.condition_wits_min as number;
     if (s.condition_technique_min !== undefined) sect.conditionTechniqueMin = s.condition_technique_min as number;
+    if (s.condition_bone_min !== undefined) sect.conditionBoneMin = s.condition_bone_min as number;
+    if (s.condition_agility_min !== undefined) sect.conditionAgilityMin = s.condition_agility_min as number;
+    if (s.condition_constitution_min !== undefined) sect.conditionConstitutionMin = s.condition_constitution_min as number;
     if (s.condition_gender) sect.conditionGender = s.condition_gender as 'male' | 'female';
+    if (s.type) sect.type = s.type as Sect['type'];
+    if (s.allies) sect.allies = s.allies as string[];
+    if (s.enemies) sect.enemies = s.enemies as string[];
     return sect;
   });
 }

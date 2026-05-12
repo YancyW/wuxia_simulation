@@ -586,3 +586,164 @@ wits = 1
 text = "请他喝酒叙旧"
 outcome_text = "你们把酒言欢，暂时忘却了江湖的烦恼。"
 constitution = 1
+
+# --- NEW: 门派冲突 ---
+[[events]]
+id = "ya_sect_war_rumor"
+title = "江湖风声"
+description = "茶馆中盛传，正派联盟正在密谋围攻明教光明顶。各派都在调集人手，气氛紧张。"
+life_stages = ["young_adult"]
+rarity = 3
+
+[[events.choices]]
+text = "前去光明顶看看热闹"
+outcome_text = "你赶到了光明顶山下，虽然没有参战但亲眼见识了各大门派的高手对决，大开眼界。"
+technique = 1
+wits = 1
+reputation = 1
+
+[[events.choices]]
+text = "远离是非之地，专心修炼"
+outcome_text = "你没有去凑热闹，而是在深山中闭关修炼。一月后出关时功力精进不少。"
+qi = 2
+technique = 1
+
+# --- NEW: 五毒教遭遇 ---
+[[events]]
+id = "ya_poison_encounter"
+title = "苗疆毒术"
+description = "你路过苗疆时误食了一种毒果，幸好被路过的五毒教弟子所救。她告诉你这果子虽然有毒，但也是炼制提升内力丹药的主药。"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "向她请教毒术与药理的奥妙"
+outcome_text = "你跟着她学了几天辨毒和解毒的入门知识，对药理学有了新的认识。"
+wits = 2
+constitution = 1
+
+[[events.choices]]
+text = "谢过救命之恩后迅速离开"
+outcome_text = "你感激她的救命之恩，但觉得五毒教太过诡异，还是不要深交为好。"
+agility = 1
+
+# --- NEW: 全真教论道 ---
+[[events]]
+id = "ya_quanzhen_debate"
+title = "全真论道"
+description = "你来到了终南山，恰好遇到全真教在举办道教与武学辩论会。各派年轻弟子都可参与讨论。"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "参与辩论，发表自己的见解"
+outcome_text = "你的观点引起了全真七子之一的注意，他赞许地点了点头。"
+wits = 2
+reputation = 1
+
+[[events.choices]]
+text = "旁听学习，谦虚受教"
+outcome_text = "你用心聆听各家各派的观点，对武学和道家思想的融合有了深刻理解。"
+wits = 1
+qi = 1
+
+# --- NEW: 古墓奇缘 ---
+[[events]]
+id = "ya_gumu_encounter"
+title = "古墓迷雾"
+description = "你在终南山后山迷了路，误打误撞走到了一个刻着'活死人墓'的石碑前。周围的雾气让你分不清方向。"
+life_stages = ["young_adult"]
+rarity = 1
+
+[[events.choices]]
+text = "在迷雾中寻找出路"
+outcome_text = "你胡乱走了半个时辰，居然在一处石壁上看到了古墓派前辈留下的轻功口诀。"
+agility = 2
+wits = 1
+
+[[events.choices]]
+text = "大声呼救"
+outcome_text = "一个白衣女子飘然而至，冷冷地指点了出山的路。她的轻功身法让你叹为观止。"
+agility = 1
+
+# --- NEW: 铁掌帮挑衅 ---
+[[events]]
+id = "ya_tiezhang_challenge"
+title = "铁掌挑衅"
+description = "铁掌帮的几个弟子在酒馆中大放厥词，说江南武林不过尔尔。几个本地武师敢怒不敢言。"
+life_stages = ["young_adult"]
+rarity = 3
+
+[[events.choices]]
+text = "出手教训这群狂妄之徒"
+outcome_text = "你以一敌三，以精妙的招式将他们全部打趴。铁掌帮弟子灰溜溜地走了。"
+technique = 2
+reputation = 2
+honor = 1
+
+[[events.choices]]
+text = "暗中挑拨，让他们惹上更大的麻烦"
+outcome_text = "你巧妙地引导他们的怒火对准了路过的官府捕快，一场斗殴后铁掌帮弟子被带走审问。"
+wits = 2
+honor = -1
+
+# --- NEW: 桃花岛奇遇 ---
+[[events]]
+id = "ya_peach_blossom"
+title = "东海奇遇"
+description = "一场风暴将你乘坐的船吹到了一座开满桃花的小岛。岛上奇门遁甲布阵，处处暗藏玄机。"
+life_stages = ["young_adult"]
+rarity = 1
+
+[[events.choices]]
+text = "破解岛上阵法"
+outcome_text = "你花了三天时间解开了岛上的阵法，在岛中心的石屋中发现了黄药师留下的奇门遁甲笔记。"
+wits = 3
+technique = 1
+
+[[events.choices]]
+text = "安心在岛上修炼，等风浪过去"
+outcome_text = "你在桃花林中打坐修炼，岛上的灵气让你的内力修为提升了不少。"
+qi = 2
+constitution = 1
+
+# --- NEW: 血刀门追杀 ---
+[[events]]
+id = "ya_blood_blade_chase"
+title = "血刀追杀令"
+description = "你在路上发现了一张血刀门的追杀令，上面画着一个年轻人的肖像。而那个人——和你长得有七分相似！"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "找到被追杀的年轻人，帮他逃走"
+outcome_text = "你赶在血刀门之前找到了那个年轻人，两人联手击退了追兵。原来他是被冤枉的。"
+technique = 2
+honor = 2
+reputation = 1
+
+[[events.choices]]
+text = "主动找血刀门澄清误会"
+outcome_text = "你找到了血刀门的分舵，费了一番口舌证明了你不是那个人。虽然麻烦但避免了误会。"
+wits = 2
+agility = 1
+
+# --- NEW: 散修联盟 ---
+[[events]]
+id = "ya_wandering_alliance"
+title = "散修联盟"
+description = "一群无门无派的散修在组建一个互助联盟，邀请你也加入。他们不设门规，来去自由。"
+life_stages = ["young_adult"]
+rarity = 3
+
+[[events.choices]]
+text = "加入联盟，帮助组织事务"
+outcome_text = "你成为了联盟的核心成员之一。虽然没有门派的资源，但你在组织协调中学到了很多。"
+wits = 2
+reputation = 2
+set_flags = ["joined_alliance"]
+
+[[events.choices]]
+text = "婉拒，独来独往更好"
+outcome_text = "你谢绝了邀请。有些人就是适合一个人行走江湖。"
+agility = 1

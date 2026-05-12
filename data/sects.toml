@@ -50,3 +50,95 @@ id = "wandering"
 name = "散修"
 description = "无门无派，随心所欲，一切靠机缘。"
 exclusive_arts = []
+
+# === 江湖正派 ===
+[[sects]]
+id = "quanzhen"
+name = "全真教"
+description = "道家玄门正宗，王重阳所创。以先天功和全真剑法闻名于世。"
+type = "orthodox"
+condition_wits_min = 5
+exclusive_arts = ["xiantian", "quanzhenjian"]
+allies = ["wudang", "shaolin"]
+enemies = ["gumu", "riyue"]
+
+[[sects]]
+id = "gumu"
+name = "古墓派"
+description = "隐于活死人墓中的神秘门派，只收女弟子。轻功剑法天下无双。"
+type = "neutral"
+condition_gender = "female"
+condition_agility_min = 5
+exclusive_arts = ["yujian"]
+allies = ["quanzhen"]
+enemies = ["riyue"]
+
+[[sects]]
+id = "mingjiao"
+name = "明教"
+description = "源自波斯的西域大教，教众遍布天下。行事不拘正邪，惟光明故。"
+type = "unorthodox"
+condition_bone_min = 5
+exclusive_arts = ["qiankundanuoyi", "shenghuo"]
+allies = ["gaibang"]
+enemies = ["shaolin", "emei", "huashan", "wudang", "kunlun"]
+
+[[sects]]
+id = "taohua"
+name = "桃花岛"
+description = "东海孤岛上的隐世门派，黄药师所创。奇门遁甲、弹指神通天下独步。"
+type = "neutral"
+condition_wits_min = 6
+exclusive_arts = ["tanzhishentong", "luoying"]
+allies = []
+enemies = []
+
+[[sects]]
+id = "wudu"
+name = "五毒教"
+description = "苗疆毒术与武功结合的神秘教派，以毒攻毒独步天下。"
+type = "unorthodox"
+condition_constitution_min = 5
+exclusive_arts = []
+allies = ["riyue"]
+enemies = ["shaolin", "wudang", "emei"]
+
+[[sects]]
+id = "kunlun"
+name = "昆仑派"
+description = "西域大派，地处昆仑山脉，剑法与内功融合西域武学之精华。"
+type = "orthodox"
+condition_bone_min = 4
+exclusive_arts = []
+allies = ["shaolin", "wudang", "emei"]
+enemies = ["mingjiao", "riyue"]
+
+[[sects]]
+id = "kongtong"
+name = "崆峒派"
+description = "西北古老门派，七伤拳名震天下。性格刚烈，行事直接。"
+type = "orthodox"
+condition_bone_min = 4
+exclusive_arts = ["qishangquan"]
+allies = ["huashan", "kunlun"]
+enemies = ["mingjiao"]
+
+[[sects]]
+id = "xuedao"
+name = "血刀门"
+description = "西域邪派，血刀大法狠辣无比。门下弟子个个嗜血好杀。"
+type = "unorthodox"
+condition_honor_max = -30
+exclusive_arts = ["xuedaodafa"]
+allies = ["riyue"]
+enemies = ["shaolin", "wudang", "quanzhen", "kunlun"]
+
+[[sects]]
+id = "tiezhangpai"
+name = "铁掌帮"
+description = "江南帮会，帮主铁掌水上飘裘千仞名震江湖。一双铁掌打遍江南。"
+type = "unorthodox"
+condition_bone_min = 3
+exclusive_arts = ["tiezhang"]
+allies = []
+enemies = ["gaibang"]

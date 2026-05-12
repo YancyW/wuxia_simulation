@@ -233,3 +233,164 @@ description = "武林第一奇功，练成后天下无敌。"
 rarity = 5
 sect_only = "riyue"
 honor_max = -50
+
+# === 内功补充 ===
+[[arts]]
+id = "beiming"
+name = "北冥神功"
+type = "internal"
+description = "逍遥派至高内功，海纳百川，可吸人内力为己用而不伤自身。"
+rarity = 5
+min_wits = 7
+min_qi = 5
+sect_only = "xiaoyao"
+
+[[arts]]
+id = "yijinjing_shaolin"
+name = "洗髓经"
+type = "internal"
+description = "少林无上内功，洗髓伐脉，脱胎换骨。传闻练成者可返老还童。"
+rarity = 5
+min_bone = 7
+min_qi = 6
+sect_only = "shaolin"
+
+[[arts]]
+id = "shenzhao"
+name = "神照经"
+type = "internal"
+description = "湘西武林世家绝学，内功至纯至正，可起死回生。"
+rarity = 4
+min_bone = 5
+min_wits = 5
+
+[[arts]]
+id = "xiantian"
+name = "先天功"
+type = "internal"
+description = "全真教王重阳所创，以先天之气贯通全身经脉。"
+rarity = 5
+min_qi = 6
+min_wits = 6
+sect_only = "quanzhen"
+
+# === 拳掌补充 ===
+[[arts]]
+id = "anran"
+name = "黯然销魂掌"
+type = "palm"
+description = "神雕大侠杨过所创，掌法中暗含无尽相思愁苦之意。"
+rarity = 5
+min_bone = 6
+min_qi = 5
+
+[[arts]]
+id = "qiankundanuoyi"
+name = "乾坤大挪移"
+type = "palm"
+description = "明教镇教绝学，能牵引挪移敌劲，借力打力。"
+rarity = 5
+min_qi = 6
+min_wits = 5
+sect_only = "mingjiao"
+
+[[arts]]
+id = "kongming"
+name = "空明拳"
+type = "palm"
+description = "老顽童周伯通所创，以空灵对刚猛，至柔胜至刚。"
+rarity = 4
+min_wits = 6
+
+[[arts]]
+id = "taixuan"
+name = "太玄经"
+type = "palm"
+description = "侠客岛上石刻武功，包罗万象，天下武学总纲。"
+rarity = 5
+min_wits = 7
+min_bone = 5
+
+# === 剑法补充 ===
+[[arts]]
+id = "yujian"
+name = "玉女剑法"
+type = "sword"
+description = "古墓派林朝英所创，剑招飘逸如仙，与全真剑法配合天下无敌。"
+rarity = 4
+sect_only = "gumu"
+gender_required = "female"
+
+[[arts]]
+id = "quanzhenjian"
+name = "全真剑法"
+type = "sword"
+description = "全真教镇派剑法，中正平和，大巧不工。"
+rarity = 3
+sect_only = "quanzhen"
+
+[[arts]]
+id = "xuantie"
+name = "玄铁剑法"
+type = "sword"
+description = "以重剑施轻功，重剑无锋大巧不工。非内力深厚者不可用。"
+rarity = 5
+min_qi = 7
+min_bone = 6
+
+# === 刀法补充 ===
+[[arts]]
+id = "ranmu"
+name = "燃木刀法"
+type = "blade"
+description = "少林七十二绝技之一，以内力催动刀气，可点燃草木。"
+rarity = 4
+min_qi = 5
+sect_only = "shaolin"
+
+# === 轻功补充 ===
+[[arts]]
+id = "luoying"
+name = "落英身法"
+type = "movement"
+description = "桃花岛独门身法，如落英缤纷，让人眼花缭乱。"
+rarity = 3
+min_agility = 4
+sect_only = "taohua"
+
+# === 奇门补充 ===
+[[arts]]
+id = "yiyangzhi"
+name = "一阳指"
+type = "special"
+description = "大理段氏绝学，以指力点穴，既可攻敌亦可疗伤。"
+rarity = 5
+min_qi = 6
+min_wits = 5
+
+[[arts]]
+id = "hanbing"
+name = "寒冰真气"
+type = "special"
+description = "左冷禅自创绝学，以内力化为极寒之气，可冻结对手经脉。"
+rarity = 4
+min_qi = 5
+honor_max = -20
+
+[[arts]]
+id = "shenghuo"
+name = "圣火令武功"
+type = "special"
+description = "明教圣火令上刻录的西域奇功，招式诡异莫測。"
+rarity = 4
+min_wits = 5
+sect_only = "mingjiao"
+
+[[arts]]
+id = "pixie"
+name = "辟邪剑谱"
+type = "special"
+description = "福威镖局林远图所留，剑法迅捷如电，鬼神难测。与葵花宝典同源。"
+rarity = 5
+min_agility = 6
+honor_max = -40

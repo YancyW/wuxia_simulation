@@ -448,3 +448,158 @@ text = "和他一起出山，父子联手"
 outcome_text = "你们父子兵出江湖，成为了武林中一道独特的风景。"
 reputation = 2
 technique = 1
+
+# --- NEW: 昆仑论剑 ---
+[[events]]
+id = "ma_kunlun_meet"
+title = "昆仑论剑"
+description = "天下高手齐聚昆仑山巅，举行十年一度的'昆仑论剑'。这是武林中最顶级的武学交流盛会。"
+life_stages = ["middle_age"]
+rarity = 1
+min_reputation = 18
+
+[[events.choices]]
+text = "在论剑中展示毕生绝学"
+outcome_text = "你在昆仑之巅展示了毕生所学，博得了满堂彩。即使是各大派掌门也对你另眼相看。"
+technique = 3
+reputation = 4
+honor = 2
+
+[[events.choices]]
+text = "以旁观者的身份参与，给予点评"
+outcome_text = "你不再是争强好胜的年轻人了。你那中肯的点评和智慧的见解给后辈们留下了深刻印象。"
+wits = 3
+reputation = 2
+honor = 1
+
+# --- NEW: 调解门派世仇 ---
+[[events]]
+id = "ma_mediate_feud"
+title = "化解世仇"
+description = "华山派和昆仑派积怨已久，眼看就要爆发全面冲突。两边掌门同时找上了你，请你来调解。"
+life_stages = ["middle_age"]
+rarity = 1
+min_reputation = 15
+min_honor = 10
+
+[[events.choices]]
+text = "花费数月调解，促成和平协议"
+outcome_text = "你来往于华山和昆仑之间，历经数月终于让双方达成了和平协议。你的名字被刻在了两派的功德碑上。"
+honor = 5
+reputation = 3
+wits = 2
+
+[[events.choices]]
+text = "召集武林大会，当众裁断"
+outcome_text = "你在武林大会上陈述了两派的历史恩怨，当众提出了解决方案。虽然争议极大但最终被接受了。"
+wits = 3
+reputation = 2
+honor = 1
+
+# --- NEW: 五毒教归附 ---
+[[events]]
+id = "ma_wudu_submit"
+title = "五毒归附"
+description = "五毒教遭受中原各派排挤，处境艰难。教主托人带来消息，愿意交出毒术秘方，以换取正道庇护。"
+life_stages = ["middle_age"]
+rarity = 1
+min_honor = 5
+
+[[events.choices]]
+text = "力排众议，接纳五毒教"
+outcome_text = "你力排众议接纳了五毒教。在你的约束下，五毒教从此不再用毒害人，反而以医术救人无数。"
+honor = 3
+wits = 2
+reputation = 1
+
+[[events.choices]]
+text = "拒绝，并由各派自行处理"
+outcome_text = "你觉得此事不可轻率决定。五毒教最终被血刀门吞并，成为了更大的威胁。"
+wits = 1
+
+# --- NEW: 桃华岛传人 ---
+[[events]]
+id = "ma_taohua_legacy"
+title = "桃花传人"
+description = "一个自称黄药师隔代传人的年轻人找到了你，说他师父临死前嘱托他将一本奇门秘术交给你。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "接收秘术，并收年轻人为徒"
+outcome_text = "你接收了桃花岛的秘术，并将那个年轻人收为入室弟子。桃花岛的传承因你而延续。"
+wits = 2
+technique = 2
+honor = 1
+set_flags = ["taohua_legacy"]
+
+[[events.choices]]
+text = "将秘术归还给桃花岛的后人"
+outcome_text = "你找到了黄药师的后人，将秘术归还。年轻人虽然失望但理解了你的用心。"
+honor = 2
+
+# --- NEW: 崆峒内乱 ---
+[[events]]
+id = "ma_kongtong_civil_war"
+title = "崆峒内乱"
+description = "崆峒派内部因为掌门继承问题发生了分裂，两派人马剑拔弩张。掌门来信求助于你。"
+life_stages = ["middle_age"]
+rarity = 2
+
+[[events.choices]]
+text = "支持现任掌门的儿子继位"
+outcome_text = "你支持少主继位，帮他平定了叛乱。崆峒派从此对你感恩戴德。"
+reputation = 2
+honor = 2
+
+[[events.choices]]
+text = "建议公平比试决定掌门人选"
+outcome_text = "你提出了公平竞争的方案，最终最有能力的人继任了掌门。虽然得罪了几个人但维护了公义。"
+wits = 2
+honor = 3
+
+# --- NEW: 散修联盟壮大 ---
+[[events]]
+id = "ma_alliance_growth"
+title = "联盟壮大"
+description = "当年你帮忙组建的散修联盟已经发展成为了武林中不可忽视的力量。他们邀请你出任名誉盟主。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["joined_alliance"]
+
+[[events.choices]]
+text = "出任名誉盟主，引导联盟"
+outcome_text = "你成为了散修联盟的精神领袖。在你的影响下，联盟坚持正道，成为了武林中的一股清流。"
+honor = 3
+reputation = 3
+set_flags = ["alliance_leader"]
+
+[[events.choices]]
+text = "只做顾问，不居功名"
+outcome_text = "你在幕后教导和引导联盟的发展方向。虽然没有公开露面，但你的影响力遍布整个组织。"
+wits = 2
+reputation = 1
+
+# --- NEW: 血刀门的终结 ---
+[[events]]
+id = "ma_destroy_xuedao"
+title = "铲除血刀门"
+description = "血刀门近来丧心病狂，屠杀了一个村庄。武林各派决定联合剿灭血刀门。你被推举为这次行动的指挥。"
+life_stages = ["middle_age"]
+rarity = 1
+min_reputation = 12
+
+[[events.choices]]
+text = "率队剿灭血刀门"
+outcome_text = "你指挥各派精英一举歼灭了血刀门的主力。从此血刀门在武林中除名。"
+technique = 3
+reputation = 4
+honor = 3
+constitution = -2
+
+[[events.choices]]
+text = "兵不血刃，说服血刀门解散"
+outcome_text = "你独自进入血刀门总坛和门主谈判。三天后，血刀门宣布解散。江湖上对你的胆识赞不绝口。"
+wits = 3
+honor = 4
+reputation = 2

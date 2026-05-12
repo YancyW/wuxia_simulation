@@ -286,3 +286,62 @@ set_flags = ["promised_to_elder"]
 text = "觉得太遥远了，先做好眼前的事"
 outcome_text = "你把心思放在当下。远处的际遇，以后再说。"
 bone = 1
+
+# --- NEW: 门派冲突波及 ---
+[[events]]
+id = "youth_sect_conflict"
+title = "路过的大战"
+description = "你在村外玩耍时，两个武林高手从天而降，在田野间激烈交手。剑气纵横，草木摧折。"
+life_stages = ["youth"]
+rarity = 2
+
+[[events.choices]]
+text = "躲在远处偷偷观察"
+outcome_text = "你目睹了一场惊心动魄的高手对决，虽然看不懂太多，但对武学产生了深深的向往。"
+wits = 1
+technique = 1
+
+[[events.choices]]
+text = "等他们打完后上前询问"
+outcome_text = "一位高手看你胆识不错，临走前随手扔给你一本入门的拳谱。"
+bone = 1
+technique = 1
+reputation = 1
+
+# --- NEW: 救助伤者 ---
+[[events]]
+id = "youth_save_wounded"
+title = "林中伤者"
+description = "你在山林中发现一个浑身是血的中年人靠在树下。他手中紧握着一块令牌，上面刻着'明教'二字。"
+life_stages = ["youth"]
+rarity = 2
+
+[[events.choices]]
+text = "偷偷帮他包扎伤口"
+outcome_text = "中年人醒来后感激不尽，低声对你说：'好孩子，日后若有难，来光明顶找我。'"
+honor = 1
+set_flags = ["helped_mingjiao"]
+
+[[events.choices]]
+text = "赶紧跑回去叫大人来"
+outcome_text = "村里的大人们赶来时人已经不见了，只留下一滩血迹。"
+agility = 1
+
+# --- NEW: 小门派拜访 ---
+[[events]]
+id = "youth_small_sect_visit"
+title = "门派来访"
+description = "一个名不见经传的小门派掌门带着弟子来村里收徒。虽然没有大门派的气派，但掌门人看起来很和善。"
+life_stages = ["youth"]
+rarity = 3
+
+[[events.choices]]
+text = "跟着这个小门派学些基础"
+outcome_text = "虽然这个小门派没什么名气，但掌门的教导却格外用心。你打下了坚实的武学基础。"
+bone = 1
+technique = 2
+
+[[events.choices]]
+text = "婉拒了他们，想等更好的机会"
+outcome_text = "你礼貌地拒绝了。掌门并不生气，只说了句'缘分未到'便离去了。"
+wits = 1

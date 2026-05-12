@@ -398,3 +398,145 @@ text = "让他顺其自然发展"
 outcome_text = "你不强求他继承衣钵，让他自己选择喜欢的路。"
 wits = 1
 honor = 1
+
+# --- NEW: 光明顶之战 ---
+[[events]]
+id = "adult_guangming_siege"
+title = "光明顶之围"
+description = "六大派围攻光明顶！明教危在旦夕。你站在山下，看着这场决定武林格局的大战即将爆发。"
+life_stages = ["adult"]
+rarity = 1
+min_reputation = 10
+
+[[events.choices]]
+text = "加入正派联军，围攻明教"
+outcome_text = "你和正派高手们一起杀上了光明顶。混战中你的表现让各派掌门刮目相看。"
+technique = 3
+reputation = 3
+honor = 2
+constitution = -2
+
+[[events.choices]]
+text = "帮助明教抵御围攻"
+outcome_text = "你在混战中救下了明教的一位护法。明教上下感激不尽，事后赠你一部圣火令武功的抄本。"
+technique = 2
+honor = -3
+reputation = -1
+learn_art = "shenghuo"
+
+[[events.choices]]
+text = "居中调停，阻止血战"
+outcome_text = "你冒死在两军阵前陈说利害，最终促成了一场谈判。虽然未能完全停战但减少了伤亡。"
+wits = 3
+honor = 3
+reputation = 2
+
+# --- NEW: 五岳剑派会盟 ---
+[[events]]
+id = "adult_sword_alliance"
+title = "五岳剑派会盟"
+description = "五岳剑派的掌门人在华山召开会盟大会，商讨应对魔教的对策。各派之间的明争暗斗也浮出水面。"
+life_stages = ["adult"]
+rarity = 2
+min_reputation = 8
+
+[[events.choices]]
+text = "支持华山派的主张"
+outcome_text = "你公开支持华山派的武力对抗主张，赢得了华山派上下的好感。"
+reputation = 2
+technique = 1
+honor = 1
+
+[[events.choices]]
+text = "暗中观察各派的真实意图"
+outcome_text = "你发现有些门派嘴上支持联盟，暗中却在保存实力。这个发现让你对江湖有了更深的理解。"
+wits = 3
+reputation = 1
+
+# --- NEW: 古墓招亲 ---
+[[events]]
+id = "adult_gumu_marriage"
+title = "古墓招亲"
+description = "古墓派破例对外招收一名男弟子，条件是必须在比武中胜过古墓派的大师姐。这个消息轰动了武林。"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "参加比武招亲"
+outcome_text = "你和古墓派大师姐大战数百回合，虽然最后棋差一招，但你的表现赢得了她的敬重。"
+technique = 2
+reputation = 2
+
+[[events.choices]]
+text = "静观其变，旁观这场盛会"
+outcome_text = "你在一旁观看各派青年才俊大展身手，学到了不少招式变化。"
+wits = 1
+technique = 1
+
+# --- NEW: 五毒教求药 ---
+[[events]]
+id = "adult_wudu_medicine"
+title = "五毒求药"
+description = "你的一位朋友中了一种奇毒，普天之下只有五毒教有解药。你只身前往苗疆求药。"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "以武换取解药"
+outcome_text = "五毒教主欣赏你的胆识，提出只要你为他完成三件事就给解药。你做到了，朋友得救。"
+honor = 2
+constitution = 1
+reputation = 1
+
+[[events.choices]]
+text = "潜入五毒教偷取解药"
+outcome_text = "你施展轻功潜入五毒教的药库，成功偷出了解药。但这笔账五毒教记在了心里。"
+agility = 2
+honor = -2
+wits = 1
+
+# --- NEW: 桃花岛寻宝 ---
+[[events]]
+id = "adult_taohua_treasure"
+title = "桃花岛藏宝"
+description = "江湖传闻黄药师在桃花岛上藏有一批绝世珍品——包括九花玉露丸的配方和弹指神通的完整心法。"
+life_stages = ["adult"]
+rarity = 1
+min_wits = 7
+
+[[events.choices]]
+text = "组队前往寻宝"
+outcome_text = "你召集了几个信得过的朋友一起前往，在岛上破解了三重阵法后终于找到了宝藏。"
+wits = 2
+technique = 1
+qi = 1
+learn_art = "tanzhishentong"
+
+[[events.choices]]
+text = "独自前往，独享宝藏"
+outcome_text = "你单枪匹马破解了阵法，虽然吃了不少苦头但宝藏归你一人所有。"
+wits = 2
+qi = 2
+constitution = -1
+
+# --- NEW: 血刀门复仇 ---
+[[events]]
+id = "adult_xuedao_revenge"
+title = "血刀门复仇"
+description = "血刀门的一位高手当年杀了你的朋友，今天终于被你找到了他的下落。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "堂堂正正挑战"
+outcome_text = "你在众人面前向他发出生死挑战。经过一场苦战，你击败了他但没有取他性命——让他活着承受耻辱。"
+technique = 3
+reputation = 3
+honor = 2
+
+[[events.choices]]
+text = "暗中解决"
+outcome_text = "你在一个月黑风高的夜晚潜入他的住所。第二天，人们发现他死在了自己的床上。"
+agility = 2
+technique = 1
+honor = -3
