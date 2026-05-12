@@ -11,7 +11,7 @@ import { advanceAge } from './aging.js';
 
 export interface GameState {
   save: typeof saves.$inferSelect | null;
-  character: typeof characters.$inferSelect | null;
+  character: Character | null;
   currentEvent: EventTemplate | null;
   learnedArts: (typeof martialArtsLearned.$inferSelect)[];
   relations: (typeof relationships.$inferSelect)[];
