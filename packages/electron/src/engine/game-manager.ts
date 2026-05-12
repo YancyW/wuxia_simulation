@@ -78,7 +78,18 @@ export function getGameState(saveId: string): GameState | null {
   const rels = db.select().from(relationships).where(eq(relationships.characterId, character.id)).all();
   const logs = db.select().from(eventLogs).where(eq(eventLogs.characterId, character.id)).orderBy(desc(eventLogs.createdAt)).all();
 
-  return { save, character, currentEvent: null, learnedArts: arts, relations: rels, logs };
+  return { save, character: serializeCharacter(character), currentEvent: null, learnedArts: arts, relations: rels, logs };
+}
+
+function serializeCharacter(char: typeof characters.$inferSelect): Character {
+  return {
+    ...char,
+    flags: deserializeFlags(char.flags),
+    isAlive: char.isAlive as boolean,
+    lifeStage: char.lifeStage as Character['lifeStage'],
+    martialLevel: char.martialLevel as Character['martialLevel'],
+    gender: char.gender as Character['gender'],
+  };
 }
 
 export interface TurnResult {
@@ -100,7 +111,7 @@ export function advanceTurn(saveId: string): TurnResult | null {
   const event = selectEvent(deserializeCharacter(character), pastEventIds);
 
   return {
-    character,
+    character: serializeCharacter(character),
     event,
     learnedArts: state.learnedArts,
     died: false,
@@ -119,7 +130,7 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   const event = selectEvent(deserializeCharacter(character), pastEventIds);
 
   if (!event || choiceIndex < 0 || choiceIndex >= event.choices.length) {
-    return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
+    return { character: serializeCharacter(character), event, learnedArts: state.learnedArts, died: false, deathCause: null };
   }
 
   const choice = event.choices[choiceIndex]!;
@@ -225,7 +236,7 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   }
 
   return {
-    character: updatedChar,
+    character: serializeCharacter(updatedChar),
     event: nextEvent || event,
     learnedArts: arts,
     died: agingResult.died,
