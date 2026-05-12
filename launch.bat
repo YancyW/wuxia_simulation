@@ -122,4 +122,5 @@ REM Launch Electron directly (GUI app, no console window)
 start "" "%ELECTRON_PATH%" packages\electron --no-sandbox
 
 echo Done! Game window should open.
-pause
+timeout /t 3 /nobreak >nul
+exit

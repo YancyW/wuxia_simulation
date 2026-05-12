@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { registerIpcHandlers } from './ipc/handlers.js';
@@ -27,7 +27,6 @@ function createWindow() {
   if (isDev) {
     const devServerUrl = process.env.VITE_DEV_SERVER_URL || 'http://localhost:5173';
     mainWindow.loadURL(devServerUrl);
-    mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
     const indexPath = path.join(__dirname, '..', '..', 'frontend', 'dist', 'index.html');
     mainWindow.loadFile(indexPath);
@@ -38,8 +37,23 @@ function createWindow() {
   });
 }
 
+function buildMenu() {
+  const template: Electron.MenuItemConstructorOptions[] = [
+    {
+      label: 'File',
+      submenu: [
+        { label: 'DevTools (F12)', accelerator: 'F12', click: () => mainWindow?.webContents.toggleDevTools() },
+        { type: 'separator' },
+        { role: 'quit', label: 'Exit' },
+      ],
+    },
+  ];
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+}
+
 app.whenReady().then(() => {
   registerIpcHandlers();
+  buildMenu();
   createWindow();
 
   app.on('activate', () => {
