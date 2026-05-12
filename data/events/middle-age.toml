@@ -310,3 +310,141 @@ reputation = 1
 text = "珍藏信笺，继续自己的生活"
 outcome_text = "有些回忆适合留在过去。你小心地将信收好，继续过好现在的生活。"
 constitution = 1
+# --- Chained: 弟子后续 (requires has_disciple, excluded by disciple betrayal) ---
+[[events]]
+id = "ma_disciple_success"
+title = "弟子成名"
+description = "你的弟子在江湖上闯出了名堂，人人都在称赞你的教导有方。你看着他英姿勃发，心中满是欣慰。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["has_disciple"]
+excluded_flags = ["betrayed_brother"]
+once_per_game = true
+
+[[events.choices]]
+text = "为他感到骄傲，继续支持他"
+outcome_text = "你们师徒联手，在江湖上留下了一段佳话。"
+reputation = 3
+honor = 2
+
+[[events.choices]]
+text = "提醒他不要得意忘形"
+outcome_text = "你告诫弟子江湖险恶。他虚心受教，更加稳重了。"
+wits = 2
+honor = 1
+
+# --- Chained: 归隐后续 (requires retired) ---
+[[events]]
+id = "ma_peaceful_life"
+title = "山中日月"
+description = "隐居山林的日子平淡而充实。每天种菜、读书、练功，你已经快要忘记江湖的喧嚣了。"
+life_stages = ["middle_age"]
+rarity = 3
+required_flags = ["retired"]
+once_per_game = true
+
+[[events.choices]]
+text = "安享这份宁静"
+outcome_text = "你找到了内心的平静。这种简单的幸福，是闯荡江湖时从未体验过的。"
+constitution = 3
+wits = 1
+
+[[events.choices]]
+text = "把隐居心得写成书"
+outcome_text = "你在书中融合了武学和人生感悟，成为了一部传世之作。"
+wits = 3
+reputation = 2
+
+# --- Chained: 武林盟主后续 (requires became_leader from tournament) ---
+[[events]]
+id = "ma_leader_dilemma"
+title = "盟主的两难"
+description = "身为武林盟主，你面临一个艰难抉择：两大家族发生了血仇，都来请求你主持公道，但无论怎么判都会得罪一方。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["became_leader"]
+once_per_game = true
+
+[[events.choices]]
+text = "秉公判决，不偏不倚"
+outcome_text = "你依法断案，虽然一时引起不满，但你的公正赢得了长久的尊重。"
+honor = 3
+reputation = 2
+wits = 1
+
+[[events.choices]]
+text = "居中调停，促成和解"
+outcome_text = "你费尽心力促成了两家的和解。虽然过程艰辛，但避免了更大的流血冲突。"
+wits = 3
+honor = 2
+reputation = 1
+
+# --- Chained: 身世后续 (requires learned_heritage) ---
+[[events]]
+id = "ma_heritage_relic"
+title = "祖传信物"
+description = "你调查身世的过程中发现，你的家族留有一件信物封存在一座古刹中。据说这件信物中藏着家族的秘密。"
+life_stages = ["middle_age"]
+rarity = 1
+required_flags = ["learned_heritage"]
+once_per_game = true
+
+[[events.choices]]
+text = "前往古刹取回信物"
+outcome_text = "你在古刹中找到了信物——一把古剑和一封信。信中说你的祖先曾是武林至尊。"
+bone = 2
+qi = 2
+reputation = 2
+learn_art = "dugu9jian"
+
+[[events.choices]]
+text = "不去打扰过去，活在当下"
+outcome_text = "你觉得过去的都已经过去了。重要的是你自己创造的一切。"
+wits = 2
+honor = 1
+
+# --- Chained: 放下执念后续 (requires let_go) ---
+[[events]]
+id = "ma_inner_peace"
+title = "心无挂碍"
+description = "放下了仇恨和执念后，你的心境前所未有的开阔。练功时气息悠长，竟然隐隐感到武学境界又要突破。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["let_go"]
+once_per_game = true
+
+[[events.choices]]
+text = "顺势突破，追求更高境界"
+outcome_text = "你借助内心的平静，一举突破了武学瓶颈，达到了新的高度。"
+qi = 3
+technique = 3
+wits = 2
+
+[[events.choices]]
+text = "保持现状，享受平静"
+outcome_text = "你已经不再执着于突破。随心所欲地练功，反而更加逍遥自在。"
+constitution = 2
+wits = 1
+
+# --- Chained: 子女成年 (requires child_trained) ---
+[[events]]
+id = "ma_child_adult"
+title = "子承父业"
+description = "你的孩子已经长大成人，武艺不凡。他/她站在你面前，目光坚定：'我决定走自己的江湖路了。'"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["child_trained"]
+once_per_game = true
+
+[[events.choices]]
+text = "放手让孩子去闯荡"
+outcome_text = "你看着孩子远去的背影，仿佛看到了年轻时的自己。江湖代有人才出。"
+honor = 2
+wits = 1
+reputation = 1
+
+[[events.choices]]
+text = "和他一起出山，父子联手"
+outcome_text = "你们父子兵出江湖，成为了武林中一道独特的风景。"
+reputation = 2
+technique = 1

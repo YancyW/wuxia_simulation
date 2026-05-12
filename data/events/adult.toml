@@ -281,3 +281,120 @@ text = "虽然怀疑但愿意照顾"
 outcome_text = "你给了少年一个安身之处，虽未公开认亲但也尽了一份责任。"
 honor = 1
 reputation = -1
+# --- Chained: 卧底后续 (requires undercover) ---
+[[events]]
+id = "adult_double_agent"
+title = "双面人生"
+description = "你在秘密组织中潜伏已久，掌握了许多内幕。但同时你的身份也岌岌可危，随时可能暴露。"
+life_stages = ["adult"]
+rarity = 2
+required_flags = ["undercover"]
+once_per_game = true
+
+[[events.choices]]
+text = "将情报传给正道，一举瓦解组织"
+outcome_text = "你的情报让正道联军一举摧毁了秘密组织的老巢。你功成身退，回到了正常的生活。"
+honor = 4
+reputation = 3
+wits = 1
+set_flags = ["exposed_org"]
+
+[[events.choices]]
+text = "继续潜伏，深入核心"
+outcome_text = "你冒着巨大的风险进入了组织的核心层，获得了更高的权力但也更危险了。"
+wits = 3
+qi = 1
+honor = -2
+
+# --- Chained: 开宗立派后续 (requires founded_sect) ---
+[[events]]
+id = "adult_sect_growth"
+title = "门派壮大"
+description = "你创立的门派逐渐壮大，前来拜师学艺的人络绎不绝。但随着规模扩大，内部也开始出现了问题。"
+life_stages = ["adult"]
+rarity = 2
+required_flags = ["founded_sect"]
+once_per_game = true
+
+[[events.choices]]
+text = "亲力亲为，严格管理"
+outcome_text = "你制定了严格的规矩并亲自监督，虽然辛苦但门风清正。"
+honor = 2
+reputation = 2
+constitution = -1
+
+[[events.choices]]
+text = "放手让弟子们管理"
+outcome_text = "你信任弟子们的能力。虽然出了些小问题，但整体运转良好。"
+wits = 2
+reputation = 1
+
+# --- Chained: 情缘成婚 (requires romance_confirmed) ---
+[[events]]
+id = "adult_wedding"
+title = "红烛之夜"
+description = "你们终于走到了这一步。江湖各路朋友都来贺喜，连一些平日不对付的豪杰也送来了贺礼。"
+life_stages = ["adult"]
+rarity = 1
+required_flags = ["romance_confirmed"]
+once_per_game = true
+
+[[events.choices]]
+text = "大办宴席，宴请天下英雄"
+outcome_text = "你的婚礼成了江湖上的一桩盛事。人人都知道你们是一对神仙眷侣。"
+reputation = 3
+honor = 2
+
+[[events.choices]]
+text = "简朴成婚，只请至交好友"
+outcome_text = "你们的婚礼低调而温馨。虽然没有轰轰烈烈，但真情实意胜过一切。"
+honor = 3
+constitution = 1
+
+# --- Chained: 复仇后续 (requires avenged) ---
+[[events]]
+id = "adult_after_revenge"
+title = "复仇之后"
+description = "大仇得报后，你感到一阵空虚。这些年的执念让你忽略了太多美好的事物。"
+life_stages = ["adult"]
+rarity = 2
+required_flags = ["avenged"]
+once_per_game = true
+
+[[events.choices]]
+text = "放下执念，重新开始"
+outcome_text = "你将仇恨彻底放下，以一个全新的心态面对余下的人生。"
+wits = 2
+honor = 2
+constitution = 1
+set_flags = ["let_go"]
+
+[[events.choices]]
+text = "复仇还未完成，继续追查幕后黑手"
+outcome_text = "你发现当年的恩怨背后还有更大的阴谋。复仇之路还要继续。"
+technique = 2
+wits = 1
+honor = -1
+
+# --- Chained: 子女培养 (requires has_child, triggered later) ---
+[[events]]
+id = "adult_teach_child"
+title = "教子习武"
+description = "你的孩子到了可以习武的年纪。你亲手教他第一套拳法时，在他身上看到了自己当年的影子。"
+life_stages = ["adult"]
+rarity = 2
+required_flags = ["has_child"]
+
+[[events.choices]]
+text = "严格教导，打好基础"
+outcome_text = "你对孩子要求极高，虽然辛苦但他打下了扎实的武学根基。"
+bone = 1
+technique = 1
+honor = 1
+set_flags = ["child_trained"]
+
+[[events.choices]]
+text = "让他顺其自然发展"
+outcome_text = "你不强求他继承衣钵，让他自己选择喜欢的路。"
+wits = 1
+honor = 1

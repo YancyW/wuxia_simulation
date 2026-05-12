@@ -495,3 +495,94 @@ reputation = 1
 text = "虽然合得来但不急着结拜"
 outcome_text = "你们约定日后再说。多个朋友总是好的。"
 wits = 1
+# --- Chained: 神秘老人线索 (requires met_mysterious_elder) ---
+[[events]]
+id = "ya_search_elder"
+title = "寻找老人"
+description = "你回想起当年救助过的那位神秘老人，决定踏上寻找他的旅程。线索指向了西域方向。"
+life_stages = ["young_adult"]
+rarity = 2
+required_flags = ["met_mysterious_elder"]
+once_per_game = true
+
+[[events.choices]]
+text = "前往西域寻访"
+outcome_text = "你一路西行，历经风沙和考验，最终在天山脚下找到了隐修的老人。他收你为关门弟子。"
+qi = 3
+technique = 2
+agility = 1
+set_flags = ["found_elder"]
+
+[[events.choices]]
+text = "在江湖中打听老人来历"
+outcome_text = "你从老一辈口中得知，老人竟是数十年前叱咤风云的绝世高手。"
+wits = 2
+reputation = 1
+
+# --- Chained: 独立修行路线 (requires independent_path) ---
+[[events]]
+id = "ya_lone_training"
+title = "荒野修行"
+description = "没有门派的束缚，你独自在山野间修行。这段孤独的时光让你对自己有了更深的了解。"
+life_stages = ["young_adult"]
+rarity = 3
+required_flags = ["independent_path"]
+excluded_flags = ["found_elder"]
+
+[[events.choices]]
+text = "自创一套适合自己风格的武学"
+outcome_text = "你结合各家所长，创出了一套独特的武功路数。"
+technique = 2
+wits = 2
+bone = 1
+
+[[events.choices]]
+text = "走遍天下，博采众长"
+outcome_text = "你四处拜访各地武馆，虽然没学到绝世武功但见识大增。"
+agility = 2
+wits = 1
+reputation = 1
+
+# --- Chained: 情缘发展 (requires met_romance) ---
+[[events]]
+id = "ya_deepen_romance"
+title = "情愫暗生"
+description = "你和那位红颜知己在月下的江边重逢，两人心有灵犀，情愫在静谧的夜色中悄然生长。"
+life_stages = ["young_adult"]
+rarity = 2
+required_flags = ["met_romance"]
+once_per_game = true
+
+[[events.choices]]
+text = "向她表达心意"
+outcome_text = "明月为证，江水为鉴。你们私定终身，约定功成名就之日便结为连理。"
+honor = 2
+wits = 1
+set_flags = ["romance_confirmed"]
+
+[[events.choices]]
+text = "将感情埋在心底，先闯出一番事业"
+outcome_text = "你选择了隐忍。她似乎有些失望，但尊重了你的决定。"
+bone = 1
+technique = 1
+
+# --- Chained: 游侠同行后续 (requires met_wandering_swordsman) ---
+[[events]]
+id = "ya_swordsman_reunion"
+title = "故友重逢"
+description = "你在一个偏远的小镇又遇到了那位游侠。他看起来疲惫不堪，似乎遇到了麻烦。"
+life_stages = ["young_adult"]
+rarity = 2
+required_flags = ["met_wandering_swordsman"]
+
+[[events.choices]]
+text = "问他出了什么事，帮忙解决"
+outcome_text = "原来他被一伙镖局的人冤枉偷了东西。你帮他洗清了冤屈。你们的友谊更加深厚。"
+honor = 2
+reputation = 1
+wits = 1
+
+[[events.choices]]
+text = "请他喝酒叙旧"
+outcome_text = "你们把酒言欢，暂时忘却了江湖的烦恼。"
+constitution = 1

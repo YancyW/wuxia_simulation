@@ -265,3 +265,24 @@ text = "拓印下来带回去研究"
 outcome_text = "你请村里的老先生帮忙辨认文字，一起研究其中奥秘。"
 qi = 1
 wits = 2
+
+# --- Follow-up: 神秘老人再现 (triggers in young_adult via required_flags) ---
+[[events]]
+id = "youth_elder_promise"
+title = "老人的承诺"
+description = "当初那位神秘老人临走前对你说了句奇怪的话：'等你长大后，来西域天山找我。'"
+life_stages = ["youth"]
+rarity = 3
+required_flags = ["met_mysterious_elder"]
+once_per_game = true
+
+[[events.choices]]
+text = "将承诺铭记于心"
+outcome_text = "你暗暗发誓，总有一天要去天山找那位老人。"
+wits = 1
+set_flags = ["promised_to_elder"]
+
+[[events.choices]]
+text = "觉得太遥远了，先做好眼前的事"
+outcome_text = "你把心思放在当下。远处的际遇，以后再说。"
+bone = 1
