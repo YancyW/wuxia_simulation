@@ -46,7 +46,7 @@ text = "去昆仑山寻找千年寒泉"
 outcome_text = "你在昆仑山的冰洞中找到了一眼寒气逼人的泉水。剑胚在泉水中淬火后发出了一声清脆的龙吟。"
 qi = 2
 constitution = 1
-set_flags = ["ms_swordsmith_stage_1"];
+set_flags = ["ms_swordsmith_stage_1"]
 
 [[events]]
 id = "ms_swordsmith_2"
