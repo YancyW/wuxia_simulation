@@ -1,0 +1,520 @@
+# ============================================
+# 五大主线剧情
+# ============================================
+
+# === 主线一：江湖血仇 ===
+# 追踪标志: ms_revenge_stage_0 ~ 3
+
+[[events]]
+id = "ms_revenge_0"
+title = "【主线】血染之夜"
+description = "一个平常的夜晚，你家门外突然传来了激烈的打斗声。你冲出门时，只看到一个黑衣人消失在夜色中。地上躺着一个浑身是血的中年人——他手中紧握着一枚奇特的令牌，上面刻着一个你不认识的符号。"
+life_stages = ["youth", "young_adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "扶起中年人，听他的遗言"
+outcome_text = "中年人用尽最后的力气告诉你：'天煞阁……他们回来了……找……找你师父……'说完便断了气。你握着令牌，心中燃起了复仇之火。"
+bone = 1
+qi = 1
+set_flags = ["ms_revenge_stage_0"]
+
+[[events.choices]]
+text = "追踪黑衣人留下的痕迹"
+outcome_text = "你追出去三条街，在一处巷子里找到了一块被撕裂的衣角。衣角上绣着一朵黑色的梅花——那是江湖上最神秘的杀手组织的标志。"
+agility = 1
+wits = 1
+set_flags = ["ms_revenge_stage_0"]
+
+[[events]]
+id = "ms_revenge_1"
+title = "【主线】追查黑梅"
+description = "你带着那块令牌四处打听'天煞阁'和'黑梅'的来历。终于在一个老镖师那里得到了一条线索：三十年前，天煞阁是江南最恐怖的杀手组织。后来被一位大侠以一己之力挑了总坛。而那位大侠——就是你的师父。"
+life_stages = ["young_adult", "adult"]
+rarity = 4
+required_flags = ["ms_revenge_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "去找师父问清楚当年的真相"
+outcome_text = "师父长叹一声，终于说出了三十年前那场恶战的真相。天煞阁没有被完全消灭——阁主的儿子逃走了，三十年来一直在暗中重建势力。"
+wits = 2
+honor = 1
+set_flags = ["ms_revenge_stage_1"]
+
+[[events.choices]]
+text = "自己暗中调查，不惊动师父"
+outcome_text = "你花了半年时间在江南各地查访，拼凑出了天煞阁的历史：一个曾经令人闻风丧胆的名字，一段被岁月掩埋的血仇。"
+wits = 3
+agility = 1
+set_flags = ["ms_revenge_stage_1"]
+
+[[events]]
+id = "ms_revenge_2"
+title = "【主线】仇人相见"
+description = "你终于找到了天煞阁的新总坛。现任阁主——那个三十年前逃走的少年——已经是一个两鬓斑白的中年人。他坐在太师椅上看着你：'你就是那个老东西的徒弟？长得一点都不像。'"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_revenge_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "当面质问他当年的罪行"
+outcome_text = "阁主冷冷地说出了另一个版本的故事：当年是你师父带人血洗了天煞阁，杀了他的父亲和兄弟。他重建天煞阁——只是为了自保。"
+wits = 2
+honor = 1
+
+[[events.choices]]
+text = "直接出手，了结恩怨"
+outcome_text = "你一言不发地拔剑冲了上去。经过一场恶战，阁主倒在了你的剑下。但临死前他嘴角露出了一丝诡异的微笑。"
+technique = 3
+bone = 1
+honor = -1
+constitution = -2
+
+[[events]]
+id = "ms_revenge_3"
+title = "【主线】血仇的终点"
+description = "师父终于说出了最后的真相：天煞阁确实是你师父和几个同道一起剿灭的——但起因是天煞阁杀了你师父的全家。这是一场永无休止的仇恨循环。而你就是这个循环的下一个人。"
+life_stages = ["adult", "middle_age"]
+rarity = 3
+required_flags = ["ms_revenge_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "放下仇恨，结束这场轮回"
+outcome_text = "你将令牌扔进了江中，转身离去。你不是没有能力复仇——而是选择了比复仇更难的道路。"
+honor = 5
+wits = 3
+reputation = 2
+set_flags = ["ms_revenge_forgive", "ms_revenge_complete"]
+
+[[events.choices]]
+text = "血债血偿，斩草除根"
+outcome_text = "你带着师父的遗愿重返天煞阁。一夜之间天煞阁被彻底抹去。但当你站在废墟上时，心中却没有丝毫的快意。"
+technique = 3
+bone = 2
+honor = -3
+reputation = 1
+set_flags = ["ms_revenge_avenge", "ms_revenge_complete"]
+
+# === 主线二：武林盟主之路 ===
+# 追踪标志: ms_leader_stage_0 ~ 4
+
+[[events]]
+id = "ms_leader_0"
+title = "【主线】一呼百应"
+description = "一群被山贼欺凌的村民找到了你。他们跪在地上恳求：'大侠，救救我们吧！官府不管，我们只能求江湖上的好汉了。'"
+life_stages = ["young_adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "带领村民组织自卫力量"
+outcome_text = "你没有单打独斗，而是教会了村民们基本的自保之法。当山贼再来时，整个村子都拿起了武器。山贼再也不敢来了。"
+honor = 2
+reputation = 2
+wits = 1
+set_flags = ["ms_leader_stage_0"]
+
+[[events.choices]]
+text = "独自上山剿灭山贼"
+outcome_text = "你一个人杀上了山贼的寨子，把他们全部打趴下。村民们感激不尽，但你走后山贼又去了下一个村子。"
+technique = 2
+reputation = 1
+set_flags = ["ms_leader_stage_0"]
+
+[[events]]
+id = "ms_leader_1"
+title = "【主线】调停纷争"
+description = "两大家族因为一桩婚事反目成仇，眼看就要全面开战。镇上人人自危，商户关门避祸。两边的族长都放出话去——谁帮对方就是与自己为敌。"
+life_stages = ["adult"]
+rarity = 4
+required_flags = ["ms_leader_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "分别与两家谈话，了解真相"
+outcome_text = "原来这场纷争的根源只是一场误会——一个传错的口信。你在两家之间来回斡旋，最终揭开了误会，避免了流血冲突。"
+wits = 3
+honor = 2
+reputation = 2
+set_flags = ["ms_leader_stage_1"]
+
+[[events.choices]]
+text = "以武力震慑，强迫双方谈判"
+outcome_text = "你站在了两家中间，一掌劈碎了面前的石桌。双方都被你的实力镇住了——不得不坐下来谈。"
+technique = 1
+reputation = 2
+set_flags = ["ms_leader_stage_1"]
+
+[[events]]
+id = "ms_leader_2"
+title = "【主线】联盟成立"
+description = "附近的几个小门派和武馆找到你，说他们在江湖上没有话语权，希望你能带领他们成立一个互助联盟。各派之间过去有不少恩怨。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_leader_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "起草联盟章程，制定公平规则"
+outcome_text = "你花了整整一个月的时间与各派代表商讨，最终起草了一份大家都能接受的章程。联盟成立了——你被推举为第一任盟主。"
+wits = 2
+honor = 2
+reputation = 3
+set_flags = ["ms_leader_stage_2", "founded_alliance"]
+
+[[events.choices]]
+text = "用实力证明自己有资格领导"
+outcome_text = "你在各派面前展示了自己的武功。没有人再敢质疑你的能力。联盟在你的一手推动下成立了。"
+technique = 2
+bone = 1
+reputation = 2
+set_flags = ["ms_leader_stage_2"]
+
+[[events]]
+id = "ms_leader_3"
+title = "【主线】盟主的考验"
+description = "联盟成立三年后，一场前所未有的危机出现了：西域商路上出现了一伙神秘的马贼，劫掠各大镖局的货物，杀人不眨眼。联盟内部开始动摇——各派都想退出。"
+life_stages = ["adult", "middle_age"]
+rarity = 3
+required_flags = ["ms_leader_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "组织联盟精锐剿灭马贼"
+outcome_text = "你亲自带队深入西域，经过两个月的追踪和恶战，终于找到了马贼的老巢并将他们一网打尽。联盟的名声大振。"
+technique = 3
+reputation = 4
+honor = 2
+constitution = -1
+set_flags = ["ms_leader_stage_3"]
+
+[[events.choices]]
+text = "联合各大镖局建立联合防御"
+outcome_text = "你没有硬碰硬，而是联合了沿途的镖局和地方势力建立了一个联防体系。马贼的劫掠行径被遏制住了。"
+wits = 3
+reputation = 2
+honor = 1
+set_flags = ["ms_leader_stage_3"]
+
+[[events]]
+id = "ms_leader_4"
+title = "【主线】武林共主"
+description = "你的联盟已经成为了江湖上最强大的组织之一。各大门派开始正视你的存在。少林方丈和武当掌门联名邀请你参加'武林共治大会'——讨论是否要推举一位武林盟主统一号令天下。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["ms_leader_stage_3"]
+once_per_game = true
+
+[[events.choices]]
+text = "接受武林盟主之位"
+outcome_text = "你站在了武林之巅。在少林方丈和武当掌门的见证下，你接过了象征着武林盟主的信物。从此江湖的秩序——由你守护。"
+reputation = 6
+honor = 3
+wits = 1
+set_flags = ["ms_leader_complete", "became_leader"]
+
+[[events.choices]]
+text = "推辞不受，但愿意做仲裁者"
+outcome_text = "你拒绝了盟主之位，但表示愿意在各大派冲突时做中立的仲裁者。你的谦逊赢得了比盟主更高的敬意。"
+honor = 5
+wits = 3
+reputation = 2
+set_flags = ["ms_leader_complete"]
+
+# === 主线三：绝世传承 ===
+# 追踪标志: ms_legacy_stage_0 ~ 3
+
+[[events]]
+id = "ms_legacy_0"
+title = "【主线】古卷残篇"
+description = "你在翻看旧书摊时，在一本破旧的山海经中发现了夹层。夹层里藏着一角发黄的绢帛，上面用蝇头小楷写着几行字——似乎是一部失传武功的总纲。但字迹模糊，残缺不全。"
+life_stages = ["youth", "young_adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "开始寻找绢帛的其余部分"
+outcome_text = "你认出了绢帛上的笔迹——传说中数百年前有一位无名武学宗师，临终前将毕生所学写成了一部'无名经'。但此书早已失传。你这张绢帛可能就是无名经的残篇。"
+wits = 2
+set_flags = ["ms_legacy_stage_0"]
+
+[[events.choices]]
+text = "尝试根据总纲自行推演"
+outcome_text = "你花了两个月的时间根据残篇推演武功。虽然只能推出一小部分，但已经让你对武学有了全新的认识。"
+wits = 3
+qi = 1
+set_flags = ["ms_legacy_stage_0"]
+
+[[events]]
+id = "ms_legacy_1"
+title = "【主线】四海寻经"
+description = "你打听到无名经的其余残篇可能藏在四个地方：少林藏经阁、大理天龙寺、昆仑山冰洞、以及东海桃花岛。每一处都需要特殊的机缘才能进入。"
+life_stages = ["young_adult", "adult"]
+rarity = 4
+required_flags = ["ms_legacy_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "前往少林藏经阁寻求线索"
+outcome_text = "少林方丈破例允许你在藏经阁中查阅古籍。你在阁中闭关三月，找到了无名经的第二篇——关于内功心法的部分。"
+qi = 3
+wits = 1
+set_flags = ["ms_legacy_stage_1"]
+
+[[events.choices]]
+text = "去大理天龙寺请教高僧"
+outcome_text = "天龙寺的高僧没有给你经文，而是让你参悟一幅壁画。你参悟了七天七夜——那幅壁画中暗含了无名经的运气法门。"
+wits = 2
+qi = 1
+set_flags = ["ms_legacy_stage_1"]
+
+[[events]]
+id = "ms_legacy_2"
+title = "【主线】无名经重现"
+description = "你将收集到的残篇拼凑在一起，终于看到了无名经的全貌。但这并非一本普通武功秘籍——它是一部武学哲学的巅峰之作。真正的价值不在于招式，而在于'理'。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_legacy_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "潜心参悟无名经的武学至理"
+outcome_text = "你在深山中闭关三年，将无名经的武学至理融会贯通。你的武学境界达到了一个前所未有的高度。"
+qi = 4
+wits = 3
+technique = 2
+set_flags = ["ms_legacy_stage_2"]
+
+[[events.choices]]
+text = "将无名经的内容公之于众"
+outcome_text = "你没有藏私，而是将无名经刊印了一百份分发给各派。你的无私为整个武林带来了武学的进步。"
+honor = 4
+reputation = 4
+wits = 1
+set_flags = ["ms_legacy_stage_2"]
+
+[[events]]
+id = "ms_legacy_3"
+title = "【主线】传灯"
+description = "无名经已经被你完全掌握。但一部绝世武功的真正价值不在于被一个人掌握——而在于传承。你需要为它找到一个合适传人。"
+life_stages = ["middle_age"]
+rarity = 3
+required_flags = ["ms_legacy_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "广收门徒，择优传授"
+outcome_text = "你在天下各地开了三座学堂，将无名经的武学理念融入教学中。无名经的传承以这种方式延续了下去。"
+reputation = 3
+honor = 3
+wits = 1
+set_flags = ["ms_legacy_complete"]
+
+[[events.choices]]
+text = "将无名经封存于秘处，等待有缘人"
+outcome_text = "你将无名经封存在了一座无名山洞中，设下了三道考验。只有通过考验的人才能见到无名经。然后你飘然而去。"
+wits = 2
+honor = 1
+set_flags = ["ms_legacy_complete"]
+
+# === 主线四：正邪之间 ===
+# 追踪标志: ms_moral_stage_0 ~ 3
+
+[[events]]
+id = "ms_moral_0"
+title = "【主线】灰色地带"
+description = "你在执行一次'正义'的任务时，发现被通缉的'恶人'其实是被冤枉的——真正的幕后黑手是你认识的'正道人士'。江湖上流传的善恶之分似乎并没有那么清楚。"
+life_stages = ["young_adult", "adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "调查真相，不顾得罪正道人士"
+outcome_text = "你暗中搜集证据，发现那个'正道人士'其实多年来一直在利用他的名声掩盖各种恶行。你面临一个艰难的选择。"
+wits = 2
+honor = 1
+set_flags = ["ms_moral_stage_0"]
+
+[[events.choices]]
+text = "先假意配合，慢慢收集证据"
+outcome_text = "你装作不知道真相，继续和那个'正道人士'合作。但你手中的证据越来越多。他迟早会露馅。"
+wits = 2
+agility = 1
+set_flags = ["ms_moral_stage_0"]
+
+[[events]]
+id = "ms_moral_1"
+title = "【主线】两难抉择"
+description = "你手中的证据足以扳倒那个伪君子。但他是某大门派的掌门女婿——一旦揭露真相，整个门派都会被牵连。无数无辜的弟子会因此遭殃。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_moral_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "公开揭露真相，不论后果"
+outcome_text = "你将证据公之于众。一时间江湖震动，那个伪君子被废了武功逐出门派。但也确实有很多无辜弟子受到了冲击。你问自己——这样做对吗？"
+honor = 3
+reputation = 3
+set_flags = ["ms_moral_light", "ms_moral_stage_1"]
+
+[[events.choices]]
+text = "私下找他谈话，给他一个自行了断的机会"
+outcome_text = "你私下见了他。他承认了一切，请求给他一个体面——让他自己消失。三天后他离开了门派。真相没有公开，但作恶者被清除了。"
+wits = 3
+honor = 2
+set_flags = ["ms_moral_dark", "ms_moral_stage_1"]
+
+[[events]]
+id = "ms_moral_2"
+title = "【主线】道路的分岔"
+description = "你的选择改变了你的江湖路。如果是正道——你的名声如日中天，但你发现正义的代价比你想象的要高。如果是暗路——你发现有些事在黑暗中做起来更方便，但你的内心开始动摇。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_moral_stage_1"]
+once_per_game = true
+excluded_flags = ["ms_moral_stage_2"]
+
+[[events.choices]]
+text = "坚持自己的选择，继续走下去"
+outcome_text = "你坚定了自己的信念。无论前路如何——这就是你的江湖之道。"
+bone = 2
+honor = 1
+set_flags = ["ms_moral_stage_2"]
+
+[[events.choices]]
+text = "反思自己的选择，重新审视"
+outcome_text = "你开始怀疑自己当初的选择。也许这个世界上根本没有绝对的对与错——只有不同的立场。"
+wits = 3
+set_flags = ["ms_moral_stage_2"]
+
+[[events]]
+id = "ms_moral_3"
+title = "【主线】最后的审判"
+description = "多年后，有人来找你了。如果是光明之路——那些被你帮助过的人已经成长为新的力量。如果是黑暗之路——那些被你伤害过的人终于找上门来。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["ms_moral_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "坦然面对一切后果"
+outcome_text = "你站在了曾经的自己面前。无论是赞美还是责难，你都坦然接受。因为你问心无愧——至少你尽力了。"
+honor = 4
+wits = 2
+reputation = 1
+set_flags = ["ms_moral_complete"]
+
+[[events.choices]]
+text = "用行动弥补过去的不足"
+outcome_text = "你没有解释什么，只是默默地开始弥补那些曾经被你忽略的角落。江湖因为你的行动而变得更好。"
+reputation = 2
+honor = 2
+constitution = 2
+set_flags = ["ms_moral_complete"]
+
+# === 主线五：天下第一 ===
+# 追踪标志: ms_champion_stage_0 ~ 3
+
+[[events]]
+id = "ms_champion_0"
+title = "【主线】初露锋芒"
+description = "你路过一个小镇时，恰逢当地举办一年一度的比武大会。虽然规模不大但吸引了方圆百里的好手。有人在擂台上叫嚣'无人能敌'。"
+life_stages = ["young_adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "上擂台一展身手"
+outcome_text = "你轻松击败了几个对手，最终在决赛中和那个叫嚣的家伙大战了一场。你赢了——虽然只是一个小镇的比赛，但这是你第一次在众人面前展露实力。"
+technique = 2
+reputation = 2
+bone = 1
+set_flags = ["ms_champion_stage_0"]
+
+[[events.choices]]
+text = "在台下观察各家的武功路数"
+outcome_text = "你仔细观看了所有比试——虽然没有上场但你学到了不少。你发现每个武者的招式都反映了他们的性格和经历。"
+wits = 2
+technique = 1
+set_flags = ["ms_champion_stage_0"]
+
+[[events]]
+id = "ms_champion_1"
+title = "【主线】逐鹿中原"
+description = "你的武名渐渐传开了。越来越多的人开始找你比武切磋。一个自称'中原第一剑'的剑客特意赶来向你挑战。他的剑法确实非同凡响。"
+life_stages = ["adult"]
+rarity = 4
+required_flags = ["ms_champion_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "接受挑战，全力以赴"
+outcome_text = "你和他在江边大战了半日，最终你在第三十七招上以精妙的变化胜出。中原第一剑收剑认输：'后生可畏。'"
+technique = 3
+reputation = 3
+bone = 1
+set_flags = ["ms_champion_stage_1"]
+
+[[events.choices]]
+text = "以武会友，比试后共饮"
+outcome_text = "你和他打成平手后收手。你们在江边对饮畅谈了一夜。他说出了自己剑法的精要——你也分享了自己的心得。"
+wits = 2
+technique = 1
+honor = 1
+set_flags = ["ms_champion_stage_1"]
+
+[[events]]
+id = "ms_champion_2"
+title = "【主线】天下第一武道会"
+description = "你收到了天下第一武道会的正式邀请——这是武林中最顶级的比武盛会。只有被认可的顶尖高手才能获得邀请。往届的冠军都已经成为了武林中的传奇人物。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_champion_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "全力备战，争夺天下第一"
+outcome_text = "你投入了全部精力备赛。经过九轮鏖战——你击败了每一个对手。决赛中你面对的是上届冠军的嫡传弟子。三百招后——你赢了。"
+technique = 4
+reputation = 5
+bone = 2
+constitution = -2
+set_flags = ["ms_champion_stage_2", "ms_champion_won"]
+
+[[events.choices]]
+text = "以武会友，展现风度"
+outcome_text = "你没有追求冠军，而是在每一场比试中展现了令人敬佩的风度。你虽然没有夺冠但赢得了所有对手的尊敬。"
+honor = 3
+reputation = 3
+wits = 1
+set_flags = ["ms_champion_stage_2"]
+
+[[events]]
+id = "ms_champion_3"
+title = "【主线】武道巅峰"
+description = "你已经是公认的绝顶高手。但真正的武道巅峰不在于击败别人——而在于超越自己。你感受到了一堵无形的墙——那是你武学之路的最后一道屏障。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["ms_champion_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "闭关冲击武学最高境界"
+outcome_text = "你独自一人在雪山顶上闭关了整整一年。在一个风雪交加的夜晚——你终于突破了那堵墙。那一刻的你达到了武学的一个全新高度。"
+qi = 4
+technique = 4
+wits = 2
+set_flags = ["ms_champion_complete"]
+
+[[events.choices]]
+text = "下山传授自己的武学心得"
+outcome_text = "你决定不独自追求突破，而是将自己的全部心得写成了一部武学著作。从此你的武学理念影响了一代又一代的习武之人。"
+wits = 3
+reputation = 3
+honor = 2
+set_flags = ["ms_champion_complete"]

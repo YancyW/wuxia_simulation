@@ -122,7 +122,7 @@ function extractChoices(rawChoices: unknown[]): EventChoice[] {
 
 function loadEvents(): EventTemplate[] {
   const all: EventTemplate[] = [];
-  const eventFiles = ['events/youth.toml', 'events/young-adult.toml', 'events/adult.toml', 'events/middle-age.toml'];
+  const eventFiles = ['events/youth.toml', 'events/young-adult.toml', 'events/adult.toml', 'events/middle-age.toml', 'events/storylines.toml'];
   for (const file of eventFiles) {
     if (!existsSync(dataPath(file))) continue;
     const raw = readToml<{ events: Record<string, unknown>[] }>(file);
