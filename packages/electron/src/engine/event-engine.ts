@@ -189,6 +189,23 @@ function getFallbackEvent(stage: LifeStage): EventTemplate {
   };
 }
 
+export function filterAvailableChoices(event: EventTemplate, characterFlags: string[]): EventTemplate {
+  const filtered = event.choices.filter((ch) => {
+    if (ch.requiredFlags) {
+      for (const f of ch.requiredFlags) {
+        if (!characterFlags.includes(f)) return false;
+      }
+    }
+    if (ch.excludedFlags) {
+      for (const f of ch.excludedFlags) {
+        if (characterFlags.includes(f)) return false;
+      }
+    }
+    return true;
+  });
+  return { ...event, choices: filtered.length > 0 ? filtered : event.choices };
+}
+
 export function isDungeonEvent(eventId: string): boolean {
   return eventId.startsWith('dungeon_');
 }

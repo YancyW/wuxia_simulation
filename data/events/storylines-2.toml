@@ -1,0 +1,458 @@
+# ============================================
+# 主线六~十二 + 跨主线联动
+# ============================================
+
+# === 主线六：铸剑传说 (4阶段) ===
+# 连接: 天下第一(ms_champion_won)、武林盟主(ms_leader_stage_2)
+
+[[events]]
+id = "ms_swordsmith_0"
+title = "【主线】残剑"
+description = "你在古战场遗迹中发现了一把断剑。剑身虽残但锋芒不减——剑身上刻着两个小字：'龙渊'。据说这是铸剑大师欧冶子的后人铸造的最后一把剑。它为什么断了？又是被谁折断的？"
+life_stages = ["young_adult", "adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "寻找铸剑师修复这把剑"
+outcome_text = "你四处打听，终于在龙泉找到了欧冶子的后人。他看着断剑老泪纵横：'这是我祖父铸的最后一把剑——铸成之日就是他的死期。'"
+wits = 1
+set_flags = ["ms_swordsmith_stage_0"]
+
+[[events.choices]]
+text = "调查断剑背后的故事"
+outcome_text = "你从剑身上的痕迹判断——这把剑是在一场惊天大战中被折断的。什么样的力量能折断这样的神兵？"
+wits = 2
+set_flags = ["ms_swordsmith_stage_0"]
+
+[[events]]
+id = "ms_swordsmith_1"
+title = "【主线】铸剑之术"
+description = "欧冶子后人告诉你，要修复龙渊需要三种稀有材料：西域陨铁、千年寒泉、以及——一个绝世高手的精血。只有在铸造时将精血融入剑中，龙渊才能真正重生。"
+life_stages = ["adult"]
+rarity = 4
+required_flags = ["ms_swordsmith_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "去寻找西域陨铁"
+outcome_text = "你远赴西域，在沙漠深处找到了一块天外陨铁。当地人说这块铁在这里躺了数百年——它在等待一个配得上它的人。"
+agility = 2
+bone = 1
+set_flags = ["ms_swordsmith_stage_1"]
+
+[[events.choices]]
+text = "去昆仑山寻找千年寒泉"
+outcome_text = "你在昆仑山的冰洞中找到了一眼寒气逼人的泉水。剑胚在泉水中淬火后发出了一声清脆的龙吟。"
+qi = 2
+constitution = 1
+set_flags = ["ms_swordsmith_stage_1"];
+
+[[events]]
+id = "ms_swordsmith_2"
+title = "【主线】最后的材料"
+description = "龙渊的材料只差最后一样：绝世高手的精血。欧冶子后人说，这个'绝世高手'不一定是指别人——如果你已经足够强大，你自己的血就是最好的材料。但铸造过程中你会损失大量精血。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_swordsmith_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "用自己的精血铸剑"
+outcome_text = "你咬破舌尖将精血滴入熔炉。剑成的那一刻一道龙形剑气冲天而起。龙渊——这把传奇之剑终于重生了。而你是它的主人。"
+technique = 3
+bone = 2
+constitution = -3
+set_flags = ["ms_swordsmith_stage_2", "has_dragon_sword"]
+
+[[events.choices]]
+text = "如果你在武道会夺冠——用冠军的血铸剑 (需要天下第一主线)"
+outcome_text = "你已是公认的天下第一。用你自己的精血铸剑只是顺理成章。龙渊在你的手中发出前所未有的光芒。"
+technique = 4
+bone = 2
+constitution = -2
+set_flags = ["ms_swordsmith_stage_2", "has_dragon_sword"]
+required_flags = ["ms_champion_won"]
+
+[[events]]
+id = "ms_swordsmith_3"
+title = "【主线】龙渊出世"
+description = "龙渊剑铸成了。但这把剑的威力远超你的想象——它的剑气中似乎蕴含着前代主人的一道执念。欧冶子的族人告诉你：龙渊被折断是因为它的前任主人用它做了不义之事。剑有灵性——你需要用正确的行动来'驯服'它。"
+life_stages = ["adult", "middle_age"]
+rarity = 2
+required_flags = ["ms_swordsmith_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "用龙渊行侠仗义，净化剑中的执念"
+outcome_text = "你带着龙渊走遍天下，用它斩奸除恶。一年后剑中的戾气渐渐消散，取而代之的是一股凛然正气。龙渊终于完全认可了你。"
+honor = 4
+reputation = 3
+technique = 1
+set_flags = ["ms_swordsmith_complete"]
+
+[[events.choices]]
+text = "将龙渊封存起来，等找到真正的主人"
+outcome_text = "你觉得龙渊太过强大——不是现在的你能驾驭的。你将它封存在了一座古庙中，设下了三道考验等待有缘人。"
+wits = 2
+honor = 2
+set_flags = ["ms_swordsmith_complete"]
+
+# === 主线七：商路风云 (4阶段) ===
+# 连接: 武林盟主(ms_leader_stage_2)
+
+[[events]]
+id = "ms_trade_0"
+title = "【主线】丝绸之路"
+description = "一个来自西域的商人找到了你，说他掌握了一条新的商路——可以直接从长安通到波斯。但现在这条路上有一伙神秘的马贼在劫掠商队。他需要一个有实力的合伙人。"
+life_stages = ["adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "投资商路，成为合伙人"
+outcome_text = "你投了一笔钱进去，换取商路的一成收益。但你很快发现——这伙马贼背后有人在操控。商路之争远比表面复杂。"
+wits = 2
+reputation = 1
+set_flags = ["ms_trade_stage_0"]
+
+[[events.choices]]
+text = "亲自带人护送第一趟商队"
+outcome_text = "你亲自带队走完了第一趟商路。途中果然遇到了马贼。你的武功在实战中证明了它的价值。"
+technique = 1
+agility = 1
+reputation = 1
+set_flags = ["ms_trade_stage_0"]
+
+[[events]]
+id = "ms_trade_1"
+title = "【主线】幕后黑手"
+description = "经过调查你发现：马贼的背后是大漠中的一个地方军阀。他控制了西域的商路收保护费——不交钱的商队都会'意外'遇袭。"
+life_stages = ["adult"]
+rarity = 4
+required_flags = ["ms_trade_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "联络各方力量对抗军阀"
+outcome_text = "你联合了沿途的商会、镖局和地方势力，组成了一个'商路护卫联盟'。面对团结一致的力量军阀不得不退让。"
+wits = 2
+reputation = 2
+honor = 1
+set_flags = ["ms_trade_stage_1"]
+
+[[events.choices]]
+text = "如果你建立了联盟——运用你的影响力解决问题 (需要武林盟主主线)"
+outcome_text = "你以联盟盟主的身份出面和军阀谈判。在你的声望和武力的双重压力下军阀同意撤离商路。你的名字从此在西域也是响当当的。"
+reputation = 3
+wits = 2
+honor = 1
+set_flags = ["ms_trade_stage_1"]
+required_flags = ["ms_leader_stage_2"]
+
+[[events]]
+id = "ms_trade_2"
+title = "【主线】西域风物"
+description = "商路开通后，西域的各种奇珍异宝开始流入中原。你在市场上看到了你从未见过的药材、矿石和武功图谱。一个波斯商人神秘地对你笑了笑：'想看看真正的波斯武功吗？'"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_trade_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "学习波斯武功"
+outcome_text = "波斯商人展示的是一种与中原武功完全不同的体系——以速度和柔韧见长。你学了几招融入了自己的武学中。"
+technique = 2
+agility = 1
+wits = 1
+set_flags = ["ms_trade_stage_2"]
+
+[[events.choices]]
+text = "用商路赚的钱资助各地武馆"
+outcome_text = "你没有为自己牟利，而是用商路的收益在各地开设了武馆——让更多普通人有机会习武。"
+reputation = 3
+honor = 2
+set_flags = ["ms_trade_stage_2"]
+
+[[events]]
+id = "ms_trade_3"
+title = "【主线】商路传奇"
+description = "你的商路已经成为了丝绸之路上的传奇。无数商人因为这条安全的商路而受益。你的名字不仅在武林传颂——还在商界和民间广为流传。一个商人送了你一面金色的令牌：'持此牌者，商路之上无人敢拦'。"
+life_stages = ["adult", "middle_age"]
+rarity = 2
+required_flags = ["ms_trade_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "接受令牌，继续扩展商路"
+outcome_text = "你用这面令牌打通了更多商路。十年后你成为了武林中最富有也最有影响力的人之一。"
+reputation = 4
+wits = 2
+set_flags = ["ms_trade_complete"]
+
+[[events.choices]]
+text = "把商路管理权交给年轻人"
+outcome_text = "你说自己已经赚够了。商路的管理权被你交给了新一代的年轻人。你则回到了江湖中继续你的武学之路。"
+honor = 2
+wits = 1
+set_flags = ["ms_trade_complete"]
+
+# === 主线八：师徒情深 (4阶段) ===
+# 独立主线，可与复仇线联动
+
+[[events]]
+id = "ms_disciple_0"
+title = "【主线】孤儿"
+description = "大雪纷飞中，你发现了一个冻得瑟瑟发抖的孩子蜷缩在破庙门口。他没有名字，没有家人，只有一双倔强的眼睛。他看着你说：'我不需要可怜。'"
+life_stages = ["young_adult", "adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "收他为徒，悉心教导"
+outcome_text = "你收留了孩子。他虽然脾气倔但天资聪颖，学武极快。你给他起了个名字——凌云。希望他有朝一日能凌云而上。"
+honor = 2
+wits = 1
+set_flags = ["ms_disciple_stage_0", "has_disciple_name"]
+
+[[events.choices]]
+text = "帮他找一个好人家收养"
+outcome_text = "你找到了一户善良的人家收留了他。虽然你没有亲自教他，但你经常去看望他。他长大后独立走出了自己的路。"
+honor = 2
+set_flags = ["ms_disciple_stage_0"]
+
+[[events]]
+id = "ms_disciple_1"
+title = "【主线】弟子的试炼"
+description = "凌云已经长大。他的武功在同辈中已是佼佼者但他太过骄傲。你需要让他明白——武学之路上最大的敌人不是别人而是自己。"
+life_stages = ["adult"]
+rarity = 4
+required_flags = ["ms_disciple_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "派他独自去江湖上历练"
+outcome_text = "你给了凌云一把剑叫他下山历练一年。一年后凌云回来了——眼神不再骄傲而是沉稳了。他在江湖上吃了不少亏但学到了更多。"
+wits = 2
+bone = 1
+set_flags = ["ms_disciple_stage_1"]
+
+[[events.choices]]
+text = "和他进行一场认真的比试"
+outcome_text = "你拿出了真功夫和凌云比试了一场。他在第一百招上败了——但败得心服口服。'师父，我还有多远的路要走？''一辈子。'你答道。"
+technique = 1
+honor = 1
+set_flags = ["ms_disciple_stage_1"]
+
+[[events]]
+id = "ms_disciple_2"
+title = "【主线】师徒决裂"
+description = "凌云发现了一个惊人的秘密——他的亲生父亲就是当年杀害你师父的凶手之一。他跪在你面前：'师父，我该怎么办？'"
+life_stages = ["adult", "middle_age"]
+rarity = 3
+required_flags = ["ms_disciple_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "告诉他——你早就知道了"
+outcome_text = "你平静地说：'我知道。但我收你为徒不是因为你父亲——而是因为你自己。上一代的恩怨不应该牵扯到你。'凌云哭了。从那天起他比任何人都刻苦。"
+honor = 4
+wits = 1
+set_flags = ["ms_disciple_stage_2"]
+
+[[events.choices]]
+text = "如果你完成了复仇主线——告诉他你做过的选择 (需要血仇主线)"
+outcome_text = "你将自己在复仇主线中做出的选择告诉了凌云。'我曾经面临和你一样的抉择。我选择了一条艰难的路——你也需要做出自己的选择。'"
+honor = 3
+wits = 2
+set_flags = ["ms_disciple_stage_2"]
+required_flags = ["ms_revenge_complete"]
+
+[[events]]
+id = "ms_disciple_3"
+title = "【主线】传承"
+description = "凌云已经可以独当一面了。他的武功和品性都让你感到骄傲。你觉得是时候让他独立了——或者让他继承你的衣钵。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["ms_disciple_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "将毕生所学倾囊相授"
+outcome_text = "你将自己一生的武学心得都传给了凌云。他接过了你的剑，郑重地行了一个大礼：'弟子定不负师父所托。'"
+technique = 2
+honor = 2
+reputation = 1
+set_flags = ["ms_disciple_complete"]
+
+[[events.choices]]
+text = "让他走自己的路，不做你的影子"
+outcome_text = "你送走了凌云，让他去寻找自己的武学之路。你不是把剑传给了他——而是帮他铸了一把属于他自己的剑。"
+wits = 3
+honor = 2
+set_flags = ["ms_disciple_complete"]
+
+# === 主线九：家族使命 (3阶段) ===
+# 条件：出身非武林世家角色更容易触发
+
+[[events]]
+id = "ms_family_0"
+title = "【主线】家族信物"
+description = "你的家人交给你一件祖传的信物——一枚褪色的玉佩。他们说这枚玉佩是你祖父的遗物，上面刻着一个古老的家族徽记。你的家族——似乎有着不为人知的过往。"
+life_stages = ["youth", "young_adult"]
+rarity = 5
+once_per_game = true
+excluded_flags = ["martial_family"]
+
+[[events.choices]]
+text = "带着玉佩去寻访家族的过往"
+outcome_text = "你拿着玉佩走访了各地的老人。在一个偏远的山村里你找到了你祖父的故居——以及一个尘封了数十年的秘密。"
+wits = 2
+set_flags = ["ms_family_stage_0"]
+
+[[events.choices]]
+text = "将玉佩当作护身符随身携带"
+outcome_text = "你没有特意去调查，但玉佩确实给你带来了好运。几次遇险时玉佩都微微发烫——仿佛在提醒你。"
+qi = 1
+bone = 1
+set_flags = ["ms_family_stage_0"]
+
+[[events]]
+id = "ms_family_1"
+title = "【主线】祖父的日记"
+description = "在祖父的故居中你找到了一本泛黄的日记。日记记载了一个惊人的事实：你的祖父曾经是武林盟主的候选之一——但在盟主大选前夜被人暗算，不得不隐姓埋名躲到这个山村里。暗算他的对手——是你现在很尊敬的一位正道前辈。"
+life_stages = ["young_adult", "adult"]
+rarity = 3
+required_flags = ["ms_family_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "找到那个前辈问清楚"
+outcome_text = "你找到了那位年迈的前辈。他看到玉佩后长叹：'我对不起你祖父。当年我太想当盟主了，用了不光彩的手段。我愿用余生来赎罪。'"
+wits = 2
+honor = 1
+set_flags = ["ms_family_stage_1"]
+
+[[events.choices]]
+text = "不追究过去，但要还你祖父一个公道"
+outcome_text = "你没有直接找那个前辈算账，而是将祖父的事迹写成了一本书——让世人知道曾经有这样一位英雄。"
+wits = 3
+reputation = 1
+set_flags = ["ms_family_stage_1"]
+
+[[events]]
+id = "ms_family_2"
+title = "【主线】祖父的遗愿"
+description = "祖父的日记最后一页写着：'我此生最大的遗憾不是没当上盟主——而是没能看着我的孙儿走上正道。如果他能继承我的遗志……我便死而无憾了。'"
+life_stages = ["adult", "middle_age"]
+rarity = 2
+required_flags = ["ms_family_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "继承祖父遗志，做一个正直的武者"
+outcome_text = "你将玉佩和日记放在祖父的坟前，磕了三个头。'祖父，你不会失望的。'从那天起你比之前更加努力也更加正直。"
+honor = 4
+bone = 2
+set_flags = ["ms_family_complete", "honored_ancestor"]
+
+[[events.choices]]
+text = "完成祖父的心愿——竞选武林盟主 (需要武林盟主主线)"
+outcome_text = "你决定走完祖父没走完的路。你竞选了武林盟主——不是为了权力而是为了完成一个承诺。在所有竞选者中你的正直赢得了最多的尊重。"
+honor = 3
+reputation = 3
+set_flags = ["ms_family_complete"]
+required_flags = ["ms_leader_stage_2"]
+
+# === 主线十：江湖秘闻 (4阶段) ===
+
+[[events]]
+id = "ms_spy_0"
+title = "【主线】茶馆秘闻"
+description = "你在一家茶馆中无意间听到了两个人在低声交谈——他们说的是各大门派的机密情报。其中一条是关于一个即将召开的门派秘密会议——而那个会议将决定武林未来的格局。"
+life_stages = ["young_adult", "adult"]
+rarity = 5
+once_per_game = true
+
+[[events.choices]]
+text = "偷听更多内容"
+outcome_text = "你装作品茶，听到了更多惊人的情报。这两个人是某个庞大情报网络的一部分——他们自称为'影子'。"
+wits = 2
+set_flags = ["ms_spy_stage_0"]
+
+[[events.choices]]
+text = "上前质问他们在做什么"
+outcome_text = "两人被你惊动后迅速离去。但其中一人在离开时故意落下了一个竹筒——里面是一张标记着各大门派据点的地图。"
+wits = 1
+reputation = 1
+set_flags = ["ms_spy_stage_0"]
+
+[[events]]
+id = "ms_spy_1"
+title = "【主线】入影"
+description = "你追踪'影子'的情报网络，发现他们是一个半地下性质的江湖情报组织。他们没有首领没有据点——只有一套极其精密的暗号和联络方式。有人邀请你加入。"
+life_stages = ["adult"]
+rarity = 4
+required_flags = ["ms_spy_stage_0"]
+once_per_game = true
+
+[[events.choices]]
+text = "加入'影子'，成为情报员"
+outcome_text = "你学会了暗号和密码术。在影子中你接触到了整个江湖最深层的秘密——包括一些连各大派掌门都不知道的事。"
+wits = 3
+agility = 1
+set_flags = ["ms_spy_stage_1", "joined_shadow"]
+
+[[events.choices]]
+text = "利用影子的情报但没有加入"
+outcome_text = "你和影子保持着一种微妙的合作关系——你帮他们做一些事他们给你情报。你不属于他们但也不完全是外人。"
+wits = 2
+set_flags = ["ms_spy_stage_1"]
+
+[[events]]
+id = "ms_spy_2"
+title = "【主线】天机不可泄露"
+description = "你通过影子获得了一条足以改变江湖格局的情报。但这条情报一旦公开——会引起一场轩然大波甚至可能引发门派之间的战争。"
+life_stages = ["adult"]
+rarity = 3
+required_flags = ["ms_spy_stage_1"]
+once_per_game = true
+
+[[events.choices]]
+text = "谨慎地透露给可信赖的人"
+outcome_text = "你选择性地向一些正道掌门透露了情报中的关键部分。他们得以提前准备避免了更大的灾难。"
+wits = 2
+honor = 2
+set_flags = ["ms_spy_stage_2"]
+
+[[events.choices]]
+text = "如果你在正邪线上选择了光明路——将情报公之于众 (需要正邪主线)"
+outcome_text = "你相信光明磊落才是正道。你将情报全部公开——虽然确实引起了短期的混乱但从根本上清除了一个祸患。"
+honor = 3
+reputation = 2
+set_flags = ["ms_spy_stage_2"]
+required_flags = ["ms_moral_light"]
+
+[[events]]
+id = "ms_spy_3"
+title = "【主线】影子的真相"
+description = "你终于接触到了影子的核心——他们的首领。让你震惊的是首领不是一个江湖中人，而是一个曾经的大内密探。他告诉你：影子存在的目的是维护江湖的信息平衡——知道的越多就越能避免不必要的战争。"
+life_stages = ["middle_age"]
+rarity = 2
+required_flags = ["ms_spy_stage_2"]
+once_per_game = true
+
+[[events.choices]]
+text = "继承影子的使命"
+outcome_text = "首领年事已高，将影子的管理权交给了你。你成为了下一个'守密人'——用情报的力量默默地维护着江湖的和平。"
+wits = 3
+honor = 2
+reputation = 1
+set_flags = ["ms_spy_complete"]
+
+[[events.choices]]
+text = "解散影子，将情报销毁"
+outcome_text = "你觉得这种暗中操纵江湖格局的做法本身就不对。你说服了首领解散影子并把所有情报付之一炬。"
+honor = 4
+wits = 1
+set_flags = ["ms_spy_complete"]

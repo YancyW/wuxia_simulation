@@ -3,7 +3,7 @@ import type { Character, CharacterCreateInput, EventTemplate, DungeonTemplate } 
 import { db } from '../database/db.js';
 import { characters, saves, eventLogs, martialArtsLearned, relationships } from '../database/schema.js';
 import { eq, desc } from 'drizzle-orm';
-import { selectEvent, isDungeonEvent, handleDungeonCompletion } from './event-engine.js';
+import { selectEvent, isDungeonEvent, handleDungeonCompletion, filterAvailableChoices } from './event-engine.js';
 import { applyEffects } from './stat-calc.js';
 import { calculateMartialLevel } from './martial-calc.js';
 import { advanceAge } from './aging.js';
@@ -107,7 +107,8 @@ export function advanceTurn(saveId: string): TurnResult | null {
   if (!character.isAlive) return null;
 
   const pastEventIds = state.logs.map((l) => l.eventId);
-  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds, getAffinityList(character.id));
+  const rawEvent = selectEvent(gameData, deserializeCharacter(character), pastEventIds, getAffinityList(character.id));
+  const event = filterAvailableChoices(rawEvent, deserializeFlags(character.flags));
 
   return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
 }
@@ -120,7 +121,8 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   if (!character.isAlive) return null;
 
   const pastEventIds = state.logs.map((l) => l.eventId);
-  const event = selectEvent(gameData, deserializeCharacter(character), pastEventIds, getAffinityList(character.id));
+  const rawEvent = selectEvent(gameData, deserializeCharacter(character), pastEventIds, getAffinityList(character.id));
+  const event = filterAvailableChoices(rawEvent, deserializeFlags(character.flags));
 
   if (!event || choiceIndex < 0 || choiceIndex >= event.choices.length) {
     return { character, event, learnedArts: state.learnedArts, died: false, deathCause: null };
@@ -221,7 +223,8 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
   let nextEvent: EventTemplate;
   if (!agingResult.died) {
     const updatedPastIds = [...pastEventIds, event.id];
-    nextEvent = selectEvent(gameData, deserializeCharacter(updatedChar), updatedPastIds);
+    const rawNext = selectEvent(gameData, deserializeCharacter(updatedChar), updatedPastIds, getAffinityList(updatedChar.id));
+    nextEvent = filterAvailableChoices(rawNext, deserializeFlags(updatedChar.flags));
   } else {
     nextEvent = event;
   }
