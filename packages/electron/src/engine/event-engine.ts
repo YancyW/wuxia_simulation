@@ -88,10 +88,20 @@ export function selectEvent(
     return getFallbackEvent(character.lifeStage);
   }
 
-  const totalWeight = eligible.reduce((sum, e) => sum + (e.rarity || 1), 0);
+  const totalWeight = eligible.reduce((sum, e) => {
+    let w = e.rarity || 1;
+    // Boost events that have required conditions (chain/storyline events)
+    if (e.conditions?.requiredFlags || e.conditions?.requiredNpcRelation) w *= 10;
+    // Boost dungeon/storyline events so they appear when conditions met
+    if (e.id.startsWith('ms_') || e.id.startsWith('dungeon_')) w *= 3;
+    return sum + w;
+  }, 0);
   let roll = Math.random() * totalWeight;
   for (const event of eligible) {
-    roll -= event.rarity || 1;
+    let weight = event.rarity || 1;
+    if (event.conditions?.requiredFlags || event.conditions?.requiredNpcRelation) weight *= 10;
+    if (event.id.startsWith('ms_') || event.id.startsWith('dungeon_')) weight *= 3;
+    roll -= weight;
     if (roll <= 0) return event;
   }
 

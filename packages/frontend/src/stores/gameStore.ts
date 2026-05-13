@@ -8,7 +8,7 @@ interface GameStore {
   saveId: string | null;
   character: Character | null;
   currentEvent: EventTemplate | null;
-  lastChoiceResult: { choice: EventChoice; outcomeText: string } | null;
+  lastChoiceResult: { choice: EventChoice; outcomeText: string; learnArt?: string; joinSect?: string; setFlags?: string[] } | null;
   learnedArts: LearnedArt[];
   relations: Relation[];
   died: boolean;
@@ -119,7 +119,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
           const choice = event.choices[choiceIndex];
           if (choice) {
             set({
-              lastChoiceResult: { choice, outcomeText: choice.outcomeText },
+              lastChoiceResult: { choice, outcomeText: choice.outcomeText, learnArt: choice.learnArt, joinSect: choice.joinSect, setFlags: choice.setFlags },
               currentEvent: null,
             });
           }

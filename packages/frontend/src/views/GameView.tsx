@@ -51,6 +51,9 @@ export default function GameView() {
             choiceText={lastChoiceResult.choice.text}
             outcomeText={lastChoiceResult.outcomeText}
             effects={Object.fromEntries(statEffects)}
+            learnArt={lastChoiceResult.learnArt}
+            joinSect={lastChoiceResult.joinSect}
+            setFlags={lastChoiceResult.setFlags}
             onContinue={handleContinue}
           />
         ) : currentEvent ? (
