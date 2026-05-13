@@ -1,0 +1,168 @@
+# ============================================
+# 古龙武侠体系
+# ============================================
+
+# === 内功 ===
+[[arts]]
+id = "mingyu"
+name = "明玉功"
+type = "internal"
+description = "移花宫不传之秘，修炼到极致可使人容颜不老内力如玉石般纯净无瑕。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_qi = 6
+sect_only = "yihua_palace"
+
+[[arts]]
+id = "jiayi"
+name = "嫁衣神功"
+type = "internal"
+description = "铁血大旗门镇派内功，修炼极苦但威力无穷。练到七八成时需将功力转注他人，方可突破至大成。"
+rarity = 5
+tier = "legendary"
+min_bone = 7
+min_qi = 6
+sect_only = "tiexue"
+
+[[arts]]
+id = "wuzhu"
+name = "无相神功"
+type = "internal"
+description = "古龙世界中最神秘的内功之一，无形无相不着痕迹。"
+rarity = 4
+tier = "advanced"
+min_wits = 6
+min_qi = 5
+
+# === 剑法 ===
+[[arts]]
+id = "tianwaifeixian"
+name = "天外飞仙"
+type = "sword"
+description = "白云城主叶孤城的绝世剑法，一剑西来天外飞仙。剑光如匹练，无人能挡。"
+rarity = 5
+tier = "legendary"
+min_technique = 8
+min_wits = 6
+
+[[arts]]
+id = "duoging"
+name = "多情剑"
+type = "sword"
+description = "多情剑客无情剑——小李探花的剑，例无虚发。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_technique = 6
+
+[[arts]]
+id = "yuanyue"
+name = "圆月弯刀"
+type = "blade"
+description = "丁鹏所使之弯刀刀法，刀出如圆月当空，魔性深重。"
+rarity = 4
+tier = "advanced"
+min_technique = 5
+min_qi = 4
+
+[[arts]]
+id = "xiangshuai"
+name = "香帅剑法"
+type = "sword"
+description = "楚留香的独门剑法，潇洒自如剑出无痕。"
+rarity = 4
+tier = "advanced"
+min_agility = 6
+min_wits = 5
+
+# === 特殊武学 ===
+[[arts]]
+id = "xiaolifeidao"
+name = "小李飞刀"
+type = "special"
+description = "小李飞刀，例无虚发。李寻欢的独门飞刀绝技，天下暗器无出其右。"
+rarity = 5
+tier = "legendary"
+min_wits = 8
+min_technique = 6
+
+[[arts]]
+id = "lingxi"
+name = "灵犀一指"
+type = "special"
+description = "陆小凤的绝技，两根手指可以夹住天下任何兵器暗器。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_agility = 7
+
+[[arts]]
+id = "kongque"
+name = "孔雀翎"
+type = "special"
+description = "孔雀山庄的镇庄之宝——天下第一暗器。发射时如孔雀开屏，绚烂夺目中取人性命。"
+rarity = 5
+tier = "legendary"
+min_wits = 6
+sect_only = "kongque"
+
+[[arts]]
+id = "yihua"
+name = "移花接木"
+type = "special"
+description = "移花宫绝学，可将对手的招式原封不动地还施彼身。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_qi = 5
+sect_only = "yihua_palace"
+
+[[arts]]
+id = "liuyue"
+name = "流云飞袖"
+type = "special"
+description = "以衣袖为武器的奇门武功，看似轻柔实则暗藏杀机。"
+rarity = 3
+tier = "intermediate"
+min_agility = 5
+
+# === 轻功 ===
+[[arts]]
+id = "ta Hua"
+name = "踏花飞步"
+type = "movement"
+description = "古龙世界的上乘轻功，踏花而行不留痕迹。楚留香的招牌身法。"
+rarity = 4
+tier = "advanced"
+min_agility = 6
+
+[[arts]]
+id = "fengwu"
+name = "凤舞九天"
+type = "movement"
+description = "陆小凤的独门轻功，如凤凰翔于九天，轻灵俊逸无人可及。"
+rarity = 4
+tier = "advanced"
+min_agility = 6
+min_wits = 5
+
+# === 掌法 ===
+[[arts]]
+id = "jueqing"
+name = "绝情掌"
+type = "palm"
+description = "无情却有情，有情却无情。以无情之心驭有情之掌。"
+rarity = 4
+tier = "advanced"
+min_qi = 5
+
+[[arts]]
+id = "tianmo"
+name = "天魔手"
+type = "palm"
+description = "邪道绝学，以天魔之力灌注双掌，威力惊世骇俗。"
+rarity = 4
+tier = "advanced"
+min_bone = 5
+min_qi = 4

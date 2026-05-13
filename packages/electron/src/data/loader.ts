@@ -182,7 +182,7 @@ function loadDungeons(): DungeonTemplate[] {
 function loadMartialArts(): MartialArt[] {
   const raw1 = readToml<{ arts: Record<string, unknown>[] }>('martial-arts.toml');
   let allArts = [...(raw1.arts || [])];
-  for (const file of ['martial-arts-low.toml', 'martial-arts-expanded.toml']) {
+  for (const file of ['martial-arts-low.toml', 'martial-arts-expanded.toml', 'martial-arts-gulong.toml', 'martial-arts-others.toml']) {
     if (existsSync(dataPath(file))) {
       const r = readToml<{ arts: Record<string, unknown>[] }>(file);
       allArts = [...allArts, ...(r.arts || [])];
@@ -217,7 +217,7 @@ function loadMartialArts(): MartialArt[] {
 function loadSects(): Sect[] {
   const raw1 = readToml<{ sects: Record<string, unknown>[] }>('sects.toml');
   let allSects = [...(raw1.sects || [])];
-  for (const file of ['sects-low.toml', 'sects-expanded.toml']) {
+  for (const file of ['sects-low.toml', 'sects-expanded.toml', 'sects-gulong.toml']) {
     if (existsSync(dataPath(file))) {
       const r = readToml<{ sects: Record<string, unknown>[] }>(file);
       allSects = [...allSects, ...(r.sects || [])];

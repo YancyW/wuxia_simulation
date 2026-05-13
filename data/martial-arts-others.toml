@@ -1,0 +1,218 @@
+# ============================================
+# 梁羽生 + 黄易 + 温瑞安 武功体系
+# ============================================
+
+# === 梁羽生 — 天山系列 ===
+[[arts]]
+id = "tianshan_jian"
+name = "天山剑法"
+type = "sword"
+description = "梁羽生笔下天山派的镇派剑法，融合了西域与中原剑术之精华。"
+rarity = 4
+tier = "advanced"
+min_technique = 5
+sect_only = "tianshan_pai"
+
+[[arts]]
+id = "baima"
+name = "白发剑法"
+type = "sword"
+description = "白发魔女练霓裳所创，剑势凌厉中带着凄美。"
+rarity = 4
+tier = "advanced"
+min_wits = 5
+gender_required = "female"
+
+[[arts]]
+id = "xuanti"
+name = "玄铁重剑"
+type = "sword"
+description = "梁羽生世界中的重剑之法，大巧不工以力破巧。"
+rarity = 4
+tier = "advanced"
+min_bone = 6
+min_qi = 5
+
+[[arts]]
+id = "qijian"
+name = "七剑式"
+type = "sword"
+description = "七剑下天山所载之剑法总纲，七式连环变化万千。"
+rarity = 5
+tier = "legendary"
+min_technique = 6
+min_wits = 5
+
+[[arts]]
+id = "xuangong"
+name = "玄功要诀"
+type = "internal"
+description = "梁羽生武学体系中的至高心法，阐述武学至理。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_qi = 6
+
+# === 黄易 — 破碎虚空体系 ===
+[[arts]]
+id = "changsheng"
+name = "长生诀"
+type = "internal"
+description = "上古奇功，以天地阴阳之气淬炼自身。练至大成可破碎虚空而去。"
+rarity = 5
+tier = "legendary"
+min_wits = 8
+min_qi = 7
+
+[[arts]]
+id = "tianmo_ce"
+name = "天魔策"
+type = "internal"
+description = "魔门最高秘典，记载了种种诡谲莫测的功法。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_qi = 5
+
+[[arts]]
+id = "cihang"
+name = "慈航剑典"
+type = "sword"
+description = "慈航静斋的最高心法，以慈悲入剑道。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_technique = 6
+sect_only = "cihang"
+
+[[arts]]
+id = "daoxin"
+name = "道心种魔大法"
+type = "internal"
+description = "魔门至高心法：以道心入魔种，成为道魔合一的无上大宗师。"
+rarity = 5
+tier = "forbidden"
+min_wits = 8
+min_qi = 7
+prerequisites = ["tianmo_ce"]
+
+[[arts]]
+id = "jingzhong"
+name = "井中月"
+type = "sword"
+description = "寇仲自创刀法，以井中月为意象——看似平静实则暗流汹涌。"
+rarity = 4
+tier = "advanced"
+min_technique = 5
+min_wits = 5
+
+[[arts]]
+id = "sanshao"
+name = "散手八式"
+type = "palm"
+description = "传鹰所创的拳法，散而不乱八式自成天地。"
+rarity = 4
+tier = "advanced"
+min_bone = 5
+min_qi = 4
+
+# === 温瑞安 — 四大名捕体系 ===
+[[arts]]
+id = "jingyan"
+name = "惊艳一枪"
+type = "special"
+description = "诸葛正我的绝技——一枪惊艳天下动。枪出如龙势不可挡。"
+rarity = 5
+tier = "legendary"
+min_technique = 7
+min_bone = 6
+
+[[arts]]
+id = "shangxin"
+name = "伤心小箭"
+type = "special"
+description = "以情入箭，箭出必伤心。无情最是伤心处。"
+rarity = 4
+tier = "advanced"
+min_wits = 6
+min_technique = 5
+
+[[arts]]
+id = "wuming"
+name = "无名剑"
+type = "sword"
+description = "温瑞安笔下的无名之剑，无招无式却暗合天道。"
+rarity = 5
+tier = "legendary"
+min_wits = 7
+min_technique = 6
+
+[[arts]]
+id = "tiequan"
+name = "铁拳"
+type = "palm"
+description = "四大名捕中铁手的独门拳法，一拳可碎金石。"
+rarity = 3
+tier = "intermediate"
+min_bone = 5
+
+[[arts]]
+id = "zhuifeng"
+name = "追风腿"
+type = "movement"
+description = "四大名捕中追命的腿法绝技，追风逐日快如闪电。"
+rarity = 4
+tier = "advanced"
+min_agility = 6
+
+# === 江湖通用武学补充 ===
+[[arts]]
+id = "wanyue"
+name = "挽月剑"
+type = "sword"
+description = "轻柔如月的剑法，适合女子使用。"
+rarity = 2
+tier = "basic"
+
+[[arts]]
+id = "liehuo"
+name = "烈火掌"
+type = "palm"
+description = "至阳至刚的掌法，以内力催发火热掌劲。"
+rarity = 3
+tier = "intermediate"
+min_qi = 4
+
+[[arts]]
+id = "xuanfeng"
+name = "旋风刀"
+type = "blade"
+description = "回旋刀法，以旋转之势增强刀力。"
+rarity = 2
+tier = "basic"
+
+[[arts]]
+id = "liuyun"
+name = "流云步"
+type = "movement"
+description = "如行云流水般的步法。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]
+
+[[arts]]
+id = "tiebi"
+name = "铁臂功"
+type = "palm"
+description = "以双臂硬功为主的横练功夫。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "wuying"
+name = "无影脚"
+type = "movement"
+description = "脚法快如无影，以腿功和步法配合的功夫。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]

@@ -1,0 +1,126 @@
+# ============================================
+# 古龙 + 其他作者 门派势力
+# ============================================
+
+# === 古龙势力 ===
+[[sects]]
+id = "yihua_palace"
+name = "移花宫"
+description = "古龙笔下的神秘禁地，只收绝世美女。邀月怜星两位宫主武功深不可测。"
+type = "neutral"
+condition_gender = "female"
+condition_wits_min = 6
+exclusive_arts = ["mingyu", "yihua"]
+allies = []
+enemies = ["tiexue"]
+
+[[sects]]
+id = "tiexue"
+name = "铁血大旗门"
+description = "古龙笔下以嫁衣神功闻名天下的神秘门派，行事果断狠辣。"
+type = "neutral"
+condition_bone_min = 6
+exclusive_arts = ["jiayi"]
+allies = []
+enemies = ["yihua_palace"]
+
+[[sects]]
+id = "shenjian"
+name = "神剑山庄"
+description = "古龙世界中的剑道圣地，谢晓峰曾在此悟出无双剑道。"
+type = "orthodox"
+condition_technique_min = 6
+exclusive_arts = []
+allies = ["wudang"]
+enemies = []
+
+[[sects]]
+id = "baiyun"
+name = "白云城"
+description = "海外孤城，城主叶孤城的天外飞仙一剑西来。"
+type = "neutral"
+exclusive_arts = ["tianwaifeixian"]
+allies = []
+enemies = ["shenjian"]
+
+[[sects]]
+id = "kongque"
+name = "孔雀山庄"
+description = "秋家的山庄，拥有天下第一暗器孔雀翎。"
+type = "orthodox"
+exclusive_arts = ["kongque"]
+allies = ["shaolin"]
+enemies = []
+
+[[sects]]
+id = "eren_gu"
+name = "恶人谷"
+description = "古龙笔下恶人汇聚之地，十大恶人各有所长。"
+type = "unorthodox"
+condition_honor_max = -30
+exclusive_arts = []
+allies = []
+enemies = ["shaolin", "wudang", "gaibang"]
+
+# === 黄易势力 ===
+[[sects]]
+id = "cihang"
+name = "慈航静斋"
+description = "黄易笔下正道至高门派，历代传人以天下苍生为己任。只收女子。"
+type = "orthodox"
+condition_gender = "female"
+condition_wits_min = 7
+exclusive_arts = ["cihang"]
+allies = ["shaolin", "quanzhen"]
+enemies = ["mo_shi"]
+
+[[sects]]
+id = "mo_shi"
+name = "魔师宫"
+description = "黄易笔下的魔门总坛，道心种魔大法独步天下。"
+type = "unorthodox"
+condition_wits_min = 7
+exclusive_arts = ["tianmo_ce", "daoxin"]
+allies = ["riyue", "xingxiu"]
+enemies = ["cihang", "shaolin", "quanzhen"]
+
+[[sects]]
+id = "shuanglong"
+name = "双龙帮"
+description = "寇仲徐子陵所创的帮会，从市井小帮发展成为天下第一大帮的有力竞争者。"
+type = "orthodox"
+exclusive_arts = ["jingzhong", "changsheng"]
+allies = ["gaibang"]
+enemies = ["mo_shi"]
+
+# === 温瑞安势力 ===
+[[sects]]
+id = "shenhou"
+name = "神侯府"
+description = "诸葛正我统领的神捕组织，四大名捕维护天下正义。"
+type = "orthodox"
+condition_honor_min = 20
+exclusive_arts = ["jingyan", "shangxin"]
+allies = ["shaolin", "wudang", "quanzhen"]
+enemies = ["riyue", "mo_shi"]
+
+# === 梁羽生补充 ===
+[[sects]]
+id = "mangshan"
+name = "邙山派"
+description = "梁羽生笔下的北邙山剑派，与天山派齐名的北方大派。"
+type = "orthodox"
+condition_technique_min = 4
+exclusive_arts = []
+allies = ["tianshan_pai", "wudang"]
+enemies = []
+
+[[sects]]
+id = "baima_nv"
+name = "白发魔女宫"
+description = "练霓裳所创的门派，弟子皆为女子。行事偏激但重情重义。"
+type = "neutral"
+condition_gender = "female"
+exclusive_arts = ["baima"]
+allies = []
+enemies = ["wudang"]
