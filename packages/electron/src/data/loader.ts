@@ -124,6 +124,7 @@ function loadEvents(): EventTemplate[] {
   const all: EventTemplate[] = [];
   const eventFiles = ['events/youth.toml', 'events/young-adult.toml', 'events/adult.toml', 'events/middle-age.toml'];
   for (const file of eventFiles) {
+    if (!existsSync(dataPath(file))) continue;
     const raw = readToml<{ events: Record<string, unknown>[] }>(file);
     for (const ev of raw.events) {
       const event: EventTemplate = {
@@ -144,8 +145,13 @@ function loadEvents(): EventTemplate[] {
 }
 
 function loadDungeons(): DungeonTemplate[] {
-  const raw = readToml<{ dungeons: Record<string, unknown>[] }>('events/dungeons.toml');
-  return (raw.dungeons || []).map((d) => {
+  let allDungeons: Record<string, unknown>[] = [];
+  for (const file of ['events/dungeons.toml', 'events/dungeons-expanded.toml']) {
+    if (!existsSync(dataPath(file))) continue;
+    const raw = readToml<{ dungeons: Record<string, unknown>[] }>(file);
+    allDungeons = [...allDungeons, ...(raw.dungeons || [])];
+  }
+  return allDungeons.map((d) => {
     const dungeon: DungeonTemplate = {
       id: d.id as string,
       title: d.title as string,
@@ -176,9 +182,11 @@ function loadDungeons(): DungeonTemplate[] {
 function loadMartialArts(): MartialArt[] {
   const raw1 = readToml<{ arts: Record<string, unknown>[] }>('martial-arts.toml');
   let allArts = [...(raw1.arts || [])];
-  if (existsSync(dataPath('martial-arts-low.toml'))) {
-    const raw2 = readToml<{ arts: Record<string, unknown>[] }>('martial-arts-low.toml');
-    allArts = [...allArts, ...(raw2.arts || [])];
+  for (const file of ['martial-arts-low.toml', 'martial-arts-expanded.toml']) {
+    if (existsSync(dataPath(file))) {
+      const r = readToml<{ arts: Record<string, unknown>[] }>(file);
+      allArts = [...allArts, ...(r.arts || [])];
+    }
   }
   return allArts.map((a) => {
     const art: MartialArt = {
@@ -209,9 +217,11 @@ function loadMartialArts(): MartialArt[] {
 function loadSects(): Sect[] {
   const raw1 = readToml<{ sects: Record<string, unknown>[] }>('sects.toml');
   let allSects = [...(raw1.sects || [])];
-  if (existsSync(dataPath('sects-low.toml'))) {
-    const raw2 = readToml<{ sects: Record<string, unknown>[] }>('sects-low.toml');
-    allSects = [...allSects, ...(raw2.sects || [])];
+  for (const file of ['sects-low.toml', 'sects-expanded.toml']) {
+    if (existsSync(dataPath(file))) {
+      const r = readToml<{ sects: Record<string, unknown>[] }>(file);
+      allSects = [...allSects, ...(r.sects || [])];
+    }
   }
   return allSects.map((s) => {
     const sect: Sect = {
@@ -236,8 +246,15 @@ function loadSects(): Sect[] {
 }
 
 function loadNpcs(): NpcTemplate[] {
-  const raw = readToml<{ npcs: Record<string, unknown>[] }>('npcs.toml');
-  return (raw.npcs || []).map((n) => ({
+  const raw1 = readToml<{ npcs: Record<string, unknown>[] }>('npcs.toml');
+  let allNpcs = [...(raw1.npcs || [])];
+  for (const file of ['npcs-expanded.toml']) {
+    if (existsSync(dataPath(file))) {
+      const r = readToml<{ npcs: Record<string, unknown>[] }>(file);
+      allNpcs = [...allNpcs, ...(r.npcs || [])];
+    }
+  }
+  return allNpcs.map((n) => ({
     id: n.id as string,
     name: n.name as string,
     description: n.description as string,

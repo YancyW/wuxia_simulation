@@ -1,0 +1,604 @@
+# ============================================
+# 中级武功扩充 - 各派绝学
+# ============================================
+
+# === 少林七十二绝技精选 ===
+[[arts]]
+id = "jingang"
+name = "大力金刚掌"
+type = "palm"
+description = "少林七十二绝技之一，掌力刚猛无俦，中者筋骨尽碎。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["luohanquan"]
+sect_only = "shaolin"
+
+[[arts]]
+id = "weitou"
+name = "韦陀掌"
+type = "palm"
+description = "少林基础掌法之进阶，以韦陀菩萨降魔之力为根基。"
+rarity = 2
+tier = "basic"
+prerequisites = ["luohanquan"]
+sect_only = "shaolin"
+
+[[arts]]
+id = "longzhao"
+name = "龙爪手"
+type = "palm"
+description = "少林七十二绝技之一，五指如龙爪，可洞穿金石。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["jingang"]
+min_bone = 6
+sect_only = "shaolin"
+
+[[arts]]
+id = "nianhua"
+name = "拈花指"
+type = "special"
+description = "少林七十二绝技之一，以指力隔空取物伤人，禅意武学之巅峰。"
+rarity = 5
+tier = "legendary"
+prerequisites = ["yijinjing"]
+min_wits = 7
+min_qi = 6
+sect_only = "shaolin"
+
+[[arts]]
+id = "poxie"
+name = "破戒刀法"
+type = "blade"
+description = "少林戒刀之法，虽为刀法却蕴含佛门慈悲之意。"
+rarity = 3
+tier = "intermediate"
+sect_only = "shaolin"
+
+[[arts]]
+id = "yecha"
+name = "夜叉棍法"
+type = "special"
+description = "少林棍法基础，少林弟子入门必修。"
+rarity = 1
+tier = "basic"
+sect_only = "shaolin"
+
+[[arts]]
+id = "damo"
+name = "达摩剑法"
+type = "sword"
+description = "少林剑法绝学，蕴含达摩祖师的武学禅理。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["yijinjing"]
+min_wits = 6
+sect_only = "shaolin"
+
+[[arts]]
+id = "fuhu"
+name = "伏虎拳"
+type = "palm"
+description = "少林基础拳法，以伏虎之力化拳劲。"
+rarity = 2
+tier = "basic"
+prerequisites = ["luohanquan"]
+sect_only = "shaolin"
+
+# === 武当绝学 ===
+[[arts]]
+id = "rouyun"
+name = "柔云剑法"
+type = "sword"
+description = "武当剑法，剑势如云柔而不散，以柔克刚之典范。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["wudangjian_basic"]
+sect_only = "wudang"
+
+[[arts]]
+id = "zhenwu"
+name = "真武七截剑"
+type = "sword"
+description = "武当镇派剑法之一，七式连环，截天截地。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["rouyun", "taijijian"]
+min_wits = 6
+min_technique = 5
+sect_only = "wudang"
+
+[[arts]]
+id = "liangyi"
+name = "两仪剑法"
+type = "sword"
+description = "武当双人合击剑法，阴阳相济天下无双。"
+rarity = 3
+tier = "intermediate"
+sect_only = "wudang"
+
+[[arts]]
+id = "baguazhang"
+name = "八卦掌"
+type = "palm"
+description = "武当八卦掌，步法掌法合一，如八卦运转无穷无尽。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["taijiquan"]
+min_wits = 5
+sect_only = "wudang"
+
+[[arts]]
+id = "tiancan"
+name = "天蚕神功"
+type = "internal"
+description = "武当内功绝学，以天蚕吐丝之形化真气运转。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["zixia"]
+min_qi = 6
+sect_only = "wudang"
+
+[[arts]]
+id = "chunyang"
+name = "纯阳无极功"
+type = "internal"
+description = "武当张三丰晚年所创的至高内功。"
+rarity = 5
+tier = "legendary"
+prerequisites = ["tiancan", "jiuyang"]
+min_qi = 7
+min_bone = 6
+sect_only = "wudang"
+
+# === 丐帮 ===
+[[arts]]
+id = "suohou"
+name = "锁喉擒拿手"
+type = "palm"
+description = "丐帮擒拿绝技，三十六路锁喉手法。"
+rarity = 2
+tier = "basic"
+sect_only = "gaibang"
+
+[[arts]]
+id = "lianhua"
+name = "莲花掌"
+type = "palm"
+description = "丐帮掌法，以莲花之形化刚猛之力。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["suohou"]
+sect_only = "gaibang"
+
+[[arts]]
+id = "zuigou"
+name = "醉狗拳"
+type = "palm"
+description = "丐帮独门拳法，假装醉酒实则暗藏杀招。"
+rarity = 2
+tier = "basic"
+sect_only = "gaibang"
+
+# === 华山派 ===
+[[arts]]
+id = "fanliangyi"
+name = "反两仪刀法"
+type = "blade"
+description = "华山派刀法绝学，与正两仪剑法相辅相克。"
+rarity = 3
+tier = "intermediate"
+sect_only = "huashan"
+
+[[arts]]
+id = "yangwu"
+name = "养吾剑法"
+type = "sword"
+description = "华山气宗剑法，以正气养剑意，浩然长存。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["huashanjian"]
+sect_only = "huashan"
+
+[[arts]]
+id = "xixing"
+name = "希夷剑法"
+type = "sword"
+description = "华山剑宗绝学，剑出无形，希夷莫测。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["huashanjian"]
+min_technique = 6
+sect_only = "huashan"
+
+# === 峨眉派 ===
+[[arts]]
+id = "piaoxue"
+name = "飘雪穿云掌"
+type = "palm"
+description = "峨眉派掌法，掌力如飘雪穿云，无声无息。"
+rarity = 3
+tier = "intermediate"
+sect_only = "emei"
+gender_required = "female"
+
+[[arts]]
+id = "jieding"
+name = "截手九式"
+type = "palm"
+description = "峨眉派截击手法，以柔克刚的典范。"
+rarity = 2
+tier = "basic"
+sect_only = "emei"
+gender_required = "female"
+
+[[arts]]
+id = "fochen"
+name = "佛尘剑法"
+type = "sword"
+description = "峨眉派以佛尘代剑的独门武功。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["emeijian"]
+sect_only = "emei"
+gender_required = "female"
+
+# === 逍遥派 ===
+[[arts]]
+id = "tianshan"
+name = "天山折梅手"
+type = "palm"
+description = "逍遥派擒拿绝学，三路掌法三路擒拿，变化无穷。"
+rarity = 4
+tier = "advanced"
+min_wits = 6
+sect_only = "xiaoyao"
+
+[[arts]]
+id = "tianshan_liu"
+name = "天山六阳掌"
+type = "palm"
+description = "逍遥派至高掌法，六掌连环一掌强过一掌。"
+rarity = 5
+tier = "legendary"
+prerequisites = ["tianshan", "beiming"]
+min_qi = 7
+min_wits = 6
+sect_only = "xiaoyao"
+
+[[arts]]
+id = "baihong"
+name = "白虹掌力"
+type = "palm"
+description = "逍遥派掌法，掌力可以转弯，防不胜防。"
+rarity = 3
+tier = "intermediate"
+sect_only = "xiaoyao"
+
+# === 日月神教 ===
+[[arts]]
+id = "heimu"
+name = "黑目"
+type = "special"
+description = "日月神教诡异瞳术，以目光慑人心魄。"
+rarity = 3
+tier = "intermediate"
+sect_only = "riyue"
+
+[[arts]]
+id = "sanyin"
+name = "三阴手"
+type = "palm"
+description = "日月神教阴毒掌法，中者身中三阴之气。"
+rarity = 3
+tier = "intermediate"
+sect_only = "riyue"
+
+[[arts]]
+id = "xuanyin"
+name = "玄阴指"
+type = "special"
+description = "日月神教指法，以阴寒内力透指伤人经脉。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["hanbing"]
+min_qi = 6
+sect_only = "riyue"
+
+# === 全真教 ===
+[[arts]]
+id = "tonggui"
+name = "同归剑法"
+type = "sword"
+description = "全真教与敌同归于尽的搏命剑法。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["quanzhenjian"]
+sect_only = "quanzhen"
+
+[[arts]]
+id = "sanhua"
+name = "三花聚顶掌"
+type = "palm"
+description = "全真教上乘掌法，以三花聚顶之力凝聚掌劲。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["xiantian"]
+min_qi = 6
+sect_only = "quanzhen"
+
+[[arts]]
+id = "jinso"
+name = "金锁关"
+type = "special"
+description = "全真教防御阵法所化的个人武功，以气为锁以意为关。"
+rarity = 3
+tier = "intermediate"
+sect_only = "quanzhen"
+
+# === 古墓派 ===
+[[arts]]
+id = "meinv"
+name = "美女拳法"
+type = "palm"
+description = "古墓派林朝英所创拳法，招式优美，实则暗藏杀招。"
+rarity = 3
+tier = "intermediate"
+sect_only = "gumu"
+gender_required = "female"
+
+[[arts]]
+id = "yinsu"
+name = "银索金铃"
+type = "special"
+description = "古墓派独门兵器武功，银索金铃配合玉女心经使用。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["yujian"]
+sect_only = "gumu"
+gender_required = "female"
+
+[[arts]]
+id = "tianluo"
+name = "天罗地网式"
+type = "palm"
+description = "古墓派入门掌法，以天罗地网困住对手。"
+rarity = 2
+tier = "basic"
+sect_only = "gumu"
+gender_required = "female"
+
+[[arts]]
+id = "bingpo"
+name = "冰魄银针"
+type = "special"
+description = "古墓派暗器绝技，银针淬以寒冰之毒。"
+rarity = 3
+tier = "intermediate"
+sect_only = "gumu"
+gender_required = "female"
+
+# === 明教 ===
+[[arts]]
+id = "yinfeng"
+name = "阴风刀"
+type = "blade"
+description = "明教刀法，出刀带阴寒之气。"
+rarity = 3
+tier = "intermediate"
+min_qi = 4
+sect_only = "mingjiao"
+
+[[arts]]
+id = "tougu"
+name = "透骨针"
+type = "special"
+description = "明教暗器手法，以细针透骨伤人。"
+rarity = 3
+tier = "intermediate"
+sect_only = "mingjiao"
+
+# === 桃花岛 ===
+[[arts]]
+id = "yuxiao"
+name = "玉箫剑法"
+type = "sword"
+description = "桃花岛黄药师以玉箫代剑的独门剑法，剑招中暗含箫声音律。"
+rarity = 4
+tier = "advanced"
+min_wits = 6
+sect_only = "taohua"
+
+[[arts]]
+id = "bihai"
+name = "碧海潮生曲"
+type = "special"
+description = "黄药师以箫声为武器的奇门武功，可乱人心智。"
+rarity = 4
+tier = "advanced"
+min_qi = 5
+min_wits = 6
+sect_only = "taohua"
+
+[[arts]]
+id = "lanhua"
+name = "兰花拂穴手"
+type = "special"
+description = "桃花岛点穴手法，手势优雅如拂兰花。"
+rarity = 2
+tier = "basic"
+sect_only = "taohua"
+
+# === 江湖通用武学 ===
+[[arts]]
+id = "tiebu"
+name = "铁布衫"
+type = "internal"
+description = "江湖常见的硬气功，可抵御普通刀剑。"
+rarity = 1
+tier = "basic"
+
+[[arts]]
+id = "jinshe"
+name = "金蛇剑法"
+type = "sword"
+description = "金蛇郎君夏雪宜所创之诡异剑法，剑走偏锋。"
+rarity = 4
+tier = "advanced"
+min_wits = 5
+min_technique = 5
+
+[[arts]]
+id = "dajian"
+name = "大剪刀刀法"
+type = "blade"
+description = "南海鳄神以巨大剪刀为武器的怪异刀法。"
+rarity = 2
+tier = "basic"
+
+[[arts]]
+id = "qianzhu"
+name = "千蛛万毒手"
+type = "special"
+description = "以毒蛛练就的毒掌，中者身中蛛毒。"
+rarity = 3
+tier = "intermediate"
+
+[[arts]]
+id = "feixu"
+name = "飞絮劲"
+type = "movement"
+description = "轻柔灵动的身法，如飞絮随风。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]
+
+[[arts]]
+id = "qinggong_shangcheng"
+name = "登萍渡水"
+type = "movement"
+description = "上乘轻功，可在水面踏行数步而不沉。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["feixu", "yanti"]
+min_agility = 6
+
+[[arts]]
+id = "wuxing"
+name = "五行拳"
+type = "palm"
+description = "崆峒派五行拳，金木水火土五行连环。"
+rarity = 2
+tier = "basic"
+sect_only = "kongtong"
+
+[[arts]]
+id = "shuangshou"
+name = "双手互搏"
+type = "special"
+description = "老顽童周伯通所创奇功，可一心二用左右手使不同武功。"
+rarity = 5
+tier = "legendary"
+min_wits = 8
+
+[[arts]]
+id = "duoming"
+name = "夺命十三剑"
+type = "sword"
+description = "燕十三所创剑法，一剑快过一剑。第十三剑是必杀之剑。"
+rarity = 5
+tier = "legendary"
+min_technique = 7
+min_wits = 5
+
+[[arts]]
+id = "changhe"
+name = "长河落日剑"
+type = "sword"
+description = "大漠孤烟直，长河落日圆。边塞剑法之绝唱。"
+rarity = 3
+tier = "intermediate"
+
+[[arts]]
+id = "dali"
+name = "大力鹰爪功"
+type = "palm"
+description = "鹰爪门绝技，五指如鹰爪裂石穿金。"
+rarity = 3
+tier = "intermediate"
+sect_only = "yingzhuamen"
+
+[[arts]]
+id = "meihua"
+name = "梅花桩"
+type = "movement"
+description = "在梅花桩上练就的轻功身法，下盘极稳。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]
+
+[[arts]]
+id = "shexing"
+name = "蛇行狸翻"
+type = "movement"
+description = "九阴真经中的身法，如蛇行草丛狸翻墙头。"
+rarity = 4
+tier = "advanced"
+min_agility = 5
+
+[[arts]]
+id = "luoxuan"
+name = "螺旋九影"
+type = "movement"
+description = "九阴真经中最高明的轻功，可化出九道残影。"
+rarity = 5
+tier = "legendary"
+prerequisites = ["shexing"]
+min_agility = 7
+
+[[arts]]
+id = "xuanmen"
+name = "玄门内功"
+type = "internal"
+description = "道家玄门正宗内功心法。"
+rarity = 3
+tier = "intermediate"
+prerequisites = ["xiaozhoutian"]
+min_wits = 5
+
+[[arts]]
+id = "diyin"
+name = "地隐步"
+type = "movement"
+description = "隐遁身法，借地形之利隐匿身形。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]
+
+[[arts]]
+id = "qingbo"
+name = "轻波微步"
+type = "movement"
+description = "如微波荡漾的优雅步法，适合女子使用。"
+rarity = 2
+tier = "basic"
+prerequisites = ["caoshangfei"]
+
+[[arts]]
+id = "gouhun"
+name = "勾魂爪"
+type = "palm"
+description = "阴毒爪法，专攻要害。"
+rarity = 2
+tier = "basic"
+honor_max = -10
+
+[[arts]]
+id = "lieyan"
+name = "烈焰刀"
+type = "blade"
+description = "至阳刀法，以内力催发刀气如火。"
+rarity = 4
+tier = "advanced"
+prerequisites = ["ranmu"]
+min_qi = 5

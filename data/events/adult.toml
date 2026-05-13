@@ -605,3 +605,159 @@ outcome_text = "在酒桌上，她罕见地流露出了一丝脆弱。你看到�
 wits = 1
 honor = 1
 
+
+[[events]]
+id = "adult_batch_0"
+title = "西域商队"
+description = "一支来自西域的商队带来了珍奇的药材和异域的武功。商队首领正在招募护卫。"
+life_stages = ["adult"]
+rarity = 3
+
+[[events.choices]]
+text = "加入商队护送到京城"
+outcome_text = "路上你击退了三批马贼，商队首领感激不尽，赠你大量珍贵药材。"
+constitution = 2
+reputation = 1
+agility = 1
+
+[[events.choices]]
+text = "购买西域药材和武功图谱"
+outcome_text = "你花重金买下了一些稀有药材和一本西域刀法图谱。"
+qi = 1
+technique = 1
+wits = 1
+
+[[events.choices]]
+text = "向商队打听西域武林的消息"
+outcome_text = "你从商人那里了解到不少西域门派的秘闻，见识大增。"
+wits = 2
+
+[[events]]
+id = "adult_batch_1"
+title = "老友托付"
+description = "一个多年前的同道找上门来，说他的仇家找上了他，恳请你帮他照顾年幼的女儿。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "答应下来，收女孩为养女"
+outcome_text = "你收留了这个孤女。她天资聪颖，日后成为了你最得力的帮手。"
+honor = 3
+reputation = 1
+set_flags = ["adopted_child"]
+
+[[events.choices]]
+text = "帮朋友摆平仇家"
+outcome_text = "你找到了老友的仇家，三言两语化解了这段恩怨。"
+wits = 2
+honor = 1
+reputation = 1
+
+[[events.choices]]
+text = "婉拒了他，但给他一些银两"
+outcome_text = "你帮了他力所能及的忙。虽不是大恩但也有情义。"
+honor = 1
+
+[[events]]
+id = "adult_batch_2"
+title = "内功突破"
+description = "你在修炼内功时突然感到丹田一阵震动，似乎内功修为即将突破到新的层次。"
+life_stages = ["adult"]
+rarity = 2
+min_qi = 7
+
+[[events.choices]]
+text = "闭关冲击瓶颈"
+outcome_text = "你闭关七天七夜，终于突破了瓶颈。内力滚滚如江河流淌。"
+qi = 3
+bone = 1
+constitution = 1
+
+[[events.choices]]
+text = "寻找名师指点后再突破"
+outcome_text = "你找到了一位内功修为高深的前辈请教，在正确的指引下顺利突破。"
+qi = 2
+wits = 2
+
+[[events]]
+id = "adult_batch_3"
+title = "江湖仇杀"
+description = "两个大家族之间的世仇终于爆发为全面的血斗。双方都在拉拢江湖高手助阵。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "居中调解，促成和谈"
+outcome_text = "你来往于两家之间，历经三个月终于让双方达成了和平协议。"
+honor = 3
+wits = 2
+reputation = 2
+
+[[events.choices]]
+text = "支持你认为正义的一方"
+outcome_text = "你加入了正义的一方，帮助他们在血斗中获胜。"
+technique = 2
+reputation = 2
+honor = 1
+constitution = -1
+
+[[events]]
+id = "adult_batch_4"
+title = "机关术传人"
+description = "一个自称墨家后人的老人找到你，说他年事已高想将毕生所学的机关术传给你。"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "拜师学艺，继承机关术"
+outcome_text = "你花了两年时间学会了墨家机关术的精髓。这些技巧对你的武学也有了新的启发。"
+wits = 3
+technique = 1
+set_flags = ["learned_mechanism"]
+
+[[events.choices]]
+text = "帮他寻找更合适的传人"
+outcome_text = "你帮他找到了一个真正对机关术感兴趣的年轻人。老人欣慰地闭上了眼睛。"
+honor = 2
+reputation = 1
+
+[[events]]
+id = "adult_batch_5"
+title = "叛徒现身"
+description = "你发现门派中出现了叛徒，暗中将机密情报卖给敌对势力。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "设局引诱叛徒暴露"
+outcome_text = "你布了一个精妙的局，叛徒自己跳了出来。掌门对你刮目相看。"
+wits = 3
+reputation = 2
+
+[[events.choices]]
+text = "直接当面质问叛徒"
+outcome_text = "你将证据摆在了叛徒面前。他跪地求饶，供出了幕后的主使。"
+honor = 1
+technique = 1
+reputation = 1
+
+[[events]]
+id = "adult_batch_6"
+title = "镖局求助"
+description = "威远镖局的总镖头亲自登门，说有一趟价值连城的镖要送，但路上凶险万分，需要高手护镖。"
+life_stages = ["adult"]
+rarity = 3
+
+[[events.choices]]
+text = "亲自带队护镖"
+outcome_text = "你带领镖队走了一趟惊心动魄的镖路。在关键时刻你的武功发挥了作用。"
+technique = 1
+reputation = 3
+agility = 1
+
+[[events.choices]]
+text = "帮忙训练镖局的护卫"
+outcome_text = "你花了三个月时间训练镖局的护卫，从根源上提升了镖局的实力。"
+wits = 2
+reputation = 1
+constitution = 1

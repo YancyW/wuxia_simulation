@@ -789,3 +789,100 @@ text = "请他帮你诊断身体状况"
 outcome_text = "老人给你把了脉，指出了你练功时的一些隐患并帮你调理了一番。"
 constitution = 3
 
+
+[[events]]
+id = "ya_batch_0"
+title = "镖师生涯"
+description = "你在镖局找了一份差事，负责护送一些小件货物。这让你对江湖的真实面貌有了更深的认识。"
+life_stages = ["young_adult"]
+rarity = 3
+
+[[events.choices]]
+text = "认真工作，赢得镖局信任"
+outcome_text = "你的勤恳得到了镖局总镖头的赏识。他提拔你做了镖头并传了你几手防身绝招。"
+reputation = 1
+technique = 1
+agility = 1
+
+[[events.choices]]
+text = "利用工作机会收集江湖情报"
+outcome_text = "你通过镖局的网络了解到了各大门派的动态和许多江湖秘闻。"
+wits = 2
+reputation = 1
+
+[[events]]
+id = "ya_batch_1"
+title = "古庙避难"
+description = "一场山洪将你困在了一座破败的古庙中。和你一起避难的还有一个沉默寡言的剑客。"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "与剑客交流武学心得"
+outcome_text = "你和他聊了三天三夜。他虽然话少但每句话都直指武学核心。你的剑法领悟突飞猛进。"
+technique = 2
+wits = 1
+
+[[events.choices]]
+text = "自己练功，不打扰对方"
+outcome_text = "你在古庙的后院独自练功，剑客在一旁默默观看。临走时他淡淡说了句还不错——这已经是他最高的评价了。"
+technique = 1
+bone = 1
+
+[[events]]
+id = "ya_batch_2"
+title = "灵石传说"
+description = "你听到一个传说：附近山上有一块剑意石，上面留有前辈高人的一道剑意。谁能在石前悟出剑意就等于多了一套绝世剑法。"
+life_stages = ["young_adult"]
+rarity = 1
+min_technique = 5
+
+[[events.choices]]
+text = "上山寻找剑意石"
+outcome_text = "你在山顶找到了那块传说中的石头。在石前静坐了三天三夜后，你终于悟出了那一剑。"
+technique = 3
+wits = 2
+set_flags = ["understood_sword_intent"]
+
+[[events.choices]]
+text = "觉得只是传说，不去浪费时间"
+outcome_text = "你没有去找那块石头。但日后遇到的一个剑客告诉你——那块石头是真的。"
+wits = 1
+
+[[events]]
+id = "ya_batch_3"
+title = "密林遇蛇"
+description = "你在密林中遇到了一条巨蟒。它盘踞在你前进的必经之路上，吐着信子盯着你。"
+life_stages = ["young_adult"]
+rarity = 1
+
+[[events.choices]]
+text = "以轻功绕过巨蟒"
+outcome_text = "你施展轻功从树梢跃过巨蟒。巨蟒仰头欲扑但终究慢了一步。"
+agility = 3
+
+[[events.choices]]
+text = "正面迎战巨蟒"
+outcome_text = "你和巨蟒缠斗了一个时辰，最终以掌力击中它的七寸将其击毙。这段经历让你面对危险更加冷静。"
+technique = 2
+bone = 1
+constitution = -1
+
+[[events]]
+id = "ya_batch_4"
+title = "夜会盗贼"
+description = "深夜，你在客栈中醒来，发现一个黑影正在翻你放在桌上的包袱。"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "悄无声息地制伏盗贼"
+outcome_text = "你在黑暗中无声无息地靠近，一指点中他的穴道。第二天将他送交官府。"
+agility = 1
+honor = 1
+reputation = 1
+
+[[events.choices]]
+text = "大喝一声吓跑盗贼"
+outcome_text = "你的突然大喝吓得盗贼落荒而逃。包袱虽然安然无恙但盗贼也跑了。"
+qi = 1

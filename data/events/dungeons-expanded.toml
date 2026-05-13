@@ -1,0 +1,352 @@
+# === 剑冢试炼 (6阶段) ===
+[[dungeons]]
+id = "sword_graveyard"
+title = "剑冢试炼"
+summary = "传说中的剑冢，埋葬着历代剑客的佩剑。每把剑都留有主人的一道剑意。通过全部试炼者，可得无上剑道。"
+life_stages = ["adult"]
+rarity = 1
+min_technique = 8
+once_per_game = true
+
+[[dungeons.stages]]
+id = "sg_gate"
+title = "[副本] 剑冢之门"
+description = "你来到了剑冢的入口。一座巨大的铁剑插在石门前，剑身上刻着：'欲入此门，先胜此剑'。"
+
+[[dungeons.stages.choices]]
+text = "拔剑应战"
+outcome_text = "铁剑化为一道剑意向你攻来！你以毕生所学应战，十招后剑意散去——你通过了。"
+technique = 2
+
+[[dungeons.stages.choices]]
+text = "以剑意对抗剑意"
+outcome_text = "你没有拔剑，而是以自身的剑意与之对抗。两股剑意在虚空中交锋，最终铁剑发出一声嗡鸣认可了你。"
+wits = 2
+technique = 1
+
+[[dungeons.stages]]
+id = "sg_sword_wind"
+title = "[副本] 剑风谷"
+description = "一条狭长的山谷中剑气纵横，无数看不见的剑罡在空气中穿梭。稍不留神就会被剑气所伤。"
+
+[[dungeons.stages.choices]]
+text = "以轻功在剑罡之间穿梭"
+outcome_text = "你身法如风，在剑罡的间隙中穿行。虽然惊险但毫发无伤。"
+agility = 3
+
+[[dungeons.stages.choices]]
+text = "以剑气破剑气"
+outcome_text = "你催动内力化为剑气，与谷中的剑罡对撞。一路走来虽然消耗极大但霸气十足。"
+qi = 2
+technique = 2
+constitution = -1
+
+[[dungeons.stages]]
+id = "sg_sword_ghosts"
+title = "[副本] 万剑之灵"
+description = "你来到了剑冢的核心——一个巨大的圆形石室。环绕石室插着上千把剑。每把剑都在微微颤动，发出低沉的剑鸣。"
+
+[[dungeons.stages.choices]]
+text = "静心聆听千剑之鸣"
+outcome_text = "你闭上眼睛用心聆听。千把剑的声音汇成了一曲剑道的史诗。你在这剑鸣中悟到了剑法的极致。"
+wits = 3
+technique = 2
+
+[[dungeons.stages.choices]]
+text = "选择一把剑，接受它的试炼"
+outcome_text = "你握住了一把通体漆黑的古剑。剑中残留的剑意涌入你的体内，与你自身的剑意激烈碰撞……最终你赢了。"
+technique = 3
+qi = 1
+bone = 1
+
+[[dungeons.stages]]
+id = "sg_master"
+title = "[副本] 剑冢主人"
+description = "一个虚影出现在你面前——他是剑冢的主人，数百年前天下无敌的剑神。他微微点头：'你来得很远。最后一步——接我一剑。'"
+
+[[dungeons.stages.choices]]
+text = "以最强剑招对抗"
+outcome_text = "你将毕生所学化为一剑刺出。两剑相交的瞬间天地变色。当你回神时虚影已经消散——你接住了那一剑。"
+technique = 4
+bone = 2
+qi = 2
+
+[[dungeons.stages.choices]]
+text = "不以剑招应对，以无招胜有招"
+outcome_text = "你放下了剑，以空明之心迎接这一剑。剑神虚影露出了微笑：'你懂了。'——剑意穿身而过却毫发无伤。"
+wits = 4
+qi = 3
+
+[[dungeons.stages]]
+id = "sg_legacy"
+title = "[副本] 剑神传承"
+description = "剑神的虚影消散前留下了一段话：'剑道无止境。你已有资格留下你的剑在此，供后人挑战。'"
+
+[[dungeons.stages.choices]]
+text = "留下自己的剑，传承剑道"
+outcome_text = "你将随身的佩剑插在了剑冢的石地上。从此你的剑意将与剑冢同在，等待下一个有缘人。"
+honor = 3
+reputation = 2
+wits = 1
+
+[[dungeons.stages.choices]]
+text = "带剑离开，继续自己的剑道之旅"
+outcome_text = "你谢绝了剑神的好意。你觉得自己的剑道还没有走到尽头，还不是留剑的时候。"
+technique = 1
+agility = 1
+
+[dungeons.reward]
+technique = 4
+wits = 2
+qi = 1
+set_flags = ["completed_sword_graveyard"]
+
+
+# === 大理天龙寺 (6阶段) ===
+[[dungeons]]
+id = "tianlong_temple"
+title = "天龙寺"
+summary = "大理天龙寺是大理段氏的皇家寺庙，藏有六脉神剑的剑谱。寺中高僧设下了六重考验，只有通过全部考验的人才能一窥六脉神剑的真容。"
+life_stages = ["adult", "middle_age"]
+rarity = 1
+min_wits = 7
+once_per_game = true
+
+[[dungeons.stages]]
+id = "tl_gate"
+title = "[副本] 山门问道"
+description = "天龙寺的山门前，一位老僧盘坐于石阶上。他睁开眼睛看着你：'施主远道而来，所为何事？'"
+
+[[dungeons.stages.choices]]
+text = "坦言来意，求见六脉神剑"
+outcome_text = "老僧微微点头：'诚实之人。请进。'——但他没有让路，而是以一道无形气墙挡在门前。你需要自己破开。"
+qi = 1
+
+[[dungeons.stages.choices]]
+text = "说只是来参拜佛门圣地"
+outcome_text = "老僧笑道：'施主心中所想老衲已知。不必隐瞒。'他让开了路，但你感到了一丝被看穿的不自在。"
+wits = 1
+
+[[dungeons.stages]]
+id = "tl_finger"
+title = "[副本] 一指禅关"
+description = "第二关：一根石柱立在院中，柱顶有一个小孔。老僧说：'以内力灌注此孔，柱身亮起六节即为通过。'"
+
+[[dungeons.stages.choices]]
+text = "以纯阳内力灌注"
+outcome_text = "你将内力源源不断地注入石柱。柱身一节节亮起——五节……六节！石柱发出璀璨的光芒。"
+qi = 2
+
+[[dungeons.stages.choices]]
+text = "以巧劲分段注入"
+outcome_text = "你没有用蛮力，而是将内力分为六段逐节注入。每段恰好点亮一节。老僧赞许地点头。"
+wits = 2
+qi = 1
+
+[[dungeons.stages]]
+id = "tl_sword"
+title = "[副本] 剑意化指"
+description = "第三关：老僧请你以指代剑使出一招。'剑法到了极致，手指就是剑。六脉神剑的本质就在于此。'"
+
+[[dungeons.stages.choices]]
+text = "将自己最强的剑招以指法使出"
+outcome_text = "你凝神聚气，以食指代剑刺出一剑。剑气破空而出，在石壁上留下了一道深深的指痕。"
+technique = 3
+qi = 1
+
+[[dungeons.stages.choices]]
+text = "悟出剑指合一的道理"
+outcome_text = "你闭目沉思片刻，忽然一剑指出——这一指中蕴含了你多年练剑的全部心得。老僧双手合十：善哉。"
+wits = 3
+technique = 1
+
+[[dungeons.stages]]
+id = "tl_meridian"
+title = "[副本] 六脉贯通"
+description = "第四关：老僧展示了六脉神剑的运气图谱。'六脉对应六条经脉。施主请尝试同时运转两脉。'"
+
+[[dungeons.stages.choices]]
+text = "凭深厚内力同时运转两脉"
+outcome_text = "你以内力强行贯通两条经脉，虽然经脉胀痛但成功了。老僧说这通常需要三年苦练——你只用了一个时辰。"
+qi = 3
+constitution = -1
+
+[[dungeons.stages.choices]]
+text = "循序渐进，先通一脉再通另一脉"
+outcome_text = "你没有贪快，稳扎稳打地一条一条贯通。虽然花了更长时间但根基更加扎实。"
+qi = 1
+bone = 1
+constitution = 1
+
+[[dungeons.stages]]
+id = "tl_insight"
+title = "[副本] 六脉禅机"
+description = "第五关：你终于看到了六脉神剑的全谱。但老僧说：'这剑谱只是一个表象。真正的六脉神剑不在纸上——在心中。'"
+
+[[dungeons.stages.choices]]
+text = "参悟剑谱的深层含义"
+outcome_text = "你参透了剑谱中隐藏的禅机。六脉神剑不只是一套武功，而是一种武学哲理——万法归一。"
+wits = 4
+qi = 2
+
+[[dungeons.stages.choices]]
+text = "照谱演练六脉神剑"
+outcome_text = "你按照剑谱逐一演练六路剑法。在演练过程中你对指法的理解更上一层楼。"
+technique = 3
+qi = 1
+
+[[dungeons.stages]]
+id = "tl_complete"
+title = "[副本] 六脉传承"
+description = "最后一关：老僧对你双手合十：'施主已得六脉神剑真传。此剑法威力无穷，请慎用之。'"
+
+[[dungeons.stages.choices]]
+text = "拜谢老僧，下山传艺"
+outcome_text = "你带着六脉神剑的传承离开了天龙寺。从此你的指法冠绝天下。"
+qi = 2
+technique = 2
+learn_art = "liumaishenjian"
+
+[[dungeons.stages.choices]]
+text = "留在寺中再修行一年"
+outcome_text = "你自愿留在寺中继续精修。这一年中你对六脉神剑的理解达到了炉火纯青的地步。"
+qi = 3
+wits = 2
+technique = 1
+
+[dungeons.reward]
+qi = 3
+technique = 2
+wits = 1
+set_flags = ["completed_tianlong_temple"]
+
+
+# === 襄阳保卫战 (8阶段) ===
+[[dungeons]]
+id = "xiangyang_defense"
+title = "襄阳保卫战"
+summary = "蒙古大军南下围攻襄阳。郭靖黄蓉夫妇号召天下英雄共守襄阳。这一战，关乎大宋国运，也关乎每一个武林中人的良心。"
+life_stages = ["adult", "middle_age"]
+rarity = 1
+min_reputation = 10
+once_per_game = true
+
+[[dungeons.stages]]
+id = "xy_call"
+title = "[副本] 英雄帖"
+description = "一封盖着郭靖大印的英雄帖送到了你的手中：'天下兴亡匹夫有责。襄阳危在旦夕，恳请各路英雄前来相助。'"
+
+[[dungeons.stages.choices]]
+text = "立刻出发前往襄阳"
+outcome_text = "你日夜兼程赶到了襄阳。城墙上已经布满了守军，郭靖亲自在城门口迎接各路英雄。"
+agility = 1
+reputation = 1
+
+[[dungeons.stages.choices]]
+text = "先回门派召集弟子同去"
+outcome_text = "你带着本门的精锐弟子一同前往襄阳。郭靖见到你们的队伍时深深一揖。"
+reputation = 1
+honor = 1
+
+[[dungeons.stages]]
+id = "xy_wall"
+title = "[副本] 城头血战"
+description = "蒙古大军开始了第一轮攻城。箭矢如飞蝗般射向城墙，云梯如林般架了上来。你和守军一起在城头上拼死抵抗。"
+
+[[dungeons.stages.choices]]
+text = "守在城头最危险的位置"
+outcome_text = "你站在箭矢最密集的城段，以手中长剑劈落了无数箭矢。守军士气大振。"
+technique = 2
+bone = 1
+reputation = 2
+constitution = -1
+
+[[dungeons.stages.choices]]
+text = "带领小队出击烧毁敌军云梯"
+outcome_text = "你带着敢死队趁夜色出城，烧毁了数十架云梯。虽然损失了几位勇士但为守城赢得了宝贵时间。"
+agility = 2
+technique = 1
+reputation = 1
+
+[[dungeons.stages]]
+id = "xy_night"
+title = "[副本] 夜袭敌营"
+description = "郭靖决定派出一支精锐小队夜袭蒙古大营，烧毁对方的粮草。黄蓉已经拟好了详细的作战计划。"
+
+[[dungeons.stages.choices]]
+text = "自告奋勇领队出击"
+outcome_text = "你带着精挑细选的三十名高手潜入敌营，一把火烧了蒙古人的粮仓。火光冲天中你们全身而退。"
+technique = 2
+agility = 2
+reputation = 3
+
+[[dungeons.stages.choices]]
+text = "负责接应和掩护"
+outcome_text = "你的任务是带人在外围制造混乱掩护主力。你的诱敌之计完美成功，主力顺利完成了任务。"
+wits = 2
+agility = 1
+honor = 1
+
+[[dungeons.stages]]
+id = "xy_siege"
+title = "[副本] 粮尽援绝"
+description = "围城进入了最艰难的时刻。城中粮草即将耗尽，守军伤亡过半。蒙古人派来了新的攻城器械——数十架投石机。"
+
+[[dungeons.stages.choices]]
+text = "带敢死队出城摧毁投石机"
+outcome_text = "你带着最后的精锐冒死出击，以命搏命地摧毁了大半投石机。你浑身浴血但投石机再也没有启动。"
+technique = 3
+bone = 2
+reputation = 3
+constitution = -3
+
+[[dungeons.stages.choices]]
+text = "建议以地道战术应对"
+outcome_text = "你建议挖掘地道从地下接近投石机阵地。这个方案虽然耗时但大大减少了伤亡。"
+wits = 3
+technique = 1
+reputation = 1
+
+[[dungeons.stages]]
+id = "xy_hero"
+title = "[副本] 襄阳之魂"
+description = "在最危急的关头，郭靖站在了城头最高处。他以内力传音全军：'我郭靖今日与襄阳共存亡！'守军的士气瞬间沸腾。"
+
+[[dungeons.stages.choices]]
+text = "站在郭靖身边并肩作战"
+outcome_text = "你和郭靖并肩站在城头，成为了全军的旗帜。这一天你们的英勇将永远被襄阳人铭记。"
+honor = 4
+reputation = 4
+bone = 1
+
+[[dungeons.stages.choices]]
+text = "组织最后的后备队投入战斗"
+outcome_text = "你在城中动员了所有能战斗的人——老弱妇孺都拿起了武器。众志成城之下蒙古人最终撤退了。"
+wits = 2
+honor = 2
+reputation = 2
+
+[[dungeons.stages]]
+id = "xy_peace"
+title = "[副本] 胜利之后"
+description = "蒙古大军终于撤退了。襄阳守住了。看着残破的城墙和遍地的尸骨，你百感交集。"
+
+[[dungeons.stages.choices]]
+text = "留在襄阳帮助重建"
+outcome_text = "你留在了襄阳帮助重建。百姓们把你当成了他们的英雄。"
+honor = 3
+reputation = 2
+constitution = 1
+
+[[dungeons.stages.choices]]
+text = "把襄阳的故事带回江湖"
+outcome_text = "你告诉天下人襄阳发生了什么。更多的人因此投身到了保家卫国的事业中。"
+reputation = 3
+wits = 1
+
+[dungeons.reward]
+honor = 5
+reputation = 5
+bone = 1
+technique = 1
+set_flags = ["completed_xiangyang_defense"]

@@ -345,3 +345,58 @@ technique = 2
 text = "婉拒了他们，想等更好的机会"
 outcome_text = "你礼貌地拒绝了。掌门并不生气，只说了句'缘分未到'便离去了。"
 wits = 1
+
+[[events]]
+id = "youth_batch_0"
+title = "雨夜来客"
+description = "一个风雨交加的夜晚，一个浑身湿透的陌生人敲响了你家的门。他看起来走了很远的路。"
+life_stages = ["youth"]
+rarity = 2
+
+[[events.choices]]
+text = "请他进屋避雨，给他热汤"
+outcome_text = "陌生人感激不尽。临走时他摸了摸你的头，说了句好孩子日后必有出息。"
+honor = 2
+
+[[events.choices]]
+text = "警惕地在门口询问来历"
+outcome_text = "你聪明地问清了对方的来历才放他进门——原来他是邻村走散的猎人。"
+wits = 1
+
+[[events]]
+id = "youth_batch_1"
+title = "杂耍班"
+description = "一个走江湖的杂耍班来到了村口。喷火、顶碗、胸口碎大石——精彩的表演让你看得如痴如醉。"
+life_stages = ["youth"]
+rarity = 3
+
+[[events.choices]]
+text = "缠着杂耍班主想学一两手"
+outcome_text = "班主被你的热情感动，教你了一套假把式——虽然是表演用的但也有几分功夫底子。"
+agility = 1
+wits = 1
+
+[[events.choices]]
+text = "看了一整天表演，心满意足"
+outcome_text = "你享受了一个无忧无虑的快乐日子。这种单纯的快乐日后越来越少了。"
+constitution = 1
+
+[[events]]
+id = "youth_batch_2"
+title = "老乞丐的故事"
+description = "村里来了个邋遢的老乞丐，但他讲的故事却精彩绝伦——从大漠孤烟到江南烟雨，从华山论剑到东海屠龙。"
+life_stages = ["youth"]
+rarity = 2
+
+[[events.choices]]
+text = "每天都去听故事"
+outcome_text = "老乞丐讲的江湖故事在你心中种下了闯荡江湖的种子。多年后你才发现——那些故事八成是真的。"
+wits = 1
+reputation = 1
+
+[[events.choices]]
+text = "给他送饭送水"
+outcome_text = "你每天给他送饭。老乞丐临走前传了你一套无用的口诀。多年后你才发现那是上乘内功的入门。"
+qi = 2
+honor = 1
+set_flags = ["beggar_rhyme"]

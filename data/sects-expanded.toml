@@ -1,0 +1,195 @@
+# ============================================
+# 门派大幅扩展
+# ============================================
+
+# === 五岳剑派补充 ===
+[[sects]]
+id = "hengshan"
+name = "衡山派"
+description = "五岳剑派之一，剑法以南岳衡山的灵动飘逸为特色。"
+type = "orthodox"
+exclusive_arts = []
+allies = ["huashan", "songshan", "hengshan_north", "taishan"]
+enemies = ["riyue", "mingjiao"]
+
+[[sects]]
+id = "hengshan_north"
+name = "恒山派"
+description = "五岳剑派之一，位于北岳恒山，以绵里藏针的防御剑法见长。"
+type = "orthodox"
+exclusive_arts = []
+allies = ["huashan", "hengshan"]
+enemies = ["riyue"]
+
+[[sects]]
+id = "songshan"
+name = "嵩山派"
+description = "五岳剑派之首，掌门左冷禅野心勃勃欲合并五岳剑派。"
+type = "orthodox"
+exclusive_arts = ["hanbing"]
+allies = ["huashan", "hengshan", "taishan"]
+enemies = ["riyue", "mingjiao"]
+
+[[sects]]
+id = "taishan"
+name = "泰山派"
+description = "五岳剑派之一，泰山剑法雄浑厚重。"
+type = "orthodox"
+exclusive_arts = []
+allies = ["huashan", "songshan"]
+enemies = ["riyue"]
+
+# === 江南门派 ===
+[[sects]]
+id = "guzhu"
+name = "孤竹山庄"
+description = "江南世家门派，以竹为剑，风雅无双。"
+type = "orthodox"
+exclusive_arts = []
+allies = ["wudang"]
+enemies = []
+
+[[sects]]
+id = "murong"
+name = "慕容世家"
+description = "姑苏慕容，以彼之道还施彼身。天下武学无不可借力打力。"
+type = "neutral"
+condition_wits_min = 6
+exclusive_arts = []
+allies = []
+enemies = []
+
+[[sects]]
+id = "mantuo"
+name = "曼陀山庄"
+description = "大理曼陀罗花庄，以花为毒以美为刃。"
+type = "neutral"
+exclusive_arts = []
+allies = []
+enemies = ["dali_duan"]
+
+[[sects]]
+id = "xueshan"
+name = "雪山派"
+description = "长白山上的剑派，冰雪剑法凌厉异常。"
+type = "orthodox"
+condition_bone_min = 5
+exclusive_arts = []
+allies = ["kunlun"]
+enemies = ["xuedao"]
+
+[[sects]]
+id = "dali_duan"
+name = "大理段氏"
+description = "大理国皇室，以一阳指和六脉神剑闻名天下。"
+type = "orthodox"
+condition_wits_min = 5
+exclusive_arts = ["yiyangzhi", "liumaishenjian"]
+allies = ["shaolin"]
+enemies = ["mantuo"]
+
+# === 西北势力 ===
+[[sects]]
+id = "xingxiu"
+name = "星宿派"
+description = "西域星宿海的邪派，掌门丁春秋以化功大法闻名。"
+type = "unorthodox"
+condition_honor_max = -20
+exclusive_arts = []
+allies = []
+enemies = ["xiaoyao", "shaolin", "gaibang"]
+
+[[sects]]
+id = "tianshan_pai"
+name = "天山派"
+description = "天山山脉中的隐世剑派，以七剑下天山闻名。"
+type = "orthodox"
+condition_bone_min = 4
+exclusive_arts = []
+allies = ["kunlun", "xueshan"]
+enemies = ["xingxiu", "xuedao"]
+
+[[sects]]
+id = "xixia"
+name = "西夏一品堂"
+description = "西夏国武林组织，网罗天下高手。"
+type = "unorthodox"
+exclusive_arts = []
+allies = []
+enemies = ["gaibang", "shaolin"]
+
+# === 中原门派 ===
+[[sects]]
+id = "wenren"
+name = "闻人世家"
+description = "中原武林世家，以机关术和阵法闻名。"
+type = "neutral"
+exclusive_arts = []
+allies = ["tiejianmen"]
+enemies = []
+
+[[sects]]
+id = "jueqing"
+name = "绝情谷"
+description = "绝情谷中隐居的门派，渔网阵和情花毒为其独门手段。"
+type = "neutral"
+exclusive_arts = []
+allies = []
+enemies = []
+
+[[sects]]
+id = "baihua"
+name = "百花谷"
+description = "周伯通隐居之所，以养蜂术和空明拳为特色。"
+type = "neutral"
+exclusive_arts = ["kongming", "shuangshou"]
+allies = ["quanzhen"]
+enemies = []
+
+[[sects]]
+id = "xiangyang"
+name = "襄阳郭府"
+description = "大侠郭靖在襄阳的府邸，为国为民的武学世家。"
+type = "orthodox"
+condition_honor_min = 20
+exclusive_arts = ["xianglong18"]
+allies = ["gaibang", "quanzhen", "shaolin"]
+enemies = ["riyue", "xixia"]
+
+# === 南方门派 ===
+[[sects]]
+id = "wuliang"
+name = "无量剑派"
+description = "大理无量山的剑派，分东西两宗常年内斗。"
+type = "neutral"
+exclusive_arts = []
+allies = []
+enemies = []
+
+[[sects]]
+id = "yuehua"
+name = "月华宫"
+description = "南疆月华宫，以月华为引修习独特内功。"
+type = "neutral"
+exclusive_arts = []
+allies = ["wudu"]
+enemies = []
+
+[[sects]]
+id = "jinling"
+name = "金陵剑会"
+description = "金陵城的剑客联盟，非门派而是一个松散的剑术交流组织。"
+type = "neutral"
+exclusive_arts = []
+allies = ["tiejianmen", "shenquanmen"]
+enemies = []
+
+[[sects]]
+id = "xiayu"
+name = "侠客岛"
+description = "南海孤岛上的神秘组织，每十年以腊八粥邀天下高手。"
+type = "neutral"
+condition_wits_min = 7
+exclusive_arts = ["taixuan"]
+allies = []
+enemies = []

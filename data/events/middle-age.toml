@@ -603,3 +603,149 @@ outcome_text = "你独自进入血刀门总坛和门主谈判。三天后，血�
 wits = 3
 honor = 4
 reputation = 2
+
+[[events]]
+id = "ma_batch_0"
+title = "门派的未来"
+description = "你已经到了该为门派未来考虑的年纪。掌门私下找你谈了话，问你是否愿意接任掌门之位。"
+life_stages = ["middle_age"]
+rarity = 2
+
+[[events.choices]]
+text = "接受掌门之位"
+outcome_text = "你接过了掌门信物。从此你不再只为自己而活，而是肩负起了整个门派的重担。"
+reputation = 3
+honor = 2
+wits = 1
+set_flags = ["became_sect_leader"]
+
+[[events.choices]]
+text = "举荐更合适的人选"
+outcome_text = "你推荐了一位年轻有能力的人接任掌门。你的大度赢得了所有人的敬佩。"
+honor = 3
+reputation = 1
+
+[[events]]
+id = "ma_batch_1"
+title = "故地重游"
+description = "你回到了年轻时修炼的第一个山洞。石壁上还有你当年刻下的剑痕。时光荏苒，物是人非。"
+life_stages = ["middle_age"]
+rarity = 3
+
+[[events.choices]]
+text = "在洞中静坐感悟"
+outcome_text = "你回想起了一路走来的点点滴滴，对人生和武学有了更深的感悟。"
+wits = 2
+qi = 1
+honor = 1
+
+[[events.choices]]
+text = "将感悟刻在石壁上传于后人"
+outcome_text = "你在石壁上刻下了你的武学心得。也许有朝一日有缘人会发现它。"
+wits = 2
+reputation = 1
+
+[[events]]
+id = "ma_batch_2"
+title = "远方的信"
+description = "一封来自西域的信送到了你的手中。信中说你的一个故人被困在了西夏，急需救援。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "只身前往西夏救人"
+outcome_text = "你日夜兼程赶到西夏，一番惊心动魄的波折后救出了故人。"
+agility = 2
+technique = 1
+reputation = 2
+constitution = -1
+
+[[events.choices]]
+text = "联络当地势力合力营救"
+outcome_text = "你通过大理段氏的渠道联系到了西夏内部的人，里应外合救出了故人。"
+wits = 3
+reputation = 1
+honor = 1
+
+[[events]]
+id = "ma_batch_3"
+title = "奇人奇术"
+description = "一个怪人来到你面前，声称可以用金针渡穴之术帮你打通最后一条未通的经脉。"
+life_stages = ["middle_age"]
+rarity = 1
+min_qi = 8
+
+[[events.choices]]
+text = "接受金针渡穴"
+outcome_text = "金针入体剧痛无比，但之后你的内力运行再无阻滞，修为大进。"
+qi = 3
+bone = 2
+constitution = -1
+
+[[events.choices]]
+text = "婉拒，靠自己的努力慢慢打通"
+outcome_text = "你拒绝了这种速成之法。但怪人临走时留下了一本经脉图谱。"
+wits = 1
+bone = 1
+
+[[events]]
+id = "ma_batch_4"
+title = "武林盟约"
+description = "二十年一届的武林大会再次召开。这次的主题是重修武林盟约，共同维护江湖和平。各派掌门都到了。"
+life_stages = ["middle_age"]
+rarity = 2
+min_reputation = 15
+
+[[events.choices]]
+text = "参与盟约修订"
+outcome_text = "你在修订盟约的过程中提出了很多建设性意见，被纳入最终的盟约中。"
+wits = 2
+honor = 2
+reputation = 3
+
+[[events.choices]]
+text = "作为见证人出席"
+outcome_text = "你以德高望重的身份作为大会的见证人，你的公正赢得了所有人的尊敬。"
+honor = 3
+reputation = 2
+
+[[events]]
+id = "ma_batch_5"
+title = "病榻嘱托"
+description = "你最敬重的老前辈病重了。他躺在病榻上拉着你的手，有重要的话要交代。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "听前辈的遗言并完成他的心愿"
+outcome_text = "老前辈交代的最后一件事关乎武林安危。你花了三年时间终于完成了他的嘱托。"
+honor = 4
+reputation = 2
+wits = 1
+
+[[events.choices]]
+text = "陪前辈走完最后一程"
+outcome_text = "你没有追问太多，只是静静地陪在老前辈身边。他的最后一刻走得很安详。"
+honor = 2
+constitution = 1
+
+[[events]]
+id = "ma_batch_6"
+title = "暴雨洪灾"
+description = "连月暴雨导致长江决堤，无数百姓流离失所。作为江湖中人，你无法袖手旁观。"
+life_stages = ["middle_age"]
+rarity = 2
+
+[[events.choices]]
+text = "组织江湖力量赈灾"
+outcome_text = "你动员了整个江湖的力量——各派出钱出人，救下了无数的灾民。"
+honor = 4
+reputation = 4
+wits = 1
+
+[[events.choices]]
+text = "亲自前往灾区救助"
+outcome_text = "你只身前往灾区，日夜不休地救助灾民。虽然辛苦但你的名声在民间广为流传。"
+honor = 3
+reputation = 2
+constitution = -1

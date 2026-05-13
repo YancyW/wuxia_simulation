@@ -1,0 +1,97 @@
+# === NPC 大幅扩展 ===
+
+[[npcs]]
+id = "nun_mercy"
+name = "慈心师太"
+description = "峨眉派第二代高手，虽年过半百但剑法愈发精纯。为人慈悲为怀，常救助落难之人。"
+origin = "峨眉派"
+personality = "慈悲为怀，外柔内刚"
+possible_relations = ["master", "friend"]
+
+[[npcs]]
+id = "drunk_sword"
+name = "醉剑客"
+description = "华山弃徒，因嗜酒误事被逐出师门。但他的剑法在酩酊大醉时反而威力倍增。"
+origin = "华山派弃徒"
+personality = "放浪形骸，内心深藏痛苦"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "shadow_killer"
+name = "影杀"
+description = "江湖上最神秘的刺客，从未有人见过他的真面目。据说他每接一单只收一文钱——只为证明他不是为钱杀人。"
+origin = "不详"
+personality = "神秘莫测，有自己的行事准则"
+possible_relations = ["rival"]
+
+[[npcs]]
+id = "silk_girl"
+name = "蚕娘"
+description = "以天蚕丝为武器的奇女子，轻功卓绝。在南疆一带行侠仗义，被当地百姓奉为蚕神。"
+origin = "南疆"
+personality = "温柔善良但不失锋芒"
+possible_relations = ["partner", "friend"]
+
+[[npcs]]
+id = "iron_arm"
+name = "铁臂"
+description = "铁掌帮副帮主，一双铁掌打遍两湖无敌手。为人耿直，重诺守信。"
+origin = "铁掌帮"
+personality = "忠厚老实，但惹急了极为可怕"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "bookworm_sage"
+name = "书痴"
+description = "在少林藏经阁抄经三十年的俗家弟子，通晓天下武学理论但从未实战。"
+origin = "少林俗家弟子"
+personality = "博学多闻但极度内向"
+possible_relations = ["master", "friend"]
+
+[[npcs]]
+id = "storm_sword"
+name = "风雷剑"
+description = "昆仑派首席大弟子，剑法快如风雷。十年间未逢敌手，被称为西域第一剑。"
+origin = "昆仑派"
+personality = "骄傲自信，但尊师重道"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "widow_venom"
+name = "黑寡妇"
+description = "五毒教前任教主遗孀，毒术已入化境。她的一滴眼泪可以毒死一村人——但她的微笑可以救人。"
+origin = "五毒教"
+personality = "心狠手辣但只对恶人"
+possible_relations = ["master", "rival"]
+
+[[npcs]]
+id = "crippled_hero"
+name = "跛侠"
+description = "双腿已废但以双手代步的奇侠。他的臂力惊人，两根铁拐使的出神入化。"
+origin = "丐帮"
+personality = "身残志坚，意志如铁"
+possible_relations = ["master", "friend"]
+
+[[npcs]]
+id = "silver_fox"
+name = "银狐"
+description = "江湖第一情报贩子，天下没有他买不到的消息。做事只看价格不看立场。"
+origin = "金陵"
+personality = "精明算计，但也讲义气"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "twin_swords"
+name = "双剑"
+description = "一对孪生兄妹，哥哥使左手剑妹妹使右手剑。双剑合璧天下无敌——但单独一人的武功平平。"
+origin = "衡山派"
+personality = "心有灵犀，形影不离"
+possible_relations = ["friend", "rival"]
+
+[[npcs]]
+id = "demon_seal"
+name = "封魔"
+description = "少林戒律院首座，一生以封印魔道为己任。据说他从未笑过。"
+origin = "少林寺"
+personality = "不苟言笑，但内心慈悲"
+possible_relations = ["master", "friend"]
