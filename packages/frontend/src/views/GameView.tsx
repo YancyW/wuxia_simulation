@@ -4,7 +4,7 @@ import MartialPanel from '../components/panels/MartialPanel';
 import RelationshipPanel from '../components/panels/RelationshipPanel';
 import EventCard from '../components/cards/EventCard';
 import OutcomeCard from '../components/cards/OutcomeCard';
-import { LIFE_STAGE_LABELS } from '@life-restart/shared';
+import { LIFE_STAGE_LABELS, flagName } from '@life-restart/shared';
 
 export default function GameView() {
   const character = useGameStore((s) => s.character);
@@ -99,7 +99,7 @@ export default function GameView() {
             <div className="flex flex-wrap gap-1">
               {character.flags.map((f) => (
                 <span key={f} className="text-xs text-jianghu-ink/50 bg-jianghu-bg px-1.5 py-0.5 rounded">
-                  {f}
+                  {flagName(f)}
                 </span>
               ))}
             </div>
