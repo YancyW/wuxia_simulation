@@ -14,6 +14,7 @@ export interface EventChoice {
   joinSect?: string;
   requiredFlags?: string[];
   excludedFlags?: string[];
+  instantDeath?: boolean;
   minAffinity?: { npcId: string; value: number };
   createRelation?: {
     npcName: string;

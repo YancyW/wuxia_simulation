@@ -176,6 +176,22 @@ export function makeChoice(saveId: string, choiceIndex: number): TurnResult | nu
     }).run();
   }
 
+  // Check instant death
+  if (choice.instantDeath) {
+    const now2 = new Date().toISOString();
+    db.insert(eventLogs).values({
+      id: uuid(), characterId: character.id, eventId: event.id,
+      choiceIndex, lifeStage: character.lifeStage, age: character.age, createdAt: now2,
+    }).run();
+    db.update(characters).set({
+      isAlive: false, diedAt: character.age,
+      deathCause: choice.outcomeText.slice(0, 100),
+    }).where(eq(characters.id, character.id)).run();
+    db.update(saves).set({ updatedAt: now2 }).where(eq(saves.id, saveId)).run();
+    const deadChar = db.select().from(characters).where(eq(characters.id, character.id)).get()!;
+    return { character: deadChar, event, learnedArts: state.learnedArts, died: true, deathCause: choice.outcomeText };
+  }
+
   // Advance age
   const agingResult = advanceAge(character.age, newStats.constitution ?? character.constitution);
 

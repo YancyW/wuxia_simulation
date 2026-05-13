@@ -109,6 +109,7 @@ function extractChoices(rawChoices: unknown[]): EventChoice[] {
     if (ch.join_sect) choice.joinSect = ch.join_sect as string;
     if (ch.required_flags) choice.requiredFlags = ch.required_flags as string[];
     if (ch.excluded_flags) choice.excludedFlags = ch.excluded_flags as string[];
+    if (ch.instant_death) choice.instantDeath = true;
     if (ch.create_relation) {
       const rel = ch.create_relation as Record<string, unknown>;
       choice.createRelation = {
@@ -124,7 +125,7 @@ function extractChoices(rawChoices: unknown[]): EventChoice[] {
 
 function loadEvents(): EventTemplate[] {
   const all: EventTemplate[] = [];
-  const eventFiles = ['events/youth.toml', 'events/young-adult.toml', 'events/adult.toml', 'events/middle-age.toml', 'events/storylines.toml', 'events/storylines-2.toml'];
+  const eventFiles = ['events/youth.toml', 'events/young-adult.toml', 'events/adult.toml', 'events/middle-age.toml', 'events/storylines.toml', 'events/storylines-2.toml', 'events/high-risk.toml'];
   for (const file of eventFiles) {
     if (!existsSync(dataPath(file))) continue;
     const raw = readToml<{ events: Record<string, unknown>[] }>(file);

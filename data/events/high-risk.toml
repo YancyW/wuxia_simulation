@@ -1,0 +1,247 @@
+# ============================================
+# 高风险事件 — 可能致残、致死、或改变命运
+# ============================================
+
+# === 青年期 ===
+
+[[events]]
+id = "risk_ya_cliff"
+title = "悬崖采药"
+description = "你在悬崖边发现一株千年灵芝——这是提升内力修为的无上珍品。但它长在近乎垂直的崖壁上，下面就是万丈深渊。一阵山风吹来你脚下一滑。"
+life_stages = ["young_adult"]
+rarity = 2
+
+[[events.choices]]
+text = "冒险攀爬采摘灵芝"
+outcome_text = "你咬紧牙关攀上了崖壁。就在即将够到灵芝的瞬间，脚下的岩石松动了——你坠入了深渊。"
+qi = 5
+bone = 2
+constitution = -8
+agility = -5
+
+[[events.choices]]
+text = "用绳索和工具小心采集"
+outcome_text = "你做好了充分准备后才攀爬。虽然灵芝只采到了一半但安全返回了。"
+qi = 2
+agility = 1
+
+[[events.choices]]
+text = "放弃灵芝，安全第一"
+outcome_text = "你记住了灵芝的位置。也许以后准备充分了再来。"
+wits = 1
+
+[[events]]
+id = "risk_ya_forbidden_art"
+title = "禁术诱惑"
+description = "一个衣衫褴褛的老人找到你，说他快要死了，想将一本禁术秘籍传给你。'修炼此法会让你武功突飞猛进——但代价是折损十年阳寿。你自己选。'"
+life_stages = ["young_adult"]
+rarity = 1
+
+[[events.choices]]
+text = "接受秘籍，修炼禁术"
+outcome_text = "你接受了禁术。修炼之后内力暴涨，但你的经脉承受不住这股力量——你的身体在以可见的速度衰老。"
+qi = 6
+technique = 5
+constitution = -10
+bone = -3
+
+[[events.choices]]
+text = "婉拒老人，将秘籍封存"
+outcome_text = "你将秘籍用油布包好埋在了地下。有些力量不该被使用。"
+honor = 2
+wits = 1
+
+[[events]]
+id = "risk_ya_duel_to_death"
+title = "生死状"
+description = "一个自称'江南第一快剑'的剑客向你递来了一张生死状。'签了它——我们生死各安天命。不敢签就跪下磕三个头。'围观的人群越来越多。"
+life_stages = ["young_adult"]
+rarity = 1
+
+[[events.choices]]
+text = "签下生死状，生死看淡"
+outcome_text = "你们在众人围观下拔剑相向。三十招后——他的剑刺穿了你的心脏。你在倒下的瞬间也看到了自己的剑尖从他背后透出。同归于尽。"
+technique = 3
+bone = 2
+reputation = 5
+constitution = -15
+instant_death = true
+
+[[events.choices]]
+text = "提出点到为止的比武"
+outcome_text = "你说服了剑客改成了点到为止的切磋。虽然你们没有分出胜负但你的气度赢得了围观者的尊敬。"
+technique = 1
+honor = 1
+reputation = 1
+
+[[events.choices]]
+text = "无视挑衅，转身离开"
+outcome_text = "你转身离开。身后传来剑客的嘲笑和围观者的嘘声。但活着比面子重要。"
+wits = 1
+reputation = -3
+
+# === 壮年期 ===
+
+[[events]]
+id = "risk_adult_assassin"
+title = "暗夜刺杀"
+description = "深夜你在客栈中被一阵极其轻微的脚步声惊醒。窗外月光下有个人影——一把淬了剧毒的匕首正从门缝里伸进来。是杀手！"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "装睡等杀手靠近再反击"
+outcome_text = "杀手推门而入对你刺出了致命一击。你早有防备一个翻身躲开了匕首——但刀尖还是划破了你的手臂。一阵剧痛蔓延全身。这毒——是五毒教的绝命散。"
+technique = 2
+wits = 2
+constitution = -12
+
+[[events.choices]]
+text = "先发制人，撞开窗户跳出去"
+outcome_text = "你破窗而出。虽然从二楼摔下扭伤了脚踝但躲过了毒匕首。杀手在夜色中消失。"
+agility = 2
+constitution = -2
+
+[[events.choices]]
+text = "大喊'有刺客'惊动客栈所有人"
+outcome_text = "客栈瞬间灯火通明。杀手见势不妙潜入黑暗消失。但你永远不知道是谁派他来的。"
+wits = 1
+reputation = 1
+
+[[events]]
+id = "risk_adult_gambling"
+title = "豪赌"
+description = "你在赌场遇到一个神秘庄家。他开出了一个令人无法拒绝的条件：'押上你十年内力——如果你赢了，我传你天山六阳掌。如果你输了，不仅内力全失，还要为我做一件事。'"
+life_stages = ["adult"]
+rarity = 1
+
+[[events.choices]]
+text = "押上内力，赌一把"
+outcome_text = "骰子在碗中滚动。你的心跳如擂鼓——开！你猜对了。庄家微微一笑，将'天山六阳掌'的秘籍推到你的面前。你的豪赌赢了。"
+qi = 3
+technique = 3
+learn_art = "tianshan_liu"
+
+[[events.choices]]
+text = "押上内力，赌一把"
+outcome_text = "骰子在碗中滚动。你的心跳如擂鼓——开！你猜错了。庄家一掌按在你的丹田上——你感到内力在疯狂流失。"
+qi = -15
+technique = -5
+constitution = -5
+
+[[events.choices]]
+text = "拒绝赌博，离开赌场"
+outcome_text = "你没有被贪婪蒙蔽双眼。但走出赌场时你回头看了一眼——也许有机会的话，下次可以试试。"
+wits = 1
+
+[[events]]
+id = "risk_adult_cave_collapse"
+title = "地宫坍塌"
+description = "你在探索一座古墓时触发了机关。整个地宫开始坍塌！巨大的石块从头顶砸落。前方有两条通道——一条狭窄黑暗，一条宽阔但有火光。"
+life_stages = ["adult"]
+rarity = 2
+
+[[events.choices]]
+text = "冲入黑暗的窄道"
+outcome_text = "你以最快的速度冲了进去。窄道越来越窄——最后你只能匍匐前进。身后传来巨石砸落的声音。当你从另一头爬出来时——全身伤痕累累但活着。"
+agility = 2
+constitution = -8
+bone = -2
+
+[[events.choices]]
+text = "跑向有火光的宽道"
+outcome_text = "你跑向火光——却发现那是正在燃烧的塌陷区。你被困在了火墙之间进退不得。在最后关头你纵身跃过火墙——但衣服和皮肤都被烧伤了。"
+constitution = -10
+technique = -3
+
+[[events.choices]]
+text = "躲在一根大石柱下等待坍塌结束"
+outcome_text = "你躲在了最粗的石柱下。坍塌持续了半柱香的时间——石柱承受住了。你只是被碎石划伤了几处。"
+constitution = -1
+
+# === 中年期 ===
+
+[[events]]
+id = "risk_ma_final_stand"
+title = "以一敌百"
+description = "你的仇家纠集了一百名高手将你围困在一座破庙中。他们放话：'交出你的武功秘籍，给你留个全尸。不交——就踏平这座庙。'庙外黑压压的一片。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "单枪匹马杀出重围"
+outcome_text = "你深吸一口气推开了庙门。这一战从黄昏打到黎明——庙外的空地上倒下了四十七个人。但你也身中十一刀。当晨曦照亮战场时——你再也没有站起来。"
+technique = 5
+bone = 3
+reputation = 8
+constitution = -20
+instant_death = true
+
+[[events.choices]]
+text = "交出假秘籍，争取时间"
+outcome_text = "你交出了一本抄录的假秘籍。趁他们验证的间隙你从庙后的密道逃走了。虽然丢了些脸面——但你活着。"
+wits = 2
+reputation = -5
+honor = -1
+
+[[events.choices]]
+text = "以火攻破围"
+outcome_text = "你点燃了庙中的干草制造混乱，趁浓烟冲出包围。虽然损失了所有行囊但突围成功了。"
+wits = 1
+agility = 1
+reputation = -2
+
+[[events]]
+id = "risk_ma_poison_feast"
+title = "鸿门宴"
+description = "你的老对手摆下了一桌丰盛的宴席邀你共饮。他说：'过去的事一笔勾销——这杯酒我敬你。'但你注意到他在倒酒时——手指微微颤抖。"
+life_stages = ["middle_age"]
+rarity = 1
+
+[[events.choices]]
+text = "爽快地喝下这杯酒"
+outcome_text = "你端起酒杯一饮而尽。一瞬间腹中如刀绞——酒中有剧毒！你倒在了酒桌上。最后的画面是老对手那张扭曲的笑脸。"
+honor = 3
+constitution = -20
+instant_death = true
+
+[[events.choices]]
+text = "假装要喝但突然掀翻桌子"
+outcome_text = "你假装举杯——突然一脚踢翻了酒桌！杯盘狼藉中你看到了老对手惊愕的表情和他袖中滑落的毒药包。"
+wits = 2
+honor = -1
+reputation = -1
+
+[[events.choices]]
+text = "用银针试毒"
+outcome_text = "你取出银针探入酒中——银针瞬间变黑。你将变黑的银针放在桌上：'这就是你的诚意？'老对手脸色铁青地离席而去。"
+wits = 3
+reputation = 1
+
+[[events]]
+id = "risk_ma_inner_demon"
+title = "走火入魔"
+description = "你在修炼最上乘的内功时突然真气逆行——这是走火入魔的前兆！你的经脉像被火烧一样剧痛。如果不立即做出选择——你就废了。"
+life_stages = ["middle_age"]
+rarity = 1
+min_qi = 10
+
+[[events.choices]]
+text = "强行突破——不走火就成仁"
+outcome_text = "你以无上意志强行压制逆行的真气并将它推入新的经脉。剧痛之中你感到了一股前所未有的力量——你突破了！但这次突破的代价是十年阳寿。"
+qi = 5
+bone = 3
+constitution = -15
+
+[[events.choices]]
+text = "散功保住性命"
+outcome_text = "你毫不犹豫地将全身内力散去了一大部分。真气平息了——但你十年的内功修为付诸东流。"
+qi = -12
+technique = -5
+constitution = -1
+
+[[events.choices]]
+text = "引导真气缓慢归位"
+outcome_text = "你闭上眼睛以极大的耐心将逆行真气一丝丝地引回丹田。三个时辰后你浑身湿透但安然无恙。"
+qi = 1
+wits = 1

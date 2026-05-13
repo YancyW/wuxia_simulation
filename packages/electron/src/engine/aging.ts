@@ -14,6 +14,14 @@ export function advanceAge(
 ): AgingResult {
   const newAge = currentAge + 1;
 
+  // Death from critically low constitution at any age
+  if (constitution <= 0) {
+    return {
+      newAge, newLifeStage: 'dead', died: true,
+      deathCause: '重伤不治，英年早逝。',
+    };
+  }
+
   const deathChance = calculateDeathChance(newAge, constitution);
   if (Math.random() < deathChance) {
     const stage = getLifeStage(newAge);
