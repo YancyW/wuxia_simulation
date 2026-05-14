@@ -4,6 +4,7 @@ title = "拜师入门"
 description = "你到了可以正式拜师学艺的年纪。各大门派都在招收弟子，这是改变命运的机会。"
 life_stages = ["young_adult"]
 rarity = 6
+min_constitution = 4
 
 [[events.choices]]
 text = "去名门正派试试运气"
@@ -29,6 +30,7 @@ title = "初次比武"
 description = "你在酒馆遇到一个嚣张的剑客，他出言不逊，要和你比试一番。"
 life_stages = ["young_adult"]
 rarity = 4
+min_technique = 4
 
 [[events.choices]]
 text = "拔剑应战"
@@ -53,6 +55,7 @@ title = "江湖邂逅"
 description = "在一处江湖客栈中，你遇到了一位气质出众的女子。她似乎也注意到了你。"
 life_stages = ["young_adult"]
 rarity = 3
+min_technique = 4
 
 [[events.choices]]
 text = "上前攀谈，了解对方来历"
@@ -76,6 +79,7 @@ title = "剿灭山贼"
 description = "当地官府张榜悬赏，招募江湖义士剿灭一伙盘踞山中的悍匪。赏金不菲，但也凶险异常。"
 life_stages = ["young_adult"]
 rarity = 3
+min_reputation = 5
 
 [[events.choices]]
 text = "孤身入山，直捣贼窝"
@@ -103,6 +107,7 @@ title = "古洞探秘"
 description = "你听闻附近山中有一处前辈高人留下的洞府，其中藏有武功秘籍。但洞口有机关陷阱。"
 life_stages = ["young_adult"]
 rarity = 2
+min_qi = 4
 
 [[events.choices]]
 text = "破解机关，深入洞府"
@@ -129,6 +134,7 @@ title = "茶馆奇闻"
 description = "你在茶馆歇脚时，听到邻桌的人在谈论一件江湖秘闻——据说西域来了一个神秘高手，四处挑战各派掌门，未尝一败。"
 life_stages = ["young_adult"]
 rarity = 3
+min_wits = 3
 
 [[events.choices]]
 text = "凑过去打听详情"
@@ -147,6 +153,7 @@ title = "路见不平"
 description = "你在官道上遇到一伙劫匪正在打劫过往商旅，商队护卫已经死伤过半。"
 life_stages = ["young_adult"]
 rarity = 3
+min_technique = 4
 
 [[events.choices]]
 text = "拔刀相助，驱散劫匪"
@@ -175,6 +182,7 @@ title = "武林大会邀请"
 description = "江湖上四年一度的武林大会即将召开，你收到了一份邀请函，邀请天下青年俊杰参加比武。"
 life_stages = ["young_adult"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "欣然前往，参加比武"
@@ -195,6 +203,7 @@ title = "游侠同行"
 description = "你遇到了一个四海为家的游侠，他邀请你同行一段路。此人武功不俗，谈吐风趣。"
 life_stages = ["young_adult"]
 rarity = 3
+honor_min = -30
 
 [[events.choices]]
 text = "欣然同游，一路切磋武艺"
@@ -259,6 +268,7 @@ title = "手抄秘籍"
 description = "你在旧书摊上发现了一本手抄的武功秘籍，字迹潦草但内容似乎颇有门道。"
 life_stages = ["young_adult"]
 rarity = 2
+min_qi = 4
 
 [[events.choices]]
 text = "买下来细细钻研"
@@ -279,6 +289,7 @@ title = "江中救人"
 description = "你在江边看到一艘小船翻覆，有人落水呼救。水流湍急，围观者无人敢下水。"
 life_stages = ["young_adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "纵身入水救人"
@@ -299,6 +310,7 @@ title = "闭关苦修"
 description = "你感到武功遇到了瓶颈，决定找一处清静之地闭关一段时间。"
 life_stages = ["young_adult"]
 rarity = 3
+min_qi = 4
 
 [[events.choices]]
 text = "深山独修，心无旁骛"
@@ -320,6 +332,7 @@ title = "飞贼夜盗"
 description = "深夜，一个飞贼闯入你投宿的客栈，偷走了几位客人的财物。众人惊醒后乱作一团。"
 life_stages = ["young_adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "施展轻功追上去"
@@ -340,6 +353,7 @@ title = "行医偶遇"
 description = "你路过一个小镇时，发现镇上正闹瘟疫。一位江湖郎中正在义诊，忙不过来。"
 life_stages = ["young_adult"]
 rarity = 2
+min_constitution = 4
 
 [[events.choices]]
 text = "帮忙熬药照顾病人"
@@ -358,6 +372,7 @@ title = "林中遇伏"
 description = "你途经一片密林时，突然从两侧跳出几个黑衣人，手持利刃，将你围住。"
 life_stages = ["young_adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "拼死突围"
@@ -378,6 +393,7 @@ title = "采药悬赏"
 description = "药铺悬赏重金寻找一株稀有药材，据说长在后山的悬崖峭壁上。"
 life_stages = ["young_adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "攀崖采药"
@@ -396,6 +412,7 @@ title = "诗酒之会"
 description = "江湖侠客们在一座酒楼聚会，饮酒赋诗，切磋文武。一位才女引起了你的注意。"
 life_stages = ["young_adult"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "即兴赋诗一首"
@@ -440,6 +457,7 @@ title = "猛虎拦路"
 description = "你独自走在山道上，突然一只吊睛白额猛虎从林中跳出，拦住了去路。"
 life_stages = ["young_adult"]
 rarity = 1
+min_technique = 4
 
 [[events.choices]]
 text = "赤手空拳与猛虎搏斗"
@@ -465,6 +483,7 @@ title = "古剑出世"
 description = "你在山溪中洗手时，摸到了一把锈迹斑斑的古剑，剑身虽然锈蚀但剑柄上刻着古老的铭文。"
 life_stages = ["young_adult"]
 rarity = 1
+min_technique = 4
 
 [[events.choices]]
 text = "找铁匠修复古剑"
@@ -594,6 +613,7 @@ title = "江湖风声"
 description = "茶馆中盛传，正派联盟正在密谋围攻明教光明顶。各派都在调集人手，气氛紧张。"
 life_stages = ["young_adult"]
 rarity = 3
+min_technique = 4
 
 [[events.choices]]
 text = "前去光明顶看看热闹"
@@ -615,6 +635,7 @@ title = "苗疆毒术"
 description = "你路过苗疆时误食了一种毒果，幸好被路过的五毒教弟子所救。她告诉你这果子虽然有毒，但也是炼制提升内力丹药的主药。"
 life_stages = ["young_adult"]
 rarity = 2
+min_qi = 4
 
 [[events.choices]]
 text = "向她请教毒术与药理的奥妙"
@@ -634,6 +655,7 @@ title = "全真论道"
 description = "你来到了终南山，恰好遇到全真教在举办道教与武学辩论会。各派年轻弟子都可参与讨论。"
 life_stages = ["young_adult"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "参与辩论，发表自己的见解"
@@ -654,6 +676,7 @@ title = "古墓迷雾"
 description = "你在终南山后山迷了路，误打误撞走到了一个刻着'活死人墓'的石碑前。周围的雾气让你分不清方向。"
 life_stages = ["young_adult"]
 rarity = 1
+min_agility = 4
 
 [[events.choices]]
 text = "在迷雾中寻找出路"
@@ -694,6 +717,7 @@ title = "东海奇遇"
 description = "一场风暴将你乘坐的船吹到了一座开满桃花的小岛。岛上奇门遁甲布阵，处处暗藏玄机。"
 life_stages = ["young_adult"]
 rarity = 1
+min_technique = 4
 
 [[events.choices]]
 text = "破解岛上阵法"
@@ -714,6 +738,7 @@ title = "血刀追杀令"
 description = "你在路上发现了一张血刀门的追杀令，上面画着一个年轻人的肖像。而那个人——和你长得有七分相似！"
 life_stages = ["young_adult"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "找到被追杀的年轻人，帮他逃走"
@@ -755,6 +780,7 @@ title = "花盗现身"
 description = "深夜，你发现一个黑衣人从县衙房顶跃出，手里拎着几大包东西。这人轻功极高，几个起落就到了你的面前。他冲你笑了笑：'小兄弟，借个道。'"
 life_stages = ["young_adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "帮他引开追兵"
@@ -776,6 +802,7 @@ title = "神医问诊"
 description = "你在一个偏僻小镇遇到了一位摆摊看病的老人。此人虽然穿着朴素，但诊脉的手法极为独特。"
 life_stages = ["young_adult"]
 rarity = 1
+min_qi = 4
 
 [[events.choices]]
 text = "请教医术知识"
@@ -796,6 +823,7 @@ title = "镖师生涯"
 description = "你在镖局找了一份差事，负责护送一些小件货物。这让你对江湖的真实面貌有了更深的认识。"
 life_stages = ["young_adult"]
 rarity = 3
+min_wits = 4
 
 [[events.choices]]
 text = "认真工作，赢得镖局信任"
@@ -816,6 +844,7 @@ title = "古庙避难"
 description = "一场山洪将你困在了一座破败的古庙中。和你一起避难的还有一个沉默寡言的剑客。"
 life_stages = ["young_adult"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "与剑客交流武学心得"
@@ -855,6 +884,7 @@ title = "密林遇蛇"
 description = "你在密林中遇到了一条巨蟒。它盘踞在你前进的必经之路上，吐着信子盯着你。"
 life_stages = ["young_adult"]
 rarity = 1
+min_agility = 4
 
 [[events.choices]]
 text = "以轻功绕过巨蟒"
@@ -874,6 +904,7 @@ title = "夜会盗贼"
 description = "深夜，你在客栈中醒来，发现一个黑影正在翻你放在桌上的包袱。"
 life_stages = ["young_adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "悄无声息地制伏盗贼"

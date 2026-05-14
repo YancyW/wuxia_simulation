@@ -48,6 +48,7 @@ title = "恶霸欺凌"
 description = "村里的恶霸少年带人欺负你和同伴，你被堵在了巷子里。"
 life_stages = ["youth"]
 rarity = 4
+min_wits = 4
 
 [[events.choices]]
 text = "挺身而出，和恶霸打一架"
@@ -74,6 +75,7 @@ title = "神秘老人"
 description = "一位衣衫褴褛的老人晕倒在路边，众人避之不及。你走近一看，发现他气息微弱但眼神锐利。"
 life_stages = ["youth"]
 rarity = 2
+min_qi = 4
 
 [[events.choices]]
 text = "扶老人回家，悉心照料"
@@ -93,6 +95,7 @@ title = "少年比武"
 description = "邻村来了几个习武的少年，在村口摆下擂台，扬言要教训本村的孩子。"
 life_stages = ["youth"]
 rarity = 3
+min_technique = 4
 
 [[events.choices]]
 text = "上擂台应战"
@@ -118,6 +121,7 @@ title = "采药奇遇"
 description = "你上山采药时，发现了一处隐秘的山洞，里面似乎有人居住过的痕迹。"
 life_stages = ["youth"]
 rarity = 3
+min_qi = 4
 
 [[events.choices]]
 text = "进去探索"
@@ -141,6 +145,7 @@ title = "山林狩猎"
 description = "跟随村中猎户进山打猎，你在密林中遇到了一只受伤的野狼。"
 life_stages = ["youth"]
 rarity = 3
+min_agility = 4
 
 [[events.choices]]
 text = "举起木棍与狼对峙"
@@ -185,6 +190,7 @@ title = "洪水来袭"
 description = "连日大雨导致山洪暴发，村庄面临被淹的危险。"
 life_stages = ["youth"]
 rarity = 2
+min_constitution = 3
 
 [[events.choices]]
 text = "奋不顾身帮助村民转移"
@@ -232,6 +238,7 @@ title = "大病一场"
 description = "你突然发了一场高烧，卧床不起，家人急得团团转。"
 life_stages = ["youth"]
 rarity = 2
+min_constitution = 4
 
 [[events.choices]]
 text = "靠意志力扛过去"
@@ -294,6 +301,7 @@ title = "路过的大战"
 description = "你在村外玩耍时，两个武林高手从天而降，在田野间激烈交手。剑气纵横，草木摧折。"
 life_stages = ["youth"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "躲在远处偷偷观察"
@@ -315,6 +323,7 @@ title = "林中伤者"
 description = "你在山林中发现一个浑身是血的中年人靠在树下。他手中紧握着一块令牌，上面刻着'明教'二字。"
 life_stages = ["youth"]
 rarity = 2
+min_constitution = 4
 
 [[events.choices]]
 text = "偷偷帮他包扎伤口"
@@ -334,6 +343,7 @@ title = "门派来访"
 description = "一个名不见经传的小门派掌门带着弟子来村里收徒。虽然没有大门派的气派，但掌门人看起来很和善。"
 life_stages = ["youth"]
 rarity = 3
+min_reputation = 5
 
 [[events.choices]]
 text = "跟着这个小门派学些基础"
@@ -352,6 +362,7 @@ title = "雨夜来客"
 description = "一个风雨交加的夜晚，一个浑身湿透的陌生人敲响了你家的门。他看起来走了很远的路。"
 life_stages = ["youth"]
 rarity = 2
+min_constitution = 4
 
 [[events.choices]]
 text = "请他进屋避雨，给他热汤"
@@ -369,6 +380,7 @@ title = "杂耍班"
 description = "一个走江湖的杂耍班来到了村口。喷火、顶碗、胸口碎大石——精彩的表演让你看得如痴如醉。"
 life_stages = ["youth"]
 rarity = 3
+min_constitution = 4
 
 [[events.choices]]
 text = "缠着杂耍班主想学一两手"
@@ -387,6 +399,7 @@ title = "老乞丐的故事"
 description = "村里来了个邋遢的老乞丐，但他讲的故事却精彩绝伦——从大漠孤烟到江南烟雨，从华山论剑到东海屠龙。"
 life_stages = ["youth"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "每天都去听故事"

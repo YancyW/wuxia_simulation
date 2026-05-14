@@ -4,6 +4,7 @@ title = "正邪抉择"
 description = "你逐渐在江湖上有了名气。一个神秘人物找上门来，邀请你加入一个秘密组织，许诺给你无上的武功和权势。但代价是做一些不太光彩的事。"
 life_stages = ["adult"]
 rarity = 3
+min_constitution = 4
 
 [[events.choices]]
 text = "严词拒绝，正邪不两立"
@@ -73,6 +74,7 @@ title = "同门相残"
 description = "你发现门派中有人暗中勾结外敌，意图篡夺掌门之位。而这个人，是你最信任的师兄弟。"
 life_stages = ["adult"]
 rarity = 2
+min_reputation = 5
 
 [[events.choices]]
 text = "大义灭亲，揭发阴谋"
@@ -127,6 +129,7 @@ title = "掌门之争"
 description = "现任掌门年事已高，要在弟子中选出一位继任者。你也是有力竞争者之一。"
 life_stages = ["adult"]
 rarity = 2
+min_reputation = 5
 required_sect = "shaolin"
 
 [[events.choices]]
@@ -149,6 +152,7 @@ title = "仇人踪迹"
 description = "你偶然得到了昔日仇人的下落。这个人在很多年前害过你或你的亲友。"
 life_stages = ["adult"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "只身前往，讨个公道"
@@ -198,6 +202,7 @@ title = "正邪大战"
 description = "正道各派联合起来，准备对抗日益猖獗的魔教势力。身为江湖中人，你无法置身事外。"
 life_stages = ["adult"]
 rarity = 1
+min_reputation = 6
 
 [[events.choices]]
 text = "加入正道联盟，冲锋陷阵"
@@ -227,6 +232,7 @@ title = "毒宴疑云"
 description = "你在一次宴会上发现酒中有毒，而宴请你的人，是你以为的朋友。"
 life_stages = ["adult"]
 rarity = 2
+min_agility = 4
 
 [[events.choices]]
 text = "当场揭穿，逼问幕后主使"
@@ -247,6 +253,7 @@ title = "师父仙逝"
 description = "你的师父走到了生命的尽头。他在病榻上拉着你的手，有话要交代。"
 life_stages = ["adult"]
 rarity = 2
+min_qi = 4
 
 [[events.choices]]
 text = "发誓继承师父遗志"
@@ -460,6 +467,7 @@ title = "古墓招亲"
 description = "古墓派破例对外招收一名男弟子，条件是必须在比武中胜过古墓派的大师姐。这个消息轰动了武林。"
 life_stages = ["adult"]
 rarity = 1
+min_technique = 4
 
 [[events.choices]]
 text = "参加比武招亲"
@@ -480,6 +488,7 @@ title = "五毒求药"
 description = "你的一位朋友中了一种奇毒，普天之下只有五毒教有解药。你只身前往苗疆求药。"
 life_stages = ["adult"]
 rarity = 1
+min_wits = 4
 
 [[events.choices]]
 text = "以武换取解药"
@@ -526,6 +535,7 @@ title = "血刀门复仇"
 description = "血刀门的一位高手当年杀了你的朋友，今天终于被你找到了他的下落。"
 life_stages = ["adult"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "堂堂正正挑战"
@@ -548,6 +558,7 @@ title = "乞丐的智慧"
 description = "一个邋遢的老乞丐坐在街角对你招手：'年轻人，看你骨骼清奇，要不要听老叫花子讲个故事？'他浑浊的眼睛里闪过一丝精光。"
 life_stages = ["adult"]
 rarity = 1
+min_technique = 4
 
 [[events.choices]]
 text = "坐下来听故事"
@@ -570,6 +581,7 @@ title = "铁面仲裁"
 description = "你和一位商人因为一桩误会产生了纠纷，对方请来了武林仲裁人——铁面判官。"
 life_stages = ["adult"]
 rarity = 2
+min_reputation = 5
 
 [[events.choices]]
 text = "坦然接受仲裁结果"
@@ -591,6 +603,7 @@ title = "红凤的试探"
 description = "红凤突然出现在你的必经之路上。她似笑非笑地看着你：'我听说了一些关于你的传言。有趣。'"
 life_stages = ["adult"]
 rarity = 1
+min_technique = 4
 required_npc_relation = { npc_id = "crimson_phoenix", min_affinity = 10 }
 
 [[events.choices]]
@@ -612,6 +625,7 @@ title = "西域商队"
 description = "一支来自西域的商队带来了珍奇的药材和异域的武功。商队首领正在招募护卫。"
 life_stages = ["adult"]
 rarity = 3
+min_technique = 4
 
 [[events.choices]]
 text = "加入商队护送到京城"
@@ -638,6 +652,7 @@ title = "老友托付"
 description = "一个多年前的同道找上门来，说他的仇家找上了他，恳请你帮他照顾年幼的女儿。"
 life_stages = ["adult"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "答应下来，收女孩为养女"
@@ -685,6 +700,7 @@ title = "江湖仇杀"
 description = "两个大家族之间的世仇终于爆发为全面的血斗。双方都在拉拢江湖高手助阵。"
 life_stages = ["adult"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "居中调解，促成和谈"
@@ -707,6 +723,7 @@ title = "机关术传人"
 description = "一个自称墨家后人的老人找到你，说他年事已高想将毕生所学的机关术传给你。"
 life_stages = ["adult"]
 rarity = 1
+min_wits = 4
 
 [[events.choices]]
 text = "拜师学艺，继承机关术"
@@ -727,6 +744,7 @@ title = "叛徒现身"
 description = "你发现门派中出现了叛徒，暗中将机密情报卖给敌对势力。"
 life_stages = ["adult"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "设局引诱叛徒暴露"

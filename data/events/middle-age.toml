@@ -28,6 +28,7 @@ title = "宿命对决"
 description = "你的一生之敌终于找上门来。这一战，将决定你们之间恩怨的了结。"
 life_stages = ["middle_age"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "全力以赴，不死不休"
@@ -68,6 +69,7 @@ title = "江湖评价"
 description = "坊间开始流传关于你的各种传说。说书人在茶馆里讲着你的故事，有的真假参半，有的荒诞离奇。"
 life_stages = ["middle_age"]
 rarity = 4
+min_reputation = 5
 
 [[events.choices]]
 text = "一笑置之，任人评说"
@@ -86,6 +88,7 @@ title = "著书立说"
 description = "你感到是时候把自己的武学心得记录下来，留给后人了。一本武学著作或许比任何武功都更有价值。"
 life_stages = ["middle_age"]
 rarity = 3
+min_qi = 4
 
 [[events.choices]]
 text = "闭关著书，倾囊相授"
@@ -106,6 +109,7 @@ title = "杯酒释前嫌"
 description = "年轻时的一个对手找到了你，不是来打架的，而是带了壶好酒。他想和你喝一杯。"
 life_stages = ["middle_age"]
 rarity = 2
+min_wits = 4
 
 [[events.choices]]
 text = "欣然共饮，一笑泯恩仇"
@@ -124,6 +128,7 @@ title = "地宫探险"
 description = "你收到了一张古老的藏宝图，据说地下有一座前朝遗留的宝藏，其中可能藏有失传的武学秘籍。"
 life_stages = ["middle_age"]
 rarity = 1
+min_wits = 4
 
 [[events.choices]]
 text = "组织人马，深入地下"
@@ -279,6 +284,7 @@ title = "身世之谜"
 description = "你偶然发现自己的身世可能并不简单——有线索表明你可能是某个已故武林泰斗的后人。"
 life_stages = ["middle_age"]
 rarity = 1
+min_wits = 4
 
 [[events.choices]]
 text = "追查真相"
@@ -524,6 +530,7 @@ title = "桃花传人"
 description = "一个自称黄药师隔代传人的年轻人找到了你，说他师父临死前嘱托他将一本奇门秘术交给你。"
 life_stages = ["middle_age"]
 rarity = 1
+min_wits = 4
 
 [[events.choices]]
 text = "接收秘术，并收年轻人为徒"
@@ -545,6 +552,7 @@ title = "崆峒内乱"
 description = "崆峒派内部因为掌门继承问题发生了分裂，两派人马剑拔弩张。掌门来信求助于你。"
 life_stages = ["middle_age"]
 rarity = 2
+min_technique = 4
 
 [[events.choices]]
 text = "支持现任掌门的儿子继位"
@@ -610,6 +618,7 @@ title = "门派的未来"
 description = "你已经到了该为门派未来考虑的年纪。掌门私下找你谈了话，问你是否愿意接任掌门之位。"
 life_stages = ["middle_age"]
 rarity = 2
+min_reputation = 5
 
 [[events.choices]]
 text = "接受掌门之位"
@@ -631,6 +640,7 @@ title = "故地重游"
 description = "你回到了年轻时修炼的第一个山洞。石壁上还有你当年刻下的剑痕。时光荏苒，物是人非。"
 life_stages = ["middle_age"]
 rarity = 3
+min_technique = 4
 
 [[events.choices]]
 text = "在洞中静坐感悟"
@@ -651,6 +661,7 @@ title = "远方的信"
 description = "一封来自西域的信送到了你的手中。信中说你的一个故人被困在了西夏，急需救援。"
 life_stages = ["middle_age"]
 rarity = 1
+min_constitution = 4
 
 [[events.choices]]
 text = "只身前往西夏救人"
@@ -715,6 +726,7 @@ title = "病榻嘱托"
 description = "你最敬重的老前辈病重了。他躺在病榻上拉着你的手，有重要的话要交代。"
 life_stages = ["middle_age"]
 rarity = 1
+min_agility = 4
 
 [[events.choices]]
 text = "听前辈的遗言并完成他的心愿"
@@ -735,6 +747,7 @@ title = "暴雨洪灾"
 description = "连月暴雨导致长江决堤，无数百姓流离失所。作为江湖中人，你无法袖手旁观。"
 life_stages = ["middle_age"]
 rarity = 2
+min_constitution = 4
 
 [[events.choices]]
 text = "组织江湖力量赈灾"
